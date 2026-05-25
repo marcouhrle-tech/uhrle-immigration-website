@@ -19,7 +19,8 @@ const mime = {
 };
 
 createServer(async (req, res) => {
-  const url = req.url === '/' ? '/index.html' : req.url;
+  const rawPath = req.url.split('?')[0];
+  const url = rawPath === '/' ? '/index.html' : rawPath;
   const filePath = join(__dirname, decodeURIComponent(url));
   const ext = extname(filePath).toLowerCase();
 

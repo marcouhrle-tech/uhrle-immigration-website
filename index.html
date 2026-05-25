@@ -6,1570 +6,1997 @@
   <title>Uhrle Immigration Law — Nelson, Nueva Zelanda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── DESIGN TOKENS ───────────────────────────────────── */
+    /* ── TOKENS ─────────────────────────────────────────────── */
     :root {
       --teal:        #2E7D8C;
       --teal-dark:   #1d5e6b;
       --teal-deep:   #0f3540;
-      --teal-light:  #e6f3f6;
+      --teal-light:  #b8dde5;
+      --teal-pale:   #e8f4f7;
       --gold:        #E8A830;
       --gold-dark:   #c98e20;
       --gold-light:  #fdf5e3;
-      --off-white:   #fafaf8;
+      --off-white:   #F9F7F4;
       --grey-50:     #f4f4f2;
-      --grey-100:    #e8e8e5;
-      --grey-400:    #9ca3a8;
-      --grey-600:    #5c6670;
-      --ink:         #1e2a2e;
-      --ink-80:      #2d3a3f;
-      --dark-panel:  #121e24;
-      --heading:     'Nunito', sans-serif;
-      --body:        'Inter', sans-serif;
-      --shadow-sm:   0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(46,125,140,0.07);
-      --shadow-md:   0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(46,125,140,0.12);
-      --shadow-lg:   0 4px 16px rgba(0,0,0,0.1),  0 16px 56px rgba(46,125,140,0.16);
+      --grey-100:    #e5e5e2;
+      --grey-300:    #c5c5bf;
+      --grey-500:    #888882;
+      --grey-700:    #4a4a46;
+      --ink:         #1a2328;
+      --ink-soft:    #2d3b42;
+      --white:       #ffffff;
+      --heading-font: 'Poppins', sans-serif;
+      --body-font:    'Inter', sans-serif;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(46,125,140,0.08);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 12px 40px rgba(46,125,140,0.12);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,0.10), 0 24px 64px rgba(46,125,140,0.16);
     }
 
-    /* ── RESET & BASE ────────────────────────────────────── */
+    /* ── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: var(--body);
-      font-size: 17px;
+      font-family: var(--body-font);
+      font-size: 16px;
       line-height: 1.75;
-      color: var(--ink-80);
-      background: #fff;
+      color: var(--ink-soft);
+      background: var(--white);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-
     img { display: block; max-width: 100%; }
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; }
 
     .container {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 36px;
+      padding: 0 40px;
     }
 
-    /* ── TYPE SCALE ──────────────────────────────────────── */
-    .label {
-      font-family: var(--body);
+    /* ── HEADER ─────────────────────────────────────────────── */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+      padding: 0;
+    }
+    .site-header.at-top {
+      background: transparent;
+    }
+    .site-header.scrolled {
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding: 0 40px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .logo-wrap img {
+      height: 44px;
+      width: auto;
+      transition: filter 0.4s ease;
+    }
+    .site-header.at-top .logo-wrap img {
+      filter: brightness(0) invert(1);
+    }
+    .site-header.scrolled .logo-wrap img {
+      filter: none;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .site-nav a {
+      font-family: var(--heading-font);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.25s ease, opacity 0.25s ease;
+      position: relative;
+    }
+    .site-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .site-nav a:hover::after { transform: scaleX(1); }
+
+    .site-header.at-top .site-nav a { color: rgba(255,255,255,0.88); }
+    .site-header.at-top .site-nav a:hover { color: #fff; }
+    .site-header.scrolled .site-nav a { color: var(--ink-soft); }
+    .site-header.scrolled .site-nav a:hover { color: var(--teal); }
+
+    .nav-cta {
+      font-family: var(--heading-font);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+    .site-header.at-top .nav-cta {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(8px);
+    }
+    .site-header.at-top .nav-cta:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.7);
+      transform: translateY(-1px);
+    }
+    .site-header.scrolled .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 2px 10px rgba(232,168,48,0.35);
+    }
+    .site-header.scrolled .nav-cta:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(232,168,48,0.45);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      border-radius: 2px;
+      transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+    .site-header.at-top .hamburger span { background: #fff; }
+    .site-header.scrolled .hamburger span { background: var(--ink); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 80px; left: 0; right: 0;
+      background: var(--white);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+      padding: 24px 40px 32px;
+      z-index: 850;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      display: block;
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--grey-100);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--teal); }
+    .mobile-menu .mobile-cta {
+      display: inline-flex;
+      margin-top: 20px;
+      background: var(--gold);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 15px;
+      border-bottom: none;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      max-height: 920px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('pexels-petra-reid-419907087-28863820.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    /* Teal overlay: light brand-blue tint on the sky, deepens at bottom */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(46, 125, 140, 0.50) 0%,
+          rgba(46, 125, 140, 0.42) 35%,
+          rgba(20, 60, 75, 0.72) 70%,
+          rgba(10, 35, 45, 0.88) 100%
+        );
+    }
+
+    /* Subtle grain texture for depth */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-content .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .hero-badge::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--heading-font);
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+      max-width: 480px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 400px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(232,168,48,0.4);
+      transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,168,48,0.5);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(8px);
+      transition: border-color 0.22s ease, background 0.22s ease, transform 0.15s ease;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Hero form card */
+    .hero-card {
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    }
+    .hero-card-title {
+      font-family: var(--heading-font);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .hero-card-sub {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-sm);
+      font-family: var(--body-font);
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.38); }
+    .form-group select { color: rgba(255,255,255,0.7); }
+    .form-group select option { color: var(--ink); background: #fff; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.14);
+    }
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(232,168,48,0.35);
+    }
+    .form-submit:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(232,168,48,0.45);
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--heading-font);
+      animation: scrollBounce 2.5s ease-in-out infinite;
+    }
+    .scroll-cue svg { opacity: 0.5; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── TRUST BAR ──────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--ink);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .trust-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.62);
+      white-space: nowrap;
     }
-    .label::before {
+    .trust-item svg { color: var(--gold); flex-shrink: 0; }
+    .trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+
+    /* ── SECTION LAYOUT ─────────────────────────────────────── */
+    section { position: relative; }
+    .section-pad { padding: 100px 0; }
+    .section-pad-sm { padding: 72px 0; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--heading-font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+    .section-label::before {
       content: '';
-      display: block;
       width: 28px;
       height: 2px;
       background: var(--gold);
       flex-shrink: 0;
     }
 
-    h1, h2, h3, h4 { font-family: var(--heading); font-weight: 800; line-height: 1.15; }
-    h1 { font-size: clamp(40px, 5vw, 64px); letter-spacing: -0.025em; }
-    h2 { font-size: clamp(30px, 3.5vw, 46px); letter-spacing: -0.02em; }
-    h3 { font-size: 22px; font-weight: 700; }
-    h4 { font-size: 17px; font-weight: 700; }
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--teal); }
 
-    /* ── BUTTONS ─────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
+    .section-body {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--grey-700);
+      max-width: 600px;
+    }
+
+    /* ── ABOUT ──────────────────────────────────────────────── */
+    #about { background: var(--off-white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 80px;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--body);
-      font-size: 15px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      padding: 15px 28px;
-      letter-spacing: 0.01em;
-    }
-    .btn:active { transform: translateY(1px); }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(232,168,48,0.35);
-    }
-    .btn-gold:hover {
-      background: var(--gold-dark);
-      box-shadow: 0 4px 20px rgba(232,168,48,0.45);
-      transform: translateY(-1px);
-    }
-    .btn-gold:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-
-    .btn-teal {
-      background: var(--teal);
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(46,125,140,0.3);
-    }
-    .btn-teal:hover {
-      background: var(--teal-dark);
-      box-shadow: 0 4px 20px rgba(46,125,140,0.4);
-      transform: translateY(-1px);
     }
 
-    .btn-outline-teal {
-      background: transparent;
-      color: var(--teal);
-      border: 2px solid var(--teal);
-    }
-    .btn-outline-teal:hover {
-      background: var(--teal);
-      color: #fff;
-    }
-
-    .btn-outline-white {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.5);
-    }
-    .btn-outline-white:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .btn-white {
-      background: #fff;
-      color: var(--teal);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    }
-    .btn-white:hover {
-      background: var(--off-white);
-      transform: translateY(-1px);
-    }
-
-    .btn-lg { padding: 18px 36px; font-size: 16px; }
-
-    /* ── UTILITY BAR ─────────────────────────────────────── */
-    .util-bar {
-      background: var(--ink);
-      color: rgba(255,255,255,0.6);
-      font-size: 12.5px;
-      font-weight: 500;
-      padding: 9px 0;
-      letter-spacing: 0.01em;
-    }
-    .util-bar .container { display: flex; justify-content: space-between; align-items: center; }
-    .util-bar a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
-    .util-bar a:hover { color: var(--gold); }
-    .util-bar .util-right { display: flex; align-items: center; gap: 20px; }
-    .util-bar .util-divider { width: 1px; height: 12px; background: rgba(255,255,255,0.2); }
-
-    /* ── HEADER ──────────────────────────────────────────── */
-    .site-header {
-      background: #fff;
-      border-bottom: 1px solid var(--grey-100);
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.04);
-    }
-    .site-header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 14px;
-      padding-bottom: 14px;
-    }
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .site-nav a {
-      font-family: var(--body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink-80);
-      letter-spacing: 0.01em;
-      padding-bottom: 2px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .site-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
-
-    /* ── HERO ────────────────────────────────────────────── */
-    .hero {
+    .about-photo-wrap {
       position: relative;
-      min-height: 640px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
     }
-    .hero-canvas {
+    .about-photo-bg {
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 90% at 15% 50%, rgba(46,125,140,0.45) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 60% at 85% 20%, rgba(232,168,48,0.08) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 80% at 50% 100%, rgba(15,53,64,0.7) 0%, transparent 70%),
-        linear-gradient(140deg, #061820 0%, #0b2a35 45%, #122f3a 100%);
+      inset: -16px -16px 16px 16px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-lg);
+      z-index: 0;
     }
-    /* subtle grain */
-    .hero-canvas::after {
-      content: '';
+    .about-photo-accent {
       position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.6;
-      mix-blend-mode: overlay;
-      pointer-events: none;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: var(--gold);
+      border-radius: var(--radius-md);
+      opacity: 0.12;
+      z-index: 0;
     }
-
-    .hero .container {
+    .about-photo {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 72px;
-      align-items: center;
-      padding-top: 80px;
-      padding-bottom: 80px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--teal-pale);
     }
-    .hero-eyebrow {
-      font-family: var(--body);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-    .hero h1 { color: #fff; margin-bottom: 22px; }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: 17px;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.72);
-      max-width: 460px;
-      margin-bottom: 40px;
-    }
-    .hero-ctas { display: flex; flex-direction: column; gap: 14px; max-width: 380px; }
-
-    /* HERO FORM */
-    .hero-form {
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 36px 32px 32px;
-    }
-    .hero-form-title {
-      font-family: var(--heading);
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .hero-form-sub {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 24px;
-    }
-    .field { margin-bottom: 14px; }
-    .field label {
+    .about-photo img {
+      width: 100%;
+      height: auto;
       display: block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 6px;
+      object-fit: cover;
     }
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 4px;
-      padding: 11px 14px;
-      color: #fff;
-      font-family: var(--body);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
+    .about-photo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 2;
     }
-    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .field input:focus, .field textarea:focus {
-      border-color: var(--gold);
-      background: rgba(255,255,255,0.1);
-    }
-    .form-btn {
-      width: 100%;
-      padding: 14px;
-      background: var(--gold);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-family: var(--body);
+    .about-photo-badge .badge-name {
+      font-family: var(--heading-font);
       font-size: 15px;
       font-weight: 700;
-      cursor: pointer;
-      margin-top: 6px;
-      letter-spacing: 0.01em;
-      transition: background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 12px rgba(232,168,48,0.3);
+      color: var(--ink);
+      line-height: 1.2;
     }
-    .form-btn:hover { background: var(--gold-dark); box-shadow: 0 4px 20px rgba(232,168,48,0.4); }
-
-    /* ── TRUST BAR ───────────────────────────────────────── */
-    .trust-bar {
-      background: var(--teal);
-      padding: 0;
-    }
-    .trust-bar .container {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 18px 40px;
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: 0.01em;
-      border-right: 1px solid rgba(255,255,255,0.12);
-    }
-    .trust-item:last-child { border-right: none; }
-    .trust-icon { font-size: 16px; opacity: 0.85; }
-
-    /* ── SECTIONS ────────────────────────────────────────── */
-    section { padding: 96px 0; }
-
-    /* ── INTRO ───────────────────────────────────────────── */
-    .intro { background: var(--off-white); }
-    .intro .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 88px;
-      align-items: center;
-    }
-    .intro-text h2 { color: var(--ink); margin-bottom: 20px; }
-    .intro-text p { color: var(--grey-600); font-size: 17px; margin-bottom: 24px; }
-    .intro-img-wrap {
-      position: relative;
-    }
-    .intro-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 6px;
-      box-shadow: var(--shadow-lg);
-    }
-    .intro-img-accent {
-      position: absolute;
-      bottom: -16px;
-      right: -16px;
-      width: 100px;
-      height: 100px;
-      border: 4px solid var(--gold);
-      border-radius: 4px;
-      z-index: -1;
+    .about-photo-badge .badge-role {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 500;
+      margin-top: 2px;
     }
 
-    /* ── PARA QUIÉN ──────────────────────────────────────── */
-    .para-quien { background: #fff; }
-    .para-quien .container { max-width: 1000px; }
-    .para-quien > .container > h2 { margin-bottom: 52px; }
-    .who-grid {
+    .about-text { }
+    .about-text .section-body { max-width: 100%; margin-bottom: 28px; }
+
+    .about-highlights {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+      margin: 32px 0;
     }
-    .who-card {
+    .highlight-chip {
       display: flex;
-      gap: 18px;
       align-items: flex-start;
-      padding: 24px 22px;
+      gap: 12px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
       border: 1px solid var(--grey-100);
-      border-radius: 6px;
-      background: var(--off-white);
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
     }
-    .who-card:hover {
-      border-color: var(--teal-light);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .who-card:hover .who-icon-wrap { background: var(--teal); }
-    .who-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--teal-light);
+    .highlight-chip .chip-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--teal-pale);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
       flex-shrink: 0;
-      transition: background 0.25s;
+      color: var(--teal);
     }
-    .who-card strong {
-      display: block;
-      font-family: var(--heading);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 4px;
+    .highlight-chip .chip-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      line-height: 1.45;
     }
-    .who-card p { font-size: 14px; color: var(--grey-600); line-height: 1.55; }
 
-    /* ── POR QUÉ ─────────────────────────────────────────── */
-    .por-que {
-      background:
-        radial-gradient(ellipse 60% 80% at 90% 50%, rgba(232,168,48,0.06) 0%, transparent 60%),
-        var(--teal-deep);
-      position: relative;
-      overflow: hidden;
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--teal);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
-    .por-que::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    .por-que .container {
+    .about-cta:hover { color: var(--teal-dark); border-color: var(--teal); }
+
+    /* ── SERVICES ───────────────────────────────────────────── */
+    #services { background: var(--white); }
+
+    .services-header {
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    .por-que h2 { color: #fff; margin-bottom: 32px; }
-    .por-que .label { color: var(--gold); }
-    .por-que .label::before { background: var(--gold); }
-    .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
-    .benefit-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .benefit-check {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(232,168,48,0.15);
-      border: 1px solid rgba(232,168,48,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-      font-size: 11px;
-      color: var(--gold);
-    }
-    .benefit-list li span {
-      color: rgba(255,255,255,0.85);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .porq-photo {
-      position: relative;
-    }
-    .porq-photo img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      border-radius: 6px;
-      filter: brightness(0.85) saturate(0.9);
-    }
-    .porq-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 6px;
-      background: linear-gradient(to top, rgba(46,125,140,0.5) 0%, transparent 60%);
-    }
-    .porq-badge {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      z-index: 1;
-      background: var(--gold);
-      color: #fff;
-      font-family: var(--body);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 4px;
-      letter-spacing: 0.03em;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 56px;
     }
 
-    /* ── SERVICIOS ───────────────────────────────────────── */
-    .servicios { background: var(--off-white); }
-    .servicios .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 52px;
-      gap: 24px;
-    }
-    .servicios .section-head h2 { margin-bottom: 0; }
-    .servicios-grid {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
+
     .service-card {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-    .service-card:hover .service-img { transform: scale(1.04); }
-    .service-img-wrap { overflow: hidden; }
-    .service-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .service-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top,
-        rgba(15,53,64,0.96) 0%,
-        rgba(15,53,64,0.6) 45%,
-        rgba(15,53,64,0.1) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px 24px;
-    }
-    .service-tag {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .service-overlay h3 {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-    .service-overlay p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.55; }
-    .service-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      font-size: 16px;
-      margin-top: 16px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .service-card:hover .service-arrow {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    /* ── BIO ─────────────────────────────────────────────── */
-    .bio {
-      background: var(--dark-panel);
-      position: relative;
-      overflow: hidden;
-    }
-    .bio::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 500px; height: 500px;
-      background: radial-gradient(ellipse at top right, rgba(46,125,140,0.18) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .bio .container {
-      display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    .bio-photo-wrap {
-      position: relative;
-    }
-    .bio-photo {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      border-radius: 6px;
-      display: block;
-      filter: brightness(0.9) saturate(0.8);
-    }
-    .bio-photo-frame {
-      position: absolute;
-      top: 20px; left: 20px;
-      right: -20px; bottom: -20px;
-      border: 2px solid rgba(232,168,48,0.25);
-      border-radius: 6px;
-      z-index: -1;
-    }
-    .bio-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .bio-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: block; }
-    .bio h2 { color: #fff; margin-bottom: 24px; }
-    .bio-body { color: rgba(255,255,255,0.72); line-height: 1.8; font-size: 16px; margin-bottom: 14px; }
-    .bio-divider {
-      width: 40px; height: 2px;
-      background: var(--gold);
-      margin: 28px 0;
-      border-radius: 1px;
-    }
-    .bio-exp-title {
-      font-family: var(--heading);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .bio-exp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .bio-exp-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: rgba(255,255,255,0.68);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .bio-exp-list li::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 8px;
-    }
-    .bio-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 36px;
-      color: rgba(255,255,255,0.85);
-      font-size: 14px;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 3px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .bio-cta:hover { color: var(--gold); border-color: var(--gold); }
-
-    /* ── PROCESO ─────────────────────────────────────────── */
-    .proceso { background: var(--off-white); }
-    .proceso h2 { text-align: center; margin-bottom: 68px; }
-    .steps-track {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      position: relative;
-    }
-    .steps-track::before {
-      content: '';
-      position: absolute;
-      top: 30px;
-      left: calc(12.5% + 8px);
-      right: calc(12.5% + 8px);
-      height: 1px;
-      background: linear-gradient(to right, var(--teal) 0%, var(--teal-light) 100%);
-      opacity: 0.35;
-    }
-    .step { text-align: center; padding: 0 20px; }
-    .step-num-wrap {
-      position: relative;
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 24px;
-    }
-    .step-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1px solid var(--teal-light);
-    }
-    .step-num {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--teal);
-      color: #fff;
-      font-family: var(--heading);
-      font-size: 22px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(46,125,140,0.3);
-      position: relative;
-      z-index: 1;
-    }
-    .step h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .step p { font-size: 14px; color: var(--grey-600); line-height: 1.6; }
-    .proceso-cta { text-align: center; margin-top: 56px; }
-
-    /* ── EVALUACIÓN ──────────────────────────────────────── */
-    .evaluacion { background: #fff; }
-    .evaluacion .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .eval-text h2 { margin-bottom: 18px; }
-    .eval-text p { color: var(--grey-600); font-size: 16px; margin-bottom: 16px; }
-    .eval-note {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 16px 18px;
-      background: var(--teal-light);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 4px 4px 0;
-      margin-top: 24px;
-    }
-    .eval-note p { font-size: 14px; color: var(--teal-dark); margin: 0; }
-    .eval-cards { display: flex; flex-direction: column; gap: 16px; }
-    .eval-card {
-      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--grey-100);
+      border-radius: var(--radius-lg);
       padding: 32px;
       position: relative;
       overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
     }
-    .eval-card::before {
+    .service-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
     }
-    .eval-card.free {
-      background: var(--teal);
-      box-shadow: 0 8px 32px rgba(46,125,140,0.25);
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-light);
     }
-    .eval-card.free::before { background: var(--gold); }
-    .eval-card.paid {
-      background: var(--ink);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    }
-    .eval-card.paid::before { background: var(--teal); }
-    .eval-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 14px;
-    }
-    .eval-card h3 {
-      color: #fff;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .eval-card p {
-      color: rgba(255,255,255,0.72);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .eval-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,0.9);
-      font-size: 14px;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .eval-link:hover { color: var(--gold); border-color: var(--gold); }
+    .service-card:hover::before { transform: scaleX(1); }
 
-    /* ── RECURSOS ────────────────────────────────────────── */
-    .recursos { background: var(--grey-50); }
-    .recursos h2 { margin-bottom: 14px; }
-    .recursos .sub { color: var(--grey-600); font-size: 17px; margin-bottom: 52px; max-width: 600px; }
-    .rec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    .rec-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 36px 28px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--grey-100);
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .rec-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .rec-icon {
+    .service-icon {
       width: 52px;
       height: 52px;
-      border-radius: 12px;
-      background: var(--teal-light);
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      color: var(--teal);
       margin-bottom: 20px;
+      transition: background 0.25s ease;
     }
-    .rec-card h4 {
-      font-family: var(--heading);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .rec-card p { font-size: 14px; color: var(--grey-600); line-height: 1.65; margin-bottom: 16px; }
-    .rec-coming {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--grey-400);
-      padding: 5px 12px;
-      border: 1px solid var(--grey-100);
-      border-radius: 20px;
-    }
-
-    /* ── QUOTE / HISPANO ─────────────────────────────────── */
-    .hispano {
+    .service-card:hover .service-icon {
       background: var(--teal);
-      position: relative;
-      overflow: hidden;
-      padding: 80px 0;
-    }
-    .hispano::before {
-      content: '\201C';
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--heading);
-      font-size: 280px;
-      line-height: 1;
-      color: rgba(255,255,255,0.04);
-      pointer-events: none;
-    }
-    .hispano .container {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      max-width: 820px;
-    }
-    .hispano blockquote {
-      font-family: var(--heading);
-      font-size: clamp(20px, 3vw, 30px);
-      font-weight: 700;
-      font-style: italic;
       color: #fff;
-      line-height: 1.5;
-      margin-bottom: 24px;
     }
-    .hispano-sub { color: rgba(255,255,255,0.65); font-size: 14px; letter-spacing: 0.05em; }
 
-    /* ── FAQ ─────────────────────────────────────────────── */
-    .faq { background: #fff; }
-    .faq .container { max-width: 800px; }
-    .faq h2 { margin-bottom: 52px; }
-    .faq-item {
-      border-bottom: 1px solid var(--grey-100);
-    }
-    .faq-item:first-of-type { border-top: 1px solid var(--grey-100); }
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      padding: 22px 0;
-      background: none;
-      border: none;
-      font-family: var(--heading);
+    .service-title {
+      font-family: var(--heading-font);
       font-size: 17px;
       font-weight: 700;
       color: var(--ink);
-      cursor: pointer;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--grey-700);
+      margin-bottom: 20px;
+    }
+    .service-tags {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .service-tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── PROCESS ────────────────────────────────────────────── */
+    #process { background: var(--off-white); }
+
+    .process-header { text-align: center; margin-bottom: 64px; }
+    .process-header .section-label { justify-content: center; }
+    .process-header .section-body { margin: 0 auto; text-align: center; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--teal-light), var(--gold), var(--teal-light));
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--heading-font);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      position: relative;
+    }
+    .process-step:hover .step-num {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+    .step-title {
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--grey-700);
+    }
+
+    /* ── STATS BANNER ───────────────────────────────────────── */
+    .stats-banner {
+      background: var(--teal);
+      padding: 60px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: var(--heading-font);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-num span { color: var(--gold); }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 auto;
+    }
+
+    /* ── FAQ ────────────────────────────────────────────────── */
+    #faq { background: var(--white); }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .faq-sidebar { position: sticky; top: 110px; }
+    .faq-sidebar .section-body { margin-bottom: 32px; }
+
+    .faq-sidebar-cta {
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--teal-light);
+    }
+    .faq-sidebar-cta p {
+      font-size: 14px;
+      color: var(--grey-700);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--grey-100);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--grey-100); }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
-      transition: color 0.2s;
+      width: 100%;
+      background: none;
+      text-align: left;
+      padding: 22px 0;
+      font-family: var(--heading-font);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
     .faq-q:hover { color: var(--teal); }
     .faq-q.open { color: var(--teal); }
+
     .faq-icon {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      border: 1.5px solid var(--grey-100);
+      background: var(--grey-50);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 16px;
-      color: var(--teal);
-      font-style: normal;
-      font-family: var(--body);
-      font-weight: 400;
-      transition: transform 0.25s ease, background 0.2s, border-color 0.2s;
+      transition: background 0.2s ease, transform 0.3s ease;
     }
     .faq-q.open .faq-icon {
+      background: var(--teal-pale);
       transform: rotate(45deg);
-      background: var(--teal-light);
-      border-color: var(--teal-light);
     }
-    .faq-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-    .faq-body.open { max-height: 300px; }
-    .faq-body p {
-      padding: 0 0 22px;
+    .faq-icon svg { color: var(--grey-500); transition: color 0.2s; }
+    .faq-q.open .faq-icon svg { color: var(--teal); }
+
+    .faq-a {
       font-size: 15px;
-      color: var(--grey-600);
-      line-height: 1.8;
-      max-width: 680px;
+      line-height: 1.75;
+      color: var(--grey-700);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s ease, padding 0.28s ease, opacity 0.28s ease;
+      opacity: 0;
+      padding-bottom: 0;
+    }
+    .faq-a.open {
+      max-height: 400px;
+      opacity: 1;
+      padding-bottom: 22px;
     }
 
-    /* ── FINAL CTA ───────────────────────────────────────── */
-    .final-cta {
-      background:
-        radial-gradient(ellipse 70% 80% at 20% 50%, rgba(46,125,140,0.3) 0%, transparent 65%),
-        var(--ink);
+    /* ── CTA SECTION ────────────────────────────────────────── */
+    .cta-section {
+      position: relative;
+      background: var(--teal-deep);
       padding: 100px 0;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(232,168,48,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(46,125,140,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      max-width: 680px;
+      margin: 0 auto;
     }
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(232,168,48,0.4), transparent);
+    .cta-inner .section-label { justify-content: center; color: var(--gold); }
+    .cta-inner .section-label::before { background: var(--gold); }
+    .cta-title {
+      font-family: var(--heading-font);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
     }
-    .final-cta h2 { color: #fff; margin-bottom: 16px; }
-    .final-cta .sub { color: rgba(255,255,255,0.6); font-size: 18px; margin-bottom: 44px; }
-    .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-gold-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(232,168,48,0.4);
+      transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+    }
+    .btn-gold-solid:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,168,48,0.55);
+    }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: border-color 0.22s ease, background 0.22s ease, transform 0.15s ease;
+    }
+    .btn-outline-white:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-1px);
+    }
 
-    /* ── FOOTER ──────────────────────────────────────────── */
-    .site-footer {
-      background: var(--dark-panel);
-      color: rgba(255,255,255,0.55);
-      padding: 72px 0 32px;
-      position: relative;
-      overflow: hidden;
+    /* ── CONTACT ────────────────────────────────────────────── */
+    #contact { background: var(--off-white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: flex-start;
     }
-    .site-footer::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(232,168,48,0.3), transparent);
+
+    .contact-info .section-body { margin-bottom: 40px; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+    .contact-item-text .contact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-500);
+      margin-bottom: 3px;
+    }
+    .contact-item-text .contact-val {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .contact-item-text a { color: var(--teal); }
+    .contact-item-text a:hover { color: var(--teal-dark); text-decoration: underline; }
+
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--grey-100);
+    }
+    .contact-form-title {
+      font-family: var(--heading-font);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .cf-group { margin-bottom: 18px; }
+    .cf-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--grey-700);
+      margin-bottom: 7px;
+    }
+    .cf-group input,
+    .cf-group select,
+    .cf-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--grey-50);
+      border: 1.5px solid var(--grey-100);
+      border-radius: var(--radius-sm);
+      font-family: var(--body-font);
+      font-size: 14.5px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      -webkit-appearance: none;
+    }
+    .cf-group input:focus,
+    .cf-group select:focus,
+    .cf-group textarea:focus {
+      border-color: var(--teal);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(46,125,140,0.1);
+    }
+    .cf-group textarea { resize: vertical; min-height: 120px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cf-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(46,125,140,0.3);
+    }
+    .cf-submit:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(46,125,140,0.4);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      padding: 64px 0 32px;
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 260px 1fr 1fr 1fr;
-      gap: 52px;
-      padding-bottom: 52px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      grid-template-columns: 280px 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
     }
-    .footer-logo {
-      filter: brightness(0) invert(1);
-      height: 42px;
-      width: auto;
-      opacity: 0.75;
-      margin-bottom: 18px;
-    }
-    .footer-brand p { font-size: 14px; line-height: 1.75; }
-    .footer-reg {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 18px;
-      opacity: 0.7;
-    }
+    .footer-brand img { height: 38px; filter: brightness(0) invert(1); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13.5px; line-height: 1.7; }
     .footer-col h4 {
-      font-family: var(--body);
-      font-size: 11px;
-      font-weight: 700;
+      font-family: var(--heading-font);
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 20px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
     }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-    .footer-col ul li a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.2s;
-      line-height: 1;
+    .footer-col a {
+      display: block;
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
     }
-    .footer-col ul li a:hover { color: #fff; }
+    .footer-col a:hover { color: var(--gold); }
     .footer-bottom {
-      padding-top: 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
+      font-size: 12.5px;
     }
-    .footer-disclaimer {
-      color: rgba(255,255,255,0.28);
+    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-lang {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .lang-btn {
+      font-family: var(--heading-font);
       font-size: 12px;
-      line-height: 1.7;
-      margin-top: 20px;
-      max-width: 700px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      background: transparent;
+    }
+    .lang-btn.active,
+    .lang-btn:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────── */
+    /* JS adds .js-ready to body; only then do reveals start hidden */
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-ready .reveal-delay-1 { transition-delay: 0.1s; }
+    .js-ready .reveal-delay-2 { transition-delay: 0.18s; }
+    .js-ready .reveal-delay-3 { transition-delay: 0.26s; }
+    .js-ready .reveal-delay-4 { transition-delay: 0.34s; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .header-inner { padding: 0 24px; }
+      .section-pad { padding: 72px 0; }
+      .site-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .hero-content .container { grid-template-columns: 1fr; gap: 0; padding-top: 120px; }
+      .hero-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo-wrap { max-width: 380px; margin: 0 auto; }
+      .about-highlights { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .faq-layout { grid-template-columns: 1fr; gap: 48px; }
+      .faq-sidebar { position: static; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .services-header { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<!-- UTILITY BAR -->
-<div class="util-bar">
-  <div class="container">
-    <span>Consultas en <strong style="color:rgba(255,255,255,0.85)">español e inglés</strong> &nbsp;·&nbsp; Nelson, Nueva Zelanda</span>
-    <div class="util-right">
-      <a href="tel:+64000000000">+64 (0) 000 000 000</a>
-      <div class="util-divider"></div>
-      <a href="#contact">Agenda tu consulta gratuita</a>
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="site-header at-top" id="siteHeader">
+    <div class="header-inner">
+      <a href="#" class="logo-wrap">
+        <img src="Uhrle_Branding_VF (2) (2).png" alt="Uhrle Immigration Law">
+      </a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#about">Sobre María</a>
+        <a href="#services">Servicios</a>
+        <a href="#process">Cómo trabajamos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contacto</a>
+        <a href="#contact" class="nav-cta">Consulta gratuita</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
-</div>
+  </header>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="container">
-    <a href="#">
-      <img src="Uhrle_Branding_VF%20(2)%20(2).png" alt="Uhrle Immigration Law" style="height:60px;width:auto;">
-    </a>
-    <nav class="site-nav">
-      <a href="#">Servicios</a>
-      <a href="#">Sobre María</a>
-      <a href="#">Cómo Trabajamos</a>
-      <a href="#">FAQ</a>
-      <a href="#contact" class="btn btn-gold" style="padding:11px 22px;font-size:13px;">Agenda una consulta</a>
-    </nav>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#about" class="mobile-link">Sobre María</a>
+    <a href="#services" class="mobile-link">Servicios</a>
+    <a href="#process" class="mobile-link">Cómo trabajamos</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#contact" class="mobile-link">Contacto</a>
+    <a href="#contact" class="mobile-cta mobile-link">Consulta gratuita</a>
   </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-canvas"></div>
-  <div class="container">
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">Abogada de inmigración · Nelson, NZ</p>
-      <h1>Abogada de inmigración para <em>profesionales</em> hispanohablantes</h1>
-      <p class="hero-sub">Te ayudo a convertir tu perfil en una oportunidad real en Nueva Zelanda, con una estrategia legal clara desde el inicio.</p>
-      <div class="hero-ctas">
-        <a href="#" class="btn btn-gold btn-lg">Evaluá tus opciones migratorias</a>
-        <a href="#contact" class="btn btn-outline-white btn-lg">Agenda tu consulta gratuita de 15 min</a>
+      <div class="container">
+        <div class="hero-left">
+          <p class="hero-badge">Nelson, Nueva Zelanda</p>
+          <h1 class="hero-title">
+            Tu camino migratorio,<br>
+            <em>con estrategia legal</em><br>
+            desde el inicio
+          </h1>
+          <p class="hero-sub">
+            Te ayudo a convertir tu perfil en una oportunidad real en Nueva Zelanda, con claridad, respaldo legal y acompañamiento en todo el proceso.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Evaluá tus opciones migratorias
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              Agenda tu consulta gratuita de 15 minutos
+            </a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-card">
+            <p class="hero-card-title">Evaluación inicial gratuita</p>
+            <p class="hero-card-sub">Cuéntame tu situación y te oriento sin costo en 15 minutos</p>
+            <div class="form-group">
+              <label>Tu nombre</label>
+              <input type="text" placeholder="Ej. Ana Gómez">
+            </div>
+            <div class="form-group">
+              <label>Email o WhatsApp</label>
+              <input type="text" placeholder="tu@email.com o +54 9 ...">
+            </div>
+            <div class="form-group">
+              <label>¿Cuál es tu situación?</label>
+              <select>
+                <option value="">Seleccioná una opción...</option>
+                <option>Quiero trabajar en Nueva Zelanda</option>
+                <option>Quiero estudiar y migrar</option>
+                <option>Busco la residencia permanente</option>
+                <option>Visa familiar o de pareja</option>
+                <option>Tengo un caso especial o urgente</option>
+              </select>
+            </div>
+            <button class="form-submit">Solicitar consulta gratuita →</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-form" id="contact">
-      <p class="hero-form-title">Escribinos hoy</p>
-      <p class="hero-form-sub">Respondemos dentro de las 24 horas hábiles</p>
-      <div class="field">
-        <label>Nombre completo</label>
-        <input type="text" placeholder="Tu nombre">
+
+    <div class="scroll-cue" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ─────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Regulada por NZ Law Society
       </div>
-      <div class="field">
-        <label>Email</label>
-        <input type="email" placeholder="tu@email.com">
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Consulta gratuita de 15 min
       </div>
-      <div class="field">
-        <label>Teléfono</label>
-        <input type="tel" placeholder="+54 o +64...">
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Atención en Español e Inglés
       </div>
-      <div class="field">
-        <label>¿En qué podemos ayudarte?</label>
-        <textarea rows="3" placeholder="Contanos brevemente tu situación..."></textarea>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Experiencia migrante de primera mano
       </div>
-      <button class="form-btn">Enviar mensaje &rarr;</button>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nelson, Nueva Zelanda
+      </div>
     </div>
   </div>
-</section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="container">
-    <div class="trust-item"><span class="trust-icon">⚖️</span> Regulada por la NZ Law Society</div>
-    <div class="trust-item"><span class="trust-icon">🌎</span> Atención en español e inglés</div>
-    <div class="trust-item"><span class="trust-icon">📍</span> Nelson, Nueva Zelanda</div>
-    <div class="trust-item"><span class="trust-icon">🕐</span> Consulta inicial gratuita · 15 min</div>
-  </div>
-</div>
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo-bg"></div>
+          <div class="about-photo-accent"></div>
+          <div class="about-photo">
+            <img
+              src="Maria_Uhrle-removebg-preview.png"
+              alt="María Uhrle — Abogada de Inmigración"
+            >
+          </div>
+          <div class="about-photo-badge">
+            <div class="badge-name">María Uhrle</div>
+            <div class="badge-role">Abogada · Uhrle Immigration Law</div>
+          </div>
+        </div>
 
-<!-- INTRO -->
-<section class="intro">
-  <div class="container">
-    <div class="intro-text">
-      <div class="label">Sobre el estudio</div>
-      <h2>Decisiones migratorias bien informadas, con acompañamiento legal desde el inicio.</h2>
-      <p>Uhrle Immigration Law es un estudio jurídico ubicado en Nelson, Nueva Zelanda, especializado en inmigración de profesionales y estudiantes latinoamericanos.</p>
-      <p>Brindamos asesoramiento estratégico y acompañamiento personalizado en cada etapa de tu proceso migratorio.</p>
-      <a href="#" class="btn btn-teal" style="margin-top:10px;">Conocer el estudio</a>
+        <div class="about-text">
+          <p class="section-label reveal">Sobre María</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Una abogada que<br>
+            <em>vivió el proceso</em> migratorio
+          </h2>
+          <p class="section-body reveal reveal-delay-2">
+            Nacida en Salta, Argentina, María emigró a Nueva Zelanda y atravesó el proceso de reconocimiento de título profesional desde adentro. Hoy, desde Nelson, ayuda a profesionales y familias latinoamericanas a navegar el sistema migratorio neozelandés con claridad y estrategia.
+          </p>
+          <p class="section-body reveal reveal-delay-2" style="margin-top: 16px;">
+            Su experiencia en Nelson Bays Community Law, junto a su trabajo con la Cruz Roja y Multicultural Nelson Tasman, la posicionan como una referente cercana, comprometida y técnicamente sólida.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-chip reveal reveal-delay-2">
+              <div class="chip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="chip-text">Regulada por NZ Law Society</div>
+            </div>
+            <div class="highlight-chip reveal reveal-delay-3">
+              <div class="chip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="chip-text">Nelson Bays Community Law</div>
+            </div>
+            <div class="highlight-chip reveal reveal-delay-3">
+              <div class="chip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="chip-text">Atención en Español e Inglés</div>
+            </div>
+            <div class="highlight-chip reveal reveal-delay-4">
+              <div class="chip-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="chip-text">Salta, Argentina → Nelson, NZ</div>
+            </div>
+          </div>
+
+          <a href="#contact" class="about-cta reveal reveal-delay-3">
+            Conocé su historia completa
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="intro-img-wrap">
-      <img class="intro-img" src="https://placehold.co/580x435/c8dde2/2E7D8C?text=Nelson,+NZ" alt="Nelson, Nueva Zelanda">
-      <div class="intro-img-accent"></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PARA QUIÉN -->
-<section class="para-quien">
-  <div class="container">
-    <div class="label">¿Para quién?</div>
-    <h2 style="margin-bottom:52px;">¿En qué situaciones podemos ayudarte?</h2>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-icon-wrap">💼</div>
+  <!-- ── SERVICES ───────────────────────────────────────────── -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="services-header">
         <div>
-          <strong>Trabajar en Nueva Zelanda</strong>
-          <p>Profesionales y estudiantes hispanohablantes que quieren trabajar en NZ</p>
+          <p class="section-label reveal">Servicios legales</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Estrategia legal para <em>cada etapa</em><br>
+            de tu camino migratorio
+          </h2>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <a href="#contact" class="about-cta">
+            Ver todos los servicios
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
-      <div class="who-card">
-        <div class="who-icon-wrap">📋</div>
-        <div>
-          <strong>Cambiar o extender tu visa</strong>
-          <p>Personas que ya están en NZ y necesitan cambiar o extender su visa</p>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 14h4M8 10h8"/></svg>
+          </div>
+          <h3 class="service-title">Trabajar en Nueva Zelanda</h3>
+          <p class="service-desc">Visa AEWV, cambios de empleador y condiciones de visa. Estrategia profesional para tu inserción laboral con respaldo legal desde el primer día.</p>
+          <div class="service-tags">
+            <span class="service-tag">AEWV</span>
+            <span class="service-tag">Cambio de empleador</span>
+            <span class="service-tag">Condiciones de visa</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3 class="service-title">Estudiar y migrar</h3>
+          <p class="service-desc">Visas de estudiante y trabajo post-estudio. Planificación migratoria completa para quienes buscan construir su futuro en NZ desde los estudios.</p>
+          <div class="service-tags">
+            <span class="service-tag">Visa de estudiante</span>
+            <span class="service-tag">Post-study work</span>
+            <span class="service-tag">Plan a largo plazo</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="service-title">Camino a la residencia</h3>
+          <p class="service-desc">Residencia permanente, ciudadanía y estrategia legal personalizada para casos complejos. Tu futuro en NZ con una hoja de ruta clara.</p>
+          <div class="service-tags">
+            <span class="service-tag">Residencia</span>
+            <span class="service-tag">Ciudadanía</span>
+            <span class="service-tag">Casos complejos</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="service-title">Visas familiares y de pareja</h3>
+          <p class="service-desc">Reunificación familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sólida.</p>
+          <div class="service-tags">
+            <span class="service-tag">Visa de pareja</span>
+            <span class="service-tag">Reunificación familiar</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="service-title">Casos especiales y urgentes</h3>
+          <p class="service-desc">Sección 61 para personas sin visa válida, cartas PPI y representación estratégica ante INZ en situaciones que requieren atención inmediata.</p>
+          <div class="service-tags">
+            <span class="service-tag">Sección 61</span>
+            <span class="service-tag">Cartas PPI</span>
+            <span class="service-tag">Representación INZ</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2" style="background: linear-gradient(135deg, var(--teal-pale) 0%, var(--gold-light) 100%); border-color: var(--teal-light);">
+          <div class="service-icon" style="background: var(--white);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="service-title">¿No sabés por dónde empezar?</h3>
+          <p class="service-desc">Una consulta inicial gratuita de 15 minutos para entender tu situación y orientarte hacia la estrategia correcta. Sin compromiso, con claridad.</p>
+          <a href="#contact" class="about-cta" style="margin-top: 8px; display: inline-flex;">
+            Agendá gratis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
-      <div class="who-card">
-        <div class="who-icon-wrap">🏠</div>
-        <div>
-          <strong>Camino a la residencia</strong>
-          <p>Quienes quieren planificar su camino hacia la residencia permanente</p>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ────────────────────────────────────────────── -->
+  <section id="process" class="section-pad">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-label reveal">Cómo trabajamos</p>
+        <h2 class="section-title reveal reveal-delay-1">Un proceso claro<br><em>en cuatro pasos</em></h2>
+        <p class="section-body reveal reveal-delay-2">Sin tecnicismos innecesarios. Desde la primera consulta hasta el resultado final, sabés exactamente en qué etapa estás y qué sigue.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Consulta inicial gratuita</h3>
+          <p class="step-desc">15 minutos para entender tu situación, tus objetivos y ver si podemos trabajar juntos.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Evaluación y estrategia</h3>
+          <p class="step-desc">Análisis detallado de tu caso y definición de la mejor estrategia migratoria (evaluación paga).</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Preparación y presentación</h3>
+          <p class="step-desc">Preparamos toda la documentación y presentamos tu solicitud ante INZ con máximo rigor.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">04</div>
+          <h3 class="step-title">Seguimiento continuo</h3>
+          <p class="step-desc">Acompañamiento hasta el resultado final, respondiendo consultas e imprevistos en el camino.</p>
         </div>
       </div>
-      <div class="who-card">
-        <div class="who-icon-wrap">👨‍👩‍👧</div>
-        <div>
-          <strong>Familia y pareja</strong>
-          <p>Reunificación familiar y visas de pareja — relaciones genuinas y estables</p>
+    </div>
+  </section>
+
+  <!-- ── STATS ──────────────────────────────────────────────── -->
+  <div class="stats-banner">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Atención personalizada</div>
         </div>
-      </div>
-      <div class="who-card">
-        <div class="who-icon-wrap">⚖️</div>
-        <div>
-          <strong>Situaciones complejas</strong>
-          <p>Comunicación directa con INZ, cartas PPI, Sección 61</p>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-num">2<span>+</span></div>
+          <div class="stat-label">Idiomas de atención</div>
         </div>
-      </div>
-      <div class="who-card">
-        <div class="who-icon-wrap">🎓</div>
-        <div>
-          <strong>Estudiar en Nueva Zelanda</strong>
-          <p>Visas de estudiante y estrategia migratoria completa post-estudio</p>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-num">15<span>min</span></div>
+          <div class="stat-label">Consulta gratuita</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-num">NZ<span></span></div>
+          <div class="stat-label">Law Society Regulated</div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- POR QUÉ -->
-<section class="por-que">
-  <div class="container">
-    <div>
-      <div class="label">Por qué elegirnos</div>
-      <h2>Un enfoque legal que combina experiencia, claridad y acompañamiento humano</h2>
-      <ul class="benefit-list">
-        <li>
-          <div class="benefit-check">✓</div>
-          <span>Especialización exclusiva en inmigración para hispanohablantes</span>
-        </li>
-        <li>
-          <div class="benefit-check">✓</div>
-          <span>Experiencia real como inmigrante en NZ — comprende los desafíos de primera mano</span>
-        </li>
-        <li>
-          <div class="benefit-check">✓</div>
-          <span>Atención personalizada, sin soluciones estándar para cada caso</span>
-        </li>
-        <li>
-          <div class="benefit-check">✓</div>
-          <span>Comunicación clara y honesta en español e inglés</span>
-        </li>
-        <li>
-          <div class="benefit-check">✓</div>
-          <span>Regulada por la New Zealand Law Society</span>
-        </li>
-      </ul>
-    </div>
-    <div class="porq-photo">
-      <img src="https://placehold.co/340x453/1d5e6b/7dbdd0?text=María+Uhrle" alt="María Uhrle">
-      <span class="porq-badge">Abogada · Nelson, NZ</span>
-    </div>
-  </div>
-</section>
+  <!-- ── FAQ ───────────────────────────────────────────────── -->
+  <section id="faq" class="section-pad">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-sidebar">
+          <p class="section-label reveal">Preguntas frecuentes</p>
+          <h2 class="section-title reveal reveal-delay-1">Todo lo que<br>necesitás <em>saber</em></h2>
+          <p class="section-body reveal reveal-delay-2" style="margin-bottom: 32px;">
+            El proceso migratorio genera muchas dudas. Acá respondemos las más comunes. Si tu pregunta no está, agendá tu consulta gratuita.
+          </p>
+          <div class="faq-sidebar-cta reveal reveal-delay-3">
+            <p>¿Tenés una pregunta específica? Consultá con María directamente, sin costo.</p>
+            <a href="#contact" class="about-cta">
+              Consulta gratuita de 15 min
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
 
-<!-- SERVICIOS -->
-<section class="servicios">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="label">Servicios</div>
-        <h2>Nuestros servicios para ti</h2>
-      </div>
-      <a href="#" class="btn btn-outline-teal">Ver todos los servicios</a>
-    </div>
-    <div class="servicios-grid">
-      <div class="service-card">
-        <div class="service-img-wrap">
-          <img class="service-img" src="https://placehold.co/600x400/adc8d0/2E7D8C?text=" alt="Trabajar en NZ">
-        </div>
-        <div class="service-overlay">
-          <span class="service-tag">Visas de trabajo</span>
-          <h3>Trabajar en Nueva Zelanda</h3>
-          <p>AEWV · Cambios de empleador · Estrategia profesional y planificación legal</p>
-          <div class="service-arrow">→</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-img-wrap">
-          <img class="service-img" src="https://placehold.co/600x400/adc8d0/2E7D8C?text=" alt="Estudiar y migrar">
-        </div>
-        <div class="service-overlay">
-          <span class="service-tag">Visas de estudio</span>
-          <h3>Estudiar y Migrar</h3>
-          <p>Visas de estudiante · Trabajo post-estudio · Plan migratorio completo</p>
-          <div class="service-arrow">→</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-img-wrap">
-          <img class="service-img" src="https://placehold.co/600x400/adc8d0/2E7D8C?text=" alt="Residencia">
-        </div>
-        <div class="service-overlay">
-          <span class="service-tag">Residencia</span>
-          <h3>Camino a la Residencia</h3>
-          <p>Residencia · Ciudadanía · Estrategia legal personalizada y casos complejos</p>
-          <div class="service-arrow">→</div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Necesito un abogado o alcanza con un immigration adviser?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Ambos pueden presentar solicitudes de visa, pero un abogado tiene formación legal más amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversión.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Puedo aplicar desde fuera de Nueva Zelanda?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Sí. Muchos de los servicios se pueden gestionar completamente en forma remota. La primera consulta y la evaluación se hacen vía videollamada, y la mayoría de las solicitudes se presentan online ante INZ. No necesitás estar en NZ para comenzar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Qué pasa si ya me rechazaron una visa?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Un rechazo no cierra todas las puertas. Según el tipo de visa y las razones del rechazo, puede haber opciones de apelación, nuevas solicitudes con más evidencia, o estrategias alternativas. Lo primero es analizar bien los motivos del rechazo antes de actuar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Cuánto tiempo demora un proceso migratorio?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Los tiempos varían mucho según el tipo de visa, la carga de trabajo de INZ y la complejidad del caso. Algunas visas de trabajo pueden resolverse en semanas; solicitudes de residencia pueden llevar meses. En la evaluación inicial, te damos un estimado realista para tu caso específico.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Los resultados están garantizados?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Ningún profesional puede garantizar resultados en migración, ya que la decisión final es de INZ. Lo que sí podés esperar es representación legal seria, honesta y estratégica. Si un caso no tiene buenas chances, te lo digo con claridad antes de avanzar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Cuánto cuesta el servicio?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Los honorarios son fijos o por hora según el tipo y complejidad de la visa. Los costos externos (tasas de INZ, traducciones, certificados) se cobran por separado. Tras la evaluación inicial, recibís una propuesta clara y sin sorpresas antes de comprometerte con nada.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Ofrecen atención en español?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Sí, por supuesto. María atiende en español e inglés. El objetivo es que puedas entender cada paso de tu proceso en tu idioma, sin barreras de comunicación que generen errores o malentendidos.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              ¿Qué es una carta PPI?
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a">Una carta PPI (Potentially Prejudicial Information) es una comunicación de INZ indicando que encontraron información que podría afectar negativamente tu solicitud. Es una señal de alerta: necesitás responder con precisión y estrategia. No respondas solo, ya que tu respuesta puede definir el resultado final.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BIO -->
-<section class="bio">
-  <div class="container">
-    <div class="bio-photo-wrap">
-      <img class="bio-photo" src="https://placehold.co/400x533/1d3a40/5a9aaa?text=María+Uhrle" alt="María Uhrle">
-      <div class="bio-photo-frame"></div>
-    </div>
-    <div class="bio-content">
-      <p class="bio-eyebrow">Sobre la Abogada</p>
-      <h2>María Uhrle</h2>
-      <p class="bio-body">María Uhrle nació en Salta, Argentina, y reside en Nelson, NZ, donde estableció su estudio jurídico especializado en inmigración y asuntos laborales relacionados.</p>
-      <p class="bio-body">Habiendo transitado personalmente el proceso de inmigración y convalidación de títulos profesionales, María comprende en profundidad los desafíos legales y emocionales que enfrentan quienes migran.</p>
-      <div class="bio-divider"></div>
-      <p class="bio-exp-title">Experiencia profesional</p>
-      <ul class="bio-exp-list">
-        <li>Abogada en Nelson Bays Community Law</li>
-        <li>Nelson Red Cross — participación comunitaria</li>
-        <li>Multicultural Nelson Tasman — participación comunitaria</li>
-      </ul>
-      <a href="#" class="bio-cta">Conocer más sobre María <span>→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESO -->
-<section class="proceso">
-  <div class="container">
-    <div class="label" style="justify-content:center; margin-bottom:20px;">Cómo trabajamos</div>
-    <h2>Un proceso legal claro, ordenado y transparente</h2>
-    <div class="steps-track">
-      <div class="step">
-        <div class="step-num-wrap">
-          <div class="step-ring"></div>
-          <div class="step-num">1</div>
+  <!-- ── CTA SECTION ────────────────────────────────────────── -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <p class="section-label reveal">Empezá hoy</p>
+        <h2 class="cta-title reveal reveal-delay-1">
+          Tu situación migratoria<br>merece una estrategia real
+        </h2>
+        <p class="cta-sub reveal reveal-delay-2">
+          No esperes a tener un problema para buscar asesoramiento. Una consulta hoy puede ahorrarte meses de incertidumbre y errores costosos.
+        </p>
+        <div class="cta-buttons reveal reveal-delay-3">
+          <a href="#contact" class="btn-gold-solid">
+            Evaluá tus opciones migratorias
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline-white">
+            Agenda tu consulta gratuita de 15 minutos
+          </a>
         </div>
-        <h3>Consulta inicial gratuita</h3>
-        <p>15 minutos para conocer tu situación y objetivos migratorios</p>
       </div>
-      <div class="step">
-        <div class="step-num-wrap">
-          <div class="step-ring"></div>
-          <div class="step-num">2</div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ────────────────────────────────────────────── -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-label reveal">Contacto</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Hablemos de<br><em>tu caso</em>
+          </h2>
+          <p class="section-body reveal reveal-delay-2" style="margin-bottom: 40px;">
+            Completá el formulario o escribime directamente. La primera consulta de 15 minutos es sin costo y sin compromiso — es para entender si podemos ayudarte.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item reveal reveal-delay-2">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label">Ubicación</div>
+                <div class="contact-val">Nelson, Nueva Zelanda<br><small style="color: var(--grey-500); font-size: 13px;">Atención remota disponible para toda LATAM</small></div>
+              </div>
+            </div>
+            <div class="contact-item reveal reveal-delay-3">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label">Email</div>
+                <div class="contact-val"><a href="mailto:maria@uhrlelaw.co.nz">maria@uhrlelaw.co.nz</a></div>
+              </div>
+            </div>
+            <div class="contact-item reveal reveal-delay-3">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label">Idiomas</div>
+                <div class="contact-val">Español · English</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>Evaluación detallada</h3>
-        <p>Análisis en profundidad y definición de tu estrategia migratoria completa</p>
-      </div>
-      <div class="step">
-        <div class="step-num-wrap">
-          <div class="step-ring"></div>
-          <div class="step-num">3</div>
+
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <h3 class="contact-form-title">Agenda tu evaluación legal</h3>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Tu nombre">
+            </div>
+            <div class="cf-group">
+              <label>Apellido</label>
+              <input type="text" placeholder="Tu apellido">
+            </div>
+          </div>
+          <div class="cf-group">
+            <label>Email</label>
+            <input type="email" placeholder="tu@email.com">
+          </div>
+          <div class="cf-group">
+            <label>WhatsApp / Teléfono</label>
+            <input type="tel" placeholder="+54 9 ...">
+          </div>
+          <div class="cf-group">
+            <label>¿Qué tipo de visa te interesa?</label>
+            <select>
+              <option value="">Seleccioná una opción...</option>
+              <option>Visa de trabajo (AEWV)</option>
+              <option>Visa de estudiante</option>
+              <option>Residencia permanente</option>
+              <option>Visa familiar o de pareja</option>
+              <option>Caso especial / urgente</option>
+              <option>No sé aún, necesito orientación</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label>Contame brevemente tu situación</label>
+            <textarea placeholder="Ej. Estoy en Argentina, tengo oferta de trabajo en NZ y quiero saber mis opciones..."></textarea>
+          </div>
+          <button class="cf-submit">Enviar consulta →</button>
         </div>
-        <h3>Preparación y presentación</h3>
-        <p>Preparamos y presentamos tu solicitud ante INZ con total respaldo legal</p>
       </div>
-      <div class="step">
-        <div class="step-num-wrap">
-          <div class="step-ring"></div>
-          <div class="step-num">4</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Uhrle_Branding_VF (2) (2).png" alt="Uhrle Immigration Law">
+          <p>Asesoramiento migratorio legal en Nueva Zelanda para profesionales y familias latinoamericanas. Atención en español e inglés desde Nelson, NZ.</p>
         </div>
-        <h3>Seguimiento continuo</h3>
-        <p>Acompañamiento hasta el resultado final de tu proceso</p>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <a href="#services">Trabajar en NZ</a>
+          <a href="#services">Estudiar y migrar</a>
+          <a href="#services">Camino a la residencia</a>
+          <a href="#services">Visas familiares</a>
+          <a href="#services">Casos especiales</a>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <a href="#about">Sobre María Uhrle</a>
+          <a href="#process">Cómo trabajamos</a>
+          <a href="#faq">Preguntas frecuentes</a>
+          <a href="#contact">Costos y honorarios</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="mailto:maria@uhrlelaw.co.nz">maria@uhrlelaw.co.nz</a>
+          <a href="#contact">Consulta gratuita</a>
+          <a href="#contact">Agenda tu evaluación</a>
+          <div style="margin-top: 16px;" class="footer-lang">
+            <button class="lang-btn active">ES</button>
+            <button class="lang-btn">EN</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Uhrle Immigration Law. Todos los derechos reservados.</span>
+        <span>Regulada por <a href="#">NZ Law Society</a> · <a href="#">Privacidad</a> · <a href="#">Términos</a></span>
       </div>
     </div>
-    <div class="proceso-cta">
-      <a href="#" class="btn btn-teal btn-lg">Agenda tu evaluación inicial</a>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- EVALUACIÓN -->
-<section class="evaluacion">
-  <div class="container">
-    <div class="eval-text">
-      <div class="label">Evaluación inicial</div>
-      <h2>Tu consulta gratuita es solo el primer paso</h2>
-      <p>La consulta gratuita de 15 minutos sirve para conocer tu situación y objetivos. Luego ofrecemos una evaluación legal más profunda y personalizada para definir tu estrategia migratoria completa y próximos pasos.</p>
-      <div class="eval-note">
-        <p>💡 <strong>Transparencia total:</strong> honorarios fijos o por hora según tipo de visa y complejidad. Costos externos de INZ, traducciones y certificados son adicionales.</p>
-      </div>
-    </div>
-    <div class="eval-cards">
-      <div class="eval-card free">
-        <span class="eval-badge">Gratis · 15 minutos</span>
-        <h3>Consulta inicial</h3>
-        <p>Conocemos tu situación y te damos una primera orientación sobre tus opciones migratorias.</p>
-        <a href="#contact" class="eval-link">Agenda ahora →</a>
-      </div>
-      <div class="eval-card paid">
-        <span class="eval-badge">Evaluación detallada · Paga</span>
-        <h3>Estrategia migratoria completa</h3>
-        <p>Análisis de documentación, definición de estrategia y plan de acción personalizado.</p>
-        <a href="#contact" class="eval-link">Agenda tu evaluación →</a>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+  <script>
+    // ── Header scroll behavior ──────────────────────────────
+    (function() {
+      const header = document.getElementById('siteHeader');
+      let ticking = false;
 
-<!-- RECURSOS -->
-<section class="recursos">
-  <div class="container">
-    <div class="label">Recursos</div>
-    <h2>Guías y contenido para hispanohablantes</h2>
-    <p class="sub">Próximamente: guías descargables, reels educativos y artículos sobre oportunidades y rutas legales en NZ.</p>
-    <div class="rec-grid">
-      <div class="rec-card">
-        <div class="rec-icon">📖</div>
-        <h4>Guías descargables</h4>
-        <p>Información práctica sobre procesos migratorios en NZ, requisitos y documentación necesaria.</p>
-        <span class="rec-coming">⏳ Próximamente</span>
-      </div>
-      <div class="rec-card">
-        <div class="rec-icon">🎥</div>
-        <h4>Reels educativos</h4>
-        <p>Videos cortos sobre errores comunes, oportunidades migratorias y rutas legales en NZ.</p>
-        <span class="rec-coming">⏳ Próximamente</span>
-      </div>
-      <div class="rec-card">
-        <div class="rec-icon">✍️</div>
-        <h4>Blog migratorio</h4>
-        <p>Artículos sobre actualizaciones de INZ, casos reales y consejos para hispanohablantes.</p>
-        <span class="rec-coming">⏳ Próximamente</span>
-      </div>
-    </div>
-  </div>
-</section>
+      function updateHeader() {
+        if (window.scrollY > 60) {
+          header.classList.remove('at-top');
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+          header.classList.add('at-top');
+        }
+        ticking = false;
+      }
 
-<!-- QUOTE -->
-<section class="hispano">
-  <div class="container">
-    <blockquote>"Trabajamos principalmente con profesionales y estudiantes hispanohablantes que buscan desarrollar su futuro en Nueva Zelanda."</blockquote>
-    <p class="hispano-sub">ATENCIÓN PERSONALIZADA EN ESPAÑOL E INGLÉS &nbsp;·&nbsp; NELSON, NUEVA ZELANDA</p>
-  </div>
-</section>
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      }, { passive: true });
 
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <div class="label">Preguntas frecuentes</div>
-    <h2>¿Tienes dudas? Te respondemos.</h2>
+      updateHeader();
+    })();
 
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Necesito abogado o immigration adviser?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Un abogado de inmigración es un profesional del derecho habilitado por la NZ Law Society, con formación legal completa. Un immigration adviser está regulado por la Immigration Advisers Authority (IAA). Dependiendo de la complejidad de tu caso, contar con representación legal completa puede marcar una diferencia significativa.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Puedo aplicar desde fuera de Nueva Zelanda?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Sí. Muchos procesos migratorios pueden iniciarse desde el exterior. Durante la consulta inicial evaluamos tu situación específica y definimos el mejor camino según dónde te encuentres actualmente.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si ya me rechazaron una visa?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Un rechazo previo no cierra todas las puertas. Es fundamental analizar los motivos del rechazo antes de volver a aplicar. En algunos casos existen mecanismos de reconsideración o vías alternativas más adecuadas para tu situación.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Los resultados están garantizados?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>No. Ningún profesional ético puede garantizar resultados en procesos migratorios, ya que la decisión final la tiene INZ. Lo que sí garantizamos es representación legal seria, estrategia bien fundamentada y comunicación honesta en todo momento.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta el servicio?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Los honorarios son fijos o por hora según el tipo de visa y la complejidad del caso. Los costos externos (fees de INZ, traducciones, certificados) son independientes. Durante la evaluación detallada recibirás un presupuesto claro antes de comprometerte.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Ofrecen atención en español?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Sí. Brindamos atención completa en español e inglés. Toda la comunicación, documentación y asesoramiento puede realizarse en el idioma que prefieras.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Qué es una carta PPI?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Una carta PPI (Potentially Prejudicial Information) es una comunicación de INZ que indica que existen elementos en tu caso que podrían afectar negativamente tu solicitud. Requiere una respuesta estratégica y bien fundamentada — es determinante para el resultado del proceso.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">¿Qué sucede después de enviar la solicitud?<i class="faq-icon">+</i></button>
-      <div class="faq-body"><p>Una vez presentada la solicitud, INZ puede tardar semanas o meses en procesarla. Durante todo ese tiempo te acompañamos: monitoreamos el estado, respondemos comunicaciones de INZ y te mantenemos informado de cada novedad.</p></div>
-    </div>
-  </div>
-</section>
+    // ── Mobile menu ─────────────────────────────────────────
+    (function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      let open = false;
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <div class="label" style="justify-content:center; color:var(--gold);">Siguiente paso</div>
-    <h2>Evaluá tus opciones migratorias</h2>
-    <p class="sub">Agenda tu consulta gratuita y da el primer paso hacia tu futuro en Nueva Zelanda</p>
-    <div class="cta-row">
-      <a href="#contact" class="btn btn-gold btn-lg">Evaluá tus opciones migratorias</a>
-      <a href="#contact" class="btn btn-outline-white btn-lg">Consulta gratuita · 15 minutos</a>
-    </div>
-  </div>
-</section>
+      function toggleMenu() {
+        open = !open;
+        hamburger.classList.toggle('open', open);
+        mobileMenu.classList.toggle('open', open);
+        mobileMenu.style.display = 'block';
+        hamburger.setAttribute('aria-expanded', open);
+        mobileMenu.setAttribute('aria-hidden', !open);
+      }
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="Uhrle_Branding_VF%20(2)%20(2).png" alt="Uhrle Immigration Law" class="footer-logo">
-        <p>Especialistas en derecho de inmigración para profesionales y estudiantes hispanohablantes en Nueva Zelanda.</p>
-        <span class="footer-reg">⚖ NZ Law Society Regulated</span>
-      </div>
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <ul>
-          <li><a href="#">Trabajar en Nueva Zelanda</a></li>
-          <li><a href="#">Estudiar y migrar</a></li>
-          <li><a href="#">Camino a la residencia</a></li>
-          <li><a href="#">Visas familiares y de pareja</a></li>
-          <li><a href="#">Casos especiales</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Estudio</h4>
-        <ul>
-          <li><a href="#">Sobre el estudio</a></li>
-          <li><a href="#">Sobre María Uhrle</a></li>
-          <li><a href="#">Cómo trabajamos</a></li>
-          <li><a href="#">Costos</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="#">Nelson, Nueva Zelanda</a></li>
-          <li><a href="tel:+64000000000">+64 (0) 000 000 000</a></li>
-          <li><a href="#contact">Agenda tu consulta gratuita</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Términos legales</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Uhrle Immigration Law. Todos los derechos reservados.</span>
-      <span>Español · English</span>
-    </div>
-    <p class="footer-disclaimer">El contenido de este sitio web es informativo y no constituye asesoramiento legal. La consulta de un caso específico requiere asesoramiento profesional. Uhrle Immigration Law está regulada por la New Zealand Law Society.</p>
-  </div>
-</footer>
+      hamburger.addEventListener('click', toggleMenu);
 
-<script>
-  function toggleFaq(btn) {
-    const body = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
-    document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
-    if (!isOpen) { btn.classList.add('open'); body.classList.add('open'); }
-  }
-</script>
+      document.querySelectorAll('.mobile-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          open = false;
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+          mobileMenu.setAttribute('aria-hidden', true);
+        });
+      });
+    })();
+
+    // ── Scroll reveal (IntersectionObserver) ────────────────
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const preview = new URLSearchParams(window.location.search).has('preview');
+
+      if (preview) {
+        // Instant reveal for screenshots/preview mode
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+
+      // Real users: animate on scroll
+      document.body.classList.add('js-ready');
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 160px 0px' });
+
+      reveals.forEach(function(el) { observer.observe(el); });
+
+      // Fallback: reveal remaining after 2s
+      setTimeout(function() {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      }, 2000);
+    })();
+
+    // ── FAQ accordion ───────────────────────────────────────
+    (function() {
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const answer = btn.nextElementSibling;
+          const isOpen = btn.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-q').forEach(function(b) {
+            b.classList.remove('open');
+            b.nextElementSibling.classList.remove('open');
+          });
+
+          // Open clicked if it was closed
+          if (!isOpen) {
+            btn.classList.add('open');
+            answer.classList.add('open');
+          }
+        });
+      });
+    })();
+
+    // ── Hero background parallax & entrance ─────────────────
+    (function() {
+      const bg = document.getElementById('heroBg');
+      if (!bg) return;
+
+      // Trigger entrance animation
+      setTimeout(function() { bg.classList.add('loaded'); }, 100);
+
+      // Subtle parallax on scroll
+      window.addEventListener('scroll', function() {
+        const scrolled = window.scrollY;
+        const heroHeight = bg.parentElement.offsetHeight;
+        if (scrolled < heroHeight) {
+          bg.style.transform = 'scale(1) translateY(' + (scrolled * 0.3) + 'px)';
+        }
+      }, { passive: true });
+    })();
+
+    // ── Active nav highlight on scroll ──────────────────────
+    (function() {
+      const sections = document.querySelectorAll('section[id], div[id="home"]');
+      const navLinks = document.querySelectorAll('.site-nav a:not(.nav-cta)');
+
+      window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(function(section) {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(function(link) {
+          link.style.opacity = '1';
+          if (link.getAttribute('href') === '#' + current) {
+            link.style.color = '';
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
+
 </body>
 </html>
