@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Your Free Website — NZ Solar Web Design</title>
+  <meta name="description" content="Claim your free solar installer website. NZ Solar Web Design builds it in 5–7 days. You only pay if you love it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #ffffff; --color-bg-alt: #f8f8f7; --color-bg-dark: #0e0e0e;
+      --color-text: #111111; --color-text-muted: #6b6b6b; --color-border: #e5e5e5;
+      --color-accent: #111111; --color-success: #16a34a;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;
+      --max-width: 1140px; --section-padding: 80px 24px; --nav-height: 68px;
+      --transition: 0.2s ease; --transition-slow: 0.4s ease;
+    }
+    @media (max-width: 768px) { :root { --section-padding: 56px 20px; } }
+    @media (max-width: 480px) { :root { --section-padding: 48px 16px; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+    body { font-family: var(--font-sans); background: var(--color-bg-dark); color: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
+    h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; }
+    body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.018; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; padding: 12px 22px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); letter-spacing: -0.01em; white-space: nowrap; }
+    .btn:active { transform: scale(0.98); }
+    .btn-yellow { background: #F5C518; color: #111; }
+    .btn-yellow:hover { background: #e8b800; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(245,197,24,0.35); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; padding: 0 24px; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(255,255,255,0.07); }
+    .nav-inner { max-width: var(--max-width); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; font-size: 0.95rem; letter-spacing: -0.02em; white-space: nowrap; }
+    .nav-logo-mark { width: 30px; height: 30px; background: #fff; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color var(--transition); }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { margin-left: 8px; }
+    .hamburger { display: none; background: none; border: none; color: rgba(255,255,255,0.8); cursor: pointer; padding: 4px; }
+    #mobile-menu { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(10,10,10,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 20px 24px 28px; z-index: 99; border-top: 1px solid rgba(255,255,255,0.07); }
+    #mobile-menu.open { display: block; }
+    #mobile-menu a { display: block; padding: 12px 0; font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color var(--transition); }
+    #mobile-menu a:hover { color: #fff; }
+    #mobile-menu .btn { margin-top: 16px; width: 100%; justify-content: center; }
+    #mobile-menu .btn-yellow { color: #111 !important; font-size: 1rem; padding: 14px 24px; font-weight: 700; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-cta { font-size: 0.7rem; padding: 6px 10px; white-space: nowrap; } .hamburger { display: block; } }
+
+    /* CONTACT FORM */
+    .contact-wrap { padding: calc(var(--nav-height) + 60px) 24px 80px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+    .form-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 12px 14px; color: #fff; font-family: var(--font-sans); font-size: 0.92rem; outline: none; transition: border-color var(--transition), background var(--transition); }
+    .form-input::placeholder { color: rgba(255,255,255,0.22); }
+    .form-input:focus { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.09); }
+
+    /* FOOTER */
+    .footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 52px 24px 28px; }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
+    .footer-col-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--transition); }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+    .footer-seo { font-size: 0.72rem; color: rgba(255,255,255,0.12); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="1" width="5" height="5" rx="1.2" fill="#111"/>
+          <rect x="8" y="1" width="5" height="5" rx="1.2" fill="#111"/>
+          <rect x="1" y="8" width="5" height="5" rx="1.2" fill="#111"/>
+          <rect x="8" y="8" width="5" height="5" rx="1.2" fill="#111" opacity="0.35"/>
+        </svg>
+      </span>
+      NZ Solar Web Design
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
+      </svg>
+    </button>
+    <a href="contact.html" class="btn btn-yellow nav-cta" style="font-size:0.82rem;padding:9px 18px;">Get your free website →</a>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html#process" onclick="document.getElementById('mobile-menu').classList.remove('open')">How It Works</a>
+  <a href="services.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">Services</a>
+  <a href="faq.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">FAQ</a>
+  <a href="contact.html" class="btn btn-yellow" onclick="document.getElementById('mobile-menu').classList.remove('open')">Claim your free website →</a>
+</div>
+
+<div class="contact-wrap">
+  <div class="container" style="max-width:680px;">
+    <div style="margin-bottom:40px;text-align:center;">
+      <span class="section-label">GET STARTED</span>
+      <h1 style="color:#fff;font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:14px;">Ready to get your<br/>free website?</h1>
+      <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;max-width:46ch;margin:0 auto;">Tell us about your solar business and we'll build your website in 5–7 days. You only pay if you love it.</p>
+    </div>
+
+    <form onsubmit="handleSubmit(event)" style="text-align:left;">
+      <div class="form-grid" style="margin-bottom:16px;">
+        <div class="form-group">
+          <label class="form-label">Your name</label>
+          <input class="form-input" type="text" placeholder="Mike Henderson" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input class="form-input" type="email" placeholder="mike@hendersonbuilds.co.nz" required />
+        </div>
+      </div>
+      <div class="form-grid" style="margin-bottom:16px;">
+        <div class="form-group">
+          <label class="form-label">Business name</label>
+          <input class="form-input" type="text" placeholder="Henderson Solar Ltd" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone (optional)</label>
+          <input class="form-input" type="tel" placeholder="021 123 4567" />
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px;">
+        <label class="form-label">What type of solar work do you do?</label>
+        <select class="form-input" style="cursor:pointer;">
+          <option value="" style="background:#1a1a1a;">Select your service…</option>
+          <option style="background:#1a1a1a;">Residential solar installation</option>
+          <option style="background:#1a1a1a;">Commercial solar installation</option>
+          <option style="background:#1a1a1a;">Battery storage & EV charging</option>
+          <option style="background:#1a1a1a;">Solar maintenance & upgrades</option>
+          <option style="background:#1a1a1a;">Solar design & consulting</option>
+          <option style="background:#1a1a1a;">Other solar services</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom:20px;">
+        <label class="form-label">Tell us about your goals (optional)</label>
+        <textarea class="form-input" rows="3" placeholder="e.g. I want to get more residential solar installation enquiries from homeowners in my area..." style="resize:none;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-yellow" id="submit-btn" style="width:100%;justify-content:center;font-size:1rem;padding:14px;">
+        Claim my free website build →
+      </button>
+      <p style="margin-top:14px;font-size:0.76rem;color:rgba(255,255,255,0.25);text-align:center;">
+        No commitment · No credit card · Review the finished site before paying a cent
+      </p>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="width:28px;height:28px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <rect x="1" y="1" width="5" height="5" rx="1.2" fill="#111"/>
+              <rect x="8" y="1" width="5" height="5" rx="1.2" fill="#111"/>
+              <rect x="1" y="8" width="5" height="5" rx="1.2" fill="#111"/>
+              <rect x="8" y="8" width="5" height="5" rx="1.2" fill="#111" opacity="0.35"/>
+            </svg>
+          </span>
+          <span style="font-weight:800;font-size:0.92rem;color:#fff;letter-spacing:-0.02em;">NZ Solar Web Design</span>
+        </div>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:30ch;">Web design for NZ solar installers who want more leads, more installations, and a website that works as hard as they do.</p>
+        <p style="margin-top:10px;font-size:0.78rem;color:rgba(255,255,255,0.2);">Nelson, New Zealand</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Website Design</a></li>
+          <li><a href="services.html">SEO for Builders</a></li>
+          <li><a href="services.html">Hosting & Domain</a></li>
+          <li><a href="services.html">Ongoing Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html#process">How It Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 NZ Solar Web Design. Nelson, New Zealand. All rights reserved.</p>
+      <p class="footer-seo">Web Design NZ · Solar Installer Websites NZ · Solar Panel Website Design New Zealand</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = '✓ Received — we\'ll be in touch within 24 hours!';
+    btn.style.background = '#16a34a';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
