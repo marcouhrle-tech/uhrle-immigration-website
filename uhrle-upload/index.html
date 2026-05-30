@@ -1,0 +1,2290 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uhrle Immigration Law â€” Nelson, Nueva Zelanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    :root {
+      --teal:        #2E7D8C;
+      --teal-dark:   #1d5e6b;
+      --teal-deep:   #0f3540;
+      --teal-light:  #b8dde5;
+      --teal-pale:   #e8f4f7;
+      --gold:        #E8A830;
+      --gold-dark:   #c98e20;
+      --gold-light:  #fdf5e3;
+      --off-white:   #F9F7F4;
+      --grey-50:     #f4f4f2;
+      --grey-100:    #e5e5e2;
+      --grey-300:    #c5c5bf;
+      --grey-500:    #888882;
+      --grey-700:    #4a4a46;
+      --ink:         #1a2328;
+      --ink-soft:    #2d3b42;
+      --white:       #ffffff;
+      --heading-font: 'Poppins', sans-serif;
+      --body-font:    'Poppins', sans-serif;
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(46,125,140,0.08);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 12px 40px rgba(46,125,140,0.12);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,0.10), 0 24px 64px rgba(46,125,140,0.16);
+    }
+
+    /* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body-font);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* â”€â”€ TOP BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 42px;
+      background: var(--teal-deep);
+      z-index: 950;
+      display: flex;
+      align-items: center;
+    }
+    .top-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 40px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+    }
+    .top-bar-contact {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.75);
+      font-size: 12.5px;
+      font-family: var(--body-font);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .top-bar-contact:hover { color: var(--gold); }
+    .top-bar-contact svg { flex-shrink: 0; opacity: 0.7; }
+    .top-bar-divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 18px;
+    }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .top-bar-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-bar-social {
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease;
+    }
+    .top-bar-social:hover { color: var(--gold); }
+    .top-bar-lang {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .topbar-lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.45);
+      font-family: var(--heading-font);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      padding: 2px 4px;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+    .topbar-lang-btn:hover,
+    .topbar-lang-btn.active { color: var(--gold); }
+    .topbar-lang-sep {
+      color: rgba(255,255,255,0.18);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    /* â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .site-header {
+      position: fixed;
+      top: 42px; left: 0; right: 0;
+      z-index: 900;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+      padding: 0;
+    }
+    .site-header.at-top {
+      background: transparent;
+    }
+    .site-header.scrolled {
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding: 0 40px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .logo-wrap img {
+      height: 58px;
+      width: auto;
+      transition: filter 0.4s ease;
+    }
+    .site-header.at-top .logo-wrap img {
+      filter: none;
+    }
+    .site-header.scrolled .logo-wrap img {
+      filter: none;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .site-nav a {
+      font-family: var(--heading-font);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.25s ease, opacity 0.25s ease;
+      position: relative;
+    }
+    .site-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .site-nav a:hover::after { transform: scaleX(1); }
+
+    .site-header.at-top .site-nav a { color: var(--ink-soft); }
+    .site-header.at-top .site-nav a:hover { color: var(--teal); }
+    .site-header.scrolled .site-nav a { color: var(--ink-soft); }
+    .site-header.scrolled .site-nav a:hover { color: var(--teal); }
+
+    .nav-cta {
+      font-family: var(--heading-font);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+    .site-header.at-top .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 2px 10px rgba(232,168,48,0.35);
+    }
+    .site-header.at-top .nav-cta:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(232,168,48,0.45);
+    }
+    .site-header.scrolled .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 2px 10px rgba(232,168,48,0.35);
+    }
+    .site-header.scrolled .nav-cta:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(232,168,48,0.45);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      border-radius: 2px;
+      transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+    .site-header.at-top .hamburger span { background: var(--ink); }
+    .site-header.scrolled .hamburger span { background: var(--ink); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 120px; left: 0; right: 0;
+      background: var(--white);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+      padding: 24px 40px 32px;
+      z-index: 850;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      display: block;
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--grey-100);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--teal); }
+    .mobile-menu .mobile-cta {
+      display: inline-flex;
+      margin-top: 20px;
+      background: var(--gold);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 15px;
+      border-bottom: none;
+    }
+
+    /* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      max-height: 920px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('pexels-petra-reid-419907087-28863820.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    /* White at top for logo/nav readability, dark at bottom for hero text */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.72) 0%,
+          rgba(255, 255, 255, 0.30) 18%,
+          rgba(0, 0, 0, 0.10) 40%,
+          rgba(10, 30, 40, 0.70) 70%,
+          rgba(5, 18, 28, 0.92) 100%
+        );
+    }
+
+    /* Subtle grain texture for depth */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-content .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+      justify-content: center;
+    }
+    .hero-badge::before,
+    .hero-badge::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--heading-font);
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin: 0 auto 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(232,168,48,0.4);
+      transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,168,48,0.5);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(8px);
+      transition: border-color 0.22s ease, background 0.22s ease, transform 0.15s ease;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Hero form card */
+    .hero-card {
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    }
+    .hero-card-title {
+      font-family: var(--heading-font);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .hero-card-sub {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-sm);
+      font-family: var(--body-font);
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.38); }
+    .form-group select { color: rgba(255,255,255,0.7); }
+    .form-group select option { color: var(--ink); background: #fff; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.14);
+    }
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(232,168,48,0.35);
+    }
+    .form-submit:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(232,168,48,0.45);
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: var(--heading-font);
+      animation: scrollBounce 2.5s ease-in-out infinite;
+    }
+    .scroll-cue svg { opacity: 0.5; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* â”€â”€ TRUST BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .trust-bar {
+      background: var(--ink);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .trust-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.62);
+      white-space: nowrap;
+    }
+    .trust-item svg { color: var(--gold); flex-shrink: 0; }
+    .trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+
+    /* â”€â”€ SECTION LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    section { position: relative; }
+    .section-pad { padding: 100px 0; }
+    .section-pad-sm { padding: 72px 0; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--heading-font);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+    .section-label::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: normal; color: var(--teal); }
+
+    .section-body {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--grey-700);
+      max-width: 600px;
+    }
+
+    /* â”€â”€ ABOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #about { background: var(--off-white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      transform: translateY(-10px);
+    }
+    .about-photo-bg {
+      display: none;
+    }
+    .about-photo-accent {
+      display: none;
+    }
+    .about-photo {
+      position: relative;
+      z-index: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--teal-deep);
+    }
+    .about-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .about-photo-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+    }
+    .about-photo-badge .badge-name {
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .about-photo-badge .badge-role {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .about-text { }
+    .about-text .section-body { max-width: 100%; margin-bottom: 28px; }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .highlight-chip {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-100);
+    }
+    .highlight-chip .chip-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--teal-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--teal);
+    }
+    .highlight-chip .chip-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--teal);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .about-cta:hover { color: var(--teal-dark); border-color: var(--teal); }
+
+    /* â”€â”€ SERVICES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #services { background: var(--white); }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--grey-100);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--teal-light);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      margin-bottom: 20px;
+      transition: background 0.25s ease;
+    }
+    .service-card:hover .service-icon {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .service-title {
+      font-family: var(--heading-font);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .service-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--grey-700);
+      margin-bottom: 20px;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .service-tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* â”€â”€ PROCESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #process { background: var(--off-white); }
+
+    .process-header { text-align: center; margin-bottom: 64px; }
+    .process-header .section-label { justify-content: center; }
+    .process-header .section-body { margin: 0 auto; text-align: center; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1.5px;
+      background: linear-gradient(90deg, var(--teal-light), var(--gold), var(--teal-light));
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--heading-font);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      position: relative;
+    }
+    .process-step:hover .step-num {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+    .step-title {
+      font-family: var(--heading-font);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--grey-700);
+    }
+
+    /* â”€â”€ STATS BANNER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .stats-banner {
+      background: var(--teal);
+      padding: 60px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: var(--heading-font);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-num span { color: var(--gold); }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 auto;
+    }
+
+    /* â”€â”€ FAQ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #faq { background: var(--white); }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .faq-sidebar { position: sticky; top: 150px; }
+    .faq-sidebar .section-body { margin-bottom: 32px; }
+
+    .faq-sidebar-cta {
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--teal-light);
+    }
+    .faq-sidebar-cta p {
+      font-size: 14px;
+      color: var(--grey-700);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--grey-100);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--grey-100); }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      background: none;
+      text-align: left;
+      padding: 22px 0;
+      font-family: var(--heading-font);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .faq-q:hover { color: var(--teal); }
+    .faq-q.open { color: var(--teal); }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--grey-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s ease, transform 0.3s ease;
+    }
+    .faq-q.open .faq-icon {
+      background: var(--teal-pale);
+      transform: rotate(45deg);
+    }
+    .faq-icon svg { color: var(--grey-500); transition: color 0.2s; }
+    .faq-q.open .faq-icon svg { color: var(--teal); }
+
+    .faq-a {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--grey-700);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s ease, padding 0.28s ease, opacity 0.28s ease;
+      opacity: 0;
+      padding-bottom: 0;
+    }
+    .faq-a.open {
+      max-height: 400px;
+      opacity: 1;
+      padding-bottom: 22px;
+    }
+
+    /* â”€â”€ CTA SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .cta-section {
+      position: relative;
+      background: var(--teal-deep);
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(232,168,48,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(46,125,140,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cta-inner .section-label { justify-content: center; color: var(--gold); }
+    .cta-inner .section-label::before { background: var(--gold); }
+    .cta-title {
+      font-family: var(--heading-font);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .cta-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.68);
+      margin-bottom: 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-gold-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(232,168,48,0.4);
+      transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+    }
+    .btn-gold-solid:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(232,168,48,0.55);
+    }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 17px 32px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: border-color 0.22s ease, background 0.22s ease, transform 0.15s ease;
+    }
+    .btn-outline-white:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-1px);
+    }
+
+    /* â”€â”€ CONTACT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    #contact { background: var(--off-white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .contact-info .section-body { margin-bottom: 40px; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+    .contact-item-text .contact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-500);
+      margin-bottom: 3px;
+    }
+    .contact-item-text .contact-val {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .contact-item-text a { color: var(--teal); }
+    .contact-item-text a:hover { color: var(--teal-dark); text-decoration: underline; }
+
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--grey-100);
+    }
+    .contact-form-title {
+      font-family: var(--heading-font);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .cf-group { margin-bottom: 18px; }
+    .cf-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--grey-700);
+      margin-bottom: 7px;
+    }
+    .cf-group input,
+    .cf-group select,
+    .cf-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--grey-50);
+      border: 1.5px solid var(--grey-100);
+      border-radius: var(--radius-sm);
+      font-family: var(--body-font);
+      font-size: 14.5px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      -webkit-appearance: none;
+    }
+    .cf-group input:focus,
+    .cf-group select:focus,
+    .cf-group textarea:focus {
+      border-color: var(--teal);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(46,125,140,0.1);
+    }
+    .cf-group textarea { resize: vertical; min-height: 120px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cf-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(46,125,140,0.3);
+    }
+    .cf-submit:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(46,125,140,0.4);
+    }
+
+    /* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .site-footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand img { height: 38px; filter: brightness(0) invert(1); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13.5px; line-height: 1.7; }
+    .footer-col h4 {
+      font-family: var(--heading-font);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
+    }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .footer-lang {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .lang-btn {
+      font-family: var(--heading-font);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      background: transparent;
+    }
+    .lang-btn.active,
+    .lang-btn:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* â”€â”€ SOCIAL SIDEBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .social-sidebar {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 800;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .social-sidebar-link {
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      color: var(--grey-500);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--grey-100);
+    }
+    .social-sidebar-link:hover {
+      transform: translateX(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.16);
+    }
+    .social-sidebar-link.whatsapp:hover { background: #25D366; color: #fff; border-color: #25D366; }
+    .social-sidebar-link.instagram:hover { background: #E4405F; color: #fff; border-color: #E4405F; }
+    .social-sidebar-link.facebook:hover { background: #1877F2; color: #fff; border-color: #1877F2; }
+    .social-sidebar-link.linkedin:hover { background: #0A66C2; color: #fff; border-color: #0A66C2; }
+    @media (max-width: 768px) { .social-sidebar { display: none; } }
+
+    /* â”€â”€ ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* JS adds .js-ready to body; only then do reveals start hidden */
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-ready .reveal-delay-1 { transition-delay: 0.1s; }
+    .js-ready .reveal-delay-2 { transition-delay: 0.18s; }
+    .js-ready .reveal-delay-3 { transition-delay: 0.26s; }
+    .js-ready .reveal-delay-4 { transition-delay: 0.34s; }
+
+    /* â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .header-inner { padding: 0 24px; }
+      .section-pad { padding: 72px 0; }
+      .site-nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .hero-content .container { padding-top: 140px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary { width: 100%; max-width: 340px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo-wrap { max-width: 380px; margin: 0 auto; }
+      .about-highlights { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .faq-layout { grid-template-columns: 1fr; gap: 48px; }
+      .faq-sidebar { position: static; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .services-header { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- â”€â”€ TOP BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="mailto:mepuhrle@gmail.com" class="top-bar-contact">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          mepuhrle@gmail.com
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+64275505656" class="top-bar-contact">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0275 505 656
+        </a>
+        <div class="top-bar-divider"></div>
+        <div class="top-bar-socials" id="topBarSocials">
+          <a href="https://wa.me/64275505656" class="top-bar-social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="#" class="top-bar-social" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="top-bar-social" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="top-bar-social" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+        <div class="top-bar-divider"></div>
+        <div class="top-bar-lang">
+          <button class="topbar-lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+          <span class="topbar-lang-sep">|</span>
+          <button class="topbar-lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <header class="site-header at-top" id="siteHeader">
+    <div class="header-inner">
+      <a href="#" class="logo-wrap">
+        <img src="uhrle-logo.png" alt="Uhrle Immigration Law">
+      </a>
+      <nav class="site-nav" aria-label="NavegaciÃ³n principal">
+        <a href="#about" data-i18n="nav.about">Sobre MarÃ­a</a>
+        <a href="#services" data-i18n="nav.services">Servicios</a>
+        <a href="#process" data-i18n="nav.process">CÃ³mo trabajamos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+        <a href="consulta.html" class="nav-cta" data-i18n="nav.cta">Consulta gratuita</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="MenÃº" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#about" class="mobile-link" data-i18n="nav.about">Sobre MarÃ­a</a>
+    <a href="#services" class="mobile-link" data-i18n="nav.services">Servicios</a>
+    <a href="#process" class="mobile-link" data-i18n="nav.process">CÃ³mo trabajamos</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#contact" class="mobile-link" data-i18n="nav.contact">Contacto</a>
+    <a href="consulta.html" class="mobile-cta mobile-link" data-i18n="nav.cta">Consulta gratuita</a>
+  </div>
+
+  <!-- â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+      <div class="container">
+          <p class="hero-badge" data-i18n="hero.badge">Nelson, Nueva Zelanda</p>
+          <h1 class="hero-title" data-i18n-html="hero.title">
+            Tu camino migratorio,<br>
+            <em>con estrategia legal</em><br>
+            desde el inicio
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">
+            Te ayudo a convertir tu perfil en una oportunidad real en Nueva Zelanda, con claridad, respaldo legal y acompaÃ±amiento en todo el proceso.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              <span data-i18n="hero.btn1">EvaluÃ¡ tus opciones migratorias</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary" data-i18n="hero.btn2">
+              Agenda tu consulta gratuita de 15 minutos
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- â”€â”€ TRUST BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-i18n="trust.1">Regulada por NZ Law Society</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span data-i18n="trust.2">Consulta gratuita de 15 min</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span data-i18n="trust.3">AtenciÃ³n en EspaÃ±ol e InglÃ©s</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-i18n="trust.4">Experiencia migrante de primera mano</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="trust.5">Nelson, Nueva Zelanda</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- â”€â”€ ABOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo-bg"></div>
+          <div class="about-photo-accent"></div>
+          <div class="about-photo">
+            <img
+              src="maria-uhrle.png"
+              alt="MarÃ­a Uhrle â€” Abogada de InmigraciÃ³n"
+            >
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p class="section-label reveal" data-i18n="about.label">Sobre MarÃ­a</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n-html="about.title">
+            Una abogada que<br>
+            <em>viviÃ³ el proceso</em> migratorio
+          </h2>
+          <p class="section-body reveal reveal-delay-2" data-i18n="about.body1">
+            Nacida en Salta, Argentina, MarÃ­a emigrÃ³ a Nueva Zelanda y atravesÃ³ el proceso de reconocimiento de tÃ­tulo profesional desde adentro. Hoy, desde Nelson, ayuda a profesionales y familias latinoamericanas a navegar el sistema migratorio neozelandÃ©s con claridad y estrategia.
+          </p>
+          <p class="section-body reveal reveal-delay-2" style="margin-top: 16px;" data-i18n="about.body2">
+            Su experiencia en Nelson Bays Community Law, junto a su trabajo con la Cruz Roja y Multicultural Nelson Tasman, la posicionan como una referente cercana, comprometida y tÃ©cnicamente sÃ³lida.
+          </p>
+
+
+          <a href="#contact" class="about-cta reveal reveal-delay-3">
+            <span data-i18n="about.cta">ConocÃ© su historia completa</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â”€â”€ SERVICES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <p class="section-label reveal" data-i18n="services.label">Servicios legales</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n-html="services.title">
+            Estrategia legal para <em>cada etapa</em><br>
+            de tu camino migratorio
+          </h2>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <a href="#contact" class="about-cta">
+            <span data-i18n="services.viewall">Ver todos los servicios</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 14h4M8 10h8"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc1.title">Trabajar en Nueva Zelanda</h3>
+          <p class="service-desc" data-i18n="svc1.desc">Visa AEWV, cambios de empleador y condiciones de visa. Estrategia profesional para tu inserciÃ³n laboral con respaldo legal desde el primer dÃ­a.</p>
+          <div class="service-tags">
+            <span class="service-tag">AEWV</span>
+            <span class="service-tag" data-i18n="svc1.tag2">Cambio de empleador</span>
+            <span class="service-tag" data-i18n="svc1.tag3">Condiciones de visa</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc2.title">Estudiar y migrar</h3>
+          <p class="service-desc" data-i18n="svc2.desc">Visas de estudiante y trabajo post-estudio. PlanificaciÃ³n migratoria completa para quienes buscan construir su futuro en NZ desde los estudios.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="svc2.tag1">Visa de estudiante</span>
+            <span class="service-tag" data-i18n="svc2.tag2">Post-study work</span>
+            <span class="service-tag" data-i18n="svc2.tag3">Plan a largo plazo</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc3.title">Camino a la residencia</h3>
+          <p class="service-desc" data-i18n="svc3.desc">Residencia permanente, ciudadanÃ­a y estrategia legal personalizada para casos complejos. Tu futuro en NZ con una hoja de ruta clara.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="svc3.tag1">Residencia</span>
+            <span class="service-tag" data-i18n="svc3.tag2">CiudadanÃ­a</span>
+            <span class="service-tag" data-i18n="svc3.tag3">Casos complejos</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc4.title">Visas familiares y de pareja</h3>
+          <p class="service-desc" data-i18n="svc4.desc">ReunificaciÃ³n familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sÃ³lida.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="svc4.tag1">Visa de pareja</span>
+            <span class="service-tag" data-i18n="svc4.tag2">ReunificaciÃ³n familiar</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc5.title">Casos especiales y urgentes</h3>
+          <p class="service-desc" data-i18n="svc5.desc">SecciÃ³n 61 para personas sin visa vÃ¡lida, cartas PPI y representaciÃ³n estratÃ©gica ante INZ en situaciones que requieren atenciÃ³n inmediata.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="svc5.tag1">SecciÃ³n 61</span>
+            <span class="service-tag" data-i18n="svc5.tag2">Cartas PPI</span>
+            <span class="service-tag" data-i18n="svc5.tag3">RepresentaciÃ³n INZ</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2" style="background: linear-gradient(135deg, var(--teal-pale) 0%, var(--gold-light) 100%); border-color: var(--teal-light);">
+          <div class="service-icon" style="background: var(--white);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="service-title" data-i18n="svc6.title">Â¿No sabÃ©s por dÃ³nde empezar?</h3>
+          <p class="service-desc" data-i18n="svc6.desc">Una consulta inicial gratuita de 15 minutos para entender tu situaciÃ³n y orientarte hacia la estrategia correcta. Sin compromiso, con claridad.</p>
+          <a href="#contact" class="about-cta" style="margin-top: 8px; display: inline-flex;">
+            <span data-i18n="svc6.cta">AgendÃ¡ gratis</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â”€â”€ PROCESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section id="process" class="section-pad">
+    <div class="container">
+      <div class="process-header">
+        <p class="section-label reveal" data-i18n="process.label">CÃ³mo trabajamos</p>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n-html="process.title">Un proceso claro<br><em>en cuatro pasos</em></h2>
+        <p class="section-body reveal reveal-delay-2" data-i18n="process.sub">Sin tecnicismos innecesarios. Desde la primera consulta hasta el resultado final, sabÃ©s exactamente en quÃ© etapa estÃ¡s y quÃ© sigue.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <h3 class="step-title" data-i18n="step1.title">Consulta inicial gratuita</h3>
+          <p class="step-desc" data-i18n="step1.desc">15 minutos para entender tu situaciÃ³n, tus objetivos y ver si podemos trabajar juntos.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3 class="step-title" data-i18n="step2.title">EvaluaciÃ³n y estrategia</h3>
+          <p class="step-desc" data-i18n="step2.desc">AnÃ¡lisis detallado de tu caso y definiciÃ³n de la mejor estrategia migratoria (evaluaciÃ³n paga).</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3 class="step-title" data-i18n="step3.title">PreparaciÃ³n y presentaciÃ³n</h3>
+          <p class="step-desc" data-i18n="step3.desc">Preparamos toda la documentaciÃ³n y presentamos tu solicitud ante INZ con mÃ¡ximo rigor.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">04</div>
+          <h3 class="step-title" data-i18n="step4.title">Seguimiento continuo</h3>
+          <p class="step-desc" data-i18n="step4.desc">AcompaÃ±amiento hasta el resultado final, respondiendo consultas e imprevistos en el camino.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â”€â”€ STATS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <div class="stats-banner">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label" data-i18n="stat1.label">AtenciÃ³n personalizada</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-num">2<span>+</span></div>
+          <div class="stat-label" data-i18n="stat2.label">Idiomas de atenciÃ³n</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-num">15<span>min</span></div>
+          <div class="stat-label" data-i18n="stat3.label">Consulta gratuita</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-num">NZ<span></span></div>
+          <div class="stat-label">Law Society Regulated</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- â”€â”€ FAQ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section id="faq" class="section-pad">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-sidebar">
+          <p class="section-label reveal" data-i18n="faq.label">Preguntas frecuentes</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n-html="faq.title">Todo lo que<br>necesitÃ¡s <em>saber</em></h2>
+          <p class="section-body reveal reveal-delay-2" style="margin-bottom: 32px;" data-i18n="faq.sub">
+            El proceso migratorio genera muchas dudas. AcÃ¡ respondemos las mÃ¡s comunes. Si tu pregunta no estÃ¡, agendÃ¡ tu consulta gratuita.
+          </p>
+          <div class="faq-sidebar-cta reveal reveal-delay-3">
+            <p data-i18n="faq.sidecta.p">Â¿TenÃ©s una pregunta especÃ­fica? ConsultÃ¡ con MarÃ­a directamente, sin costo.</p>
+            <a href="#contact" class="about-cta">
+              <span data-i18n="faq.sidecta.btn">Consulta gratuita de 15 min</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q1">Â¿Necesito un abogado o alcanza con un immigration adviser?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a1">Ambos pueden presentar solicitudes de visa, pero un abogado tiene formaciÃ³n legal mÃ¡s amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversiÃ³n.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q2">Â¿Puedo aplicar desde fuera de Nueva Zelanda?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a2">SÃ­. Muchos de los servicios se pueden gestionar completamente en forma remota. La primera consulta y la evaluaciÃ³n se hacen vÃ­a videollamada, y la mayorÃ­a de las solicitudes se presentan online ante INZ. No necesitÃ¡s estar en NZ para comenzar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q3">Â¿QuÃ© pasa si ya me rechazaron una visa?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a3">Un rechazo no cierra todas las puertas. SegÃºn el tipo de visa y las razones del rechazo, puede haber opciones de apelaciÃ³n, nuevas solicitudes con mÃ¡s evidencia, o estrategias alternativas. Lo primero es analizar bien los motivos del rechazo antes de actuar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q4">Â¿CuÃ¡nto tiempo demora un proceso migratorio?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a4">Los tiempos varÃ­an mucho segÃºn el tipo de visa, la carga de trabajo de INZ y la complejidad del caso. Algunas visas de trabajo pueden resolverse en semanas; solicitudes de residencia pueden llevar meses. En la evaluaciÃ³n inicial, te damos un estimado realista para tu caso especÃ­fico.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q5">Â¿Los resultados estÃ¡n garantizados?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a5">NingÃºn profesional puede garantizar resultados en migraciÃ³n, ya que la decisiÃ³n final es de INZ. Lo que sÃ­ podÃ©s esperar es representaciÃ³n legal seria, honesta y estratÃ©gica. Si un caso no tiene buenas chances, te lo digo con claridad antes de avanzar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q6">Â¿CuÃ¡nto cuesta el servicio?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a6">Los honorarios son fijos o por hora segÃºn el tipo y complejidad de la visa. Los costos externos (tasas de INZ, traducciones, certificados) se cobran por separado. Tras la evaluaciÃ³n inicial, recibÃ­s una propuesta clara y sin sorpresas antes de comprometerte con nada.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q7">Â¿Ofrecen atenciÃ³n en espaÃ±ol?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a7">SÃ­, por supuesto. MarÃ­a atiende en espaÃ±ol e inglÃ©s. El objetivo es que puedas entender cada paso de tu proceso en tu idioma, sin barreras de comunicaciÃ³n que generen errores o malentendidos.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span data-i18n="faq.q8">Â¿QuÃ© es una carta PPI?</span>
+              <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-a" data-i18n="faq.a8">Una carta PPI (Potentially Prejudicial Information) es una comunicaciÃ³n de INZ indicando que encontraron informaciÃ³n que podrÃ­a afectar negativamente tu solicitud. Es una seÃ±al de alerta: necesitÃ¡s responder con precisiÃ³n y estrategia. No respondas solo, ya que tu respuesta puede definir el resultado final.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â”€â”€ CTA SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <p class="section-label reveal" data-i18n="cta.label">EmpezÃ¡ hoy</p>
+        <h2 class="cta-title reveal reveal-delay-1" data-i18n-html="cta.title">
+          Tu situaciÃ³n migratoria<br>merece una estrategia real
+        </h2>
+        <p class="cta-sub reveal reveal-delay-2" data-i18n="cta.sub">
+          No esperes a tener un problema para buscar asesoramiento. Una consulta hoy puede ahorrarte meses de incertidumbre y errores costosos.
+        </p>
+        <div class="cta-buttons reveal reveal-delay-3">
+          <a href="#contact" class="btn-gold-solid">
+            <span data-i18n="hero.btn1">EvaluÃ¡ tus opciones migratorias</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline-white" data-i18n="hero.btn2">
+            Agenda tu consulta gratuita de 15 minutos
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- â”€â”€ CONTACT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-label reveal" data-i18n="contact.label">Contacto</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n-html="contact.title">
+            Hablemos de<br><em>tu caso</em>
+          </h2>
+          <p class="section-body reveal reveal-delay-2" style="margin-bottom: 40px;" data-i18n="contact.sub">
+            CompletÃ¡ el formulario o escribime directamente. La primera consulta de 15 minutos es sin costo y sin compromiso â€” es para entender si podemos ayudarte.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item reveal reveal-delay-2">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label" data-i18n="contact.loc.label">UbicaciÃ³n</div>
+                <div class="contact-val" data-i18n-html="contact.loc.val">Nelson, Nueva Zelanda<br><small style="color: var(--grey-500); font-size: 13px;">AtenciÃ³n remota disponible para toda LATAM</small></div>
+              </div>
+            </div>
+            <div class="contact-item reveal reveal-delay-3">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label" data-i18n="contact.email.label">Email</div>
+                <div class="contact-val"><a href="mailto:maria@uhrlelaw.co.nz">maria@uhrlelaw.co.nz</a></div>
+              </div>
+            </div>
+            <div class="contact-item reveal reveal-delay-3">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <div class="contact-label" data-i18n="contact.lang.label">Idiomas</div>
+                <div class="contact-val" data-i18n="contact.lang.val">EspaÃ±ol Â· English</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <h3 class="contact-form-title" data-i18n="form.title">Agenda tu evaluaciÃ³n legal</h3>
+          <div class="cf-row">
+            <div class="cf-group">
+              <label data-i18n="form.firstname.label">Nombre</label>
+              <input type="text" data-i18n-placeholder="form.firstname.ph" placeholder="Tu nombre">
+            </div>
+            <div class="cf-group">
+              <label data-i18n="form.lastname.label">Apellido</label>
+              <input type="text" data-i18n-placeholder="form.lastname.ph" placeholder="Tu apellido">
+            </div>
+          </div>
+          <div class="cf-group">
+            <label data-i18n="form.email.label">Email</label>
+            <input type="email" placeholder="tu@email.com">
+          </div>
+          <div class="cf-group">
+            <label data-i18n="form.phone.label">WhatsApp / TelÃ©fono</label>
+            <input type="tel" data-i18n-placeholder="form.phone.ph" placeholder="+54 9 ...">
+          </div>
+          <div class="cf-group">
+            <label data-i18n="form.visatype.label">Â¿QuÃ© tipo de visa te interesa?</label>
+            <select>
+              <option value="" data-i18n="form.visatype.ph">SeleccionÃ¡ una opciÃ³n...</option>
+              <option data-i18n="form.visatype.opt1">Visa de trabajo (AEWV)</option>
+              <option data-i18n="form.visatype.opt2">Visa de estudiante</option>
+              <option data-i18n="form.visatype.opt3">Residencia permanente</option>
+              <option data-i18n="form.visatype.opt4">Visa familiar o de pareja</option>
+              <option data-i18n="form.visatype.opt5">Caso especial / urgente</option>
+              <option data-i18n="form.visatype.opt6">No sÃ© aÃºn, necesito orientaciÃ³n</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label data-i18n="form.situation.label">Contame brevemente tu situaciÃ³n</label>
+            <textarea data-i18n-placeholder="form.situation.ph" placeholder="Ej. Estoy en Argentina, tengo oferta de trabajo en NZ y quiero saber mis opciones..."></textarea>
+          </div>
+          <button class="cf-submit" data-i18n="form.submit">Enviar consulta â†’</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="uhrle-logo.png" alt="Uhrle Immigration Law">
+          <p data-i18n="footer.brand.p">Asesoramiento migratorio legal en Nueva Zelanda para profesionales y familias latinoamericanas. AtenciÃ³n en espaÃ±ol e inglÃ©s desde Nelson, NZ.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services.h">Servicios</h4>
+          <a href="#services" data-i18n="footer.services.1">Trabajar en NZ</a>
+          <a href="#services" data-i18n="footer.services.2">Estudiar y migrar</a>
+          <a href="#services" data-i18n="footer.services.3">Camino a la residencia</a>
+          <a href="#services" data-i18n="footer.services.4">Visas familiares</a>
+          <a href="#services" data-i18n="footer.services.5">Casos especiales</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.info.h">InformaciÃ³n</h4>
+          <a href="#about" data-i18n="footer.info.1">Sobre MarÃ­a Uhrle</a>
+          <a href="#process" data-i18n="footer.info.2">CÃ³mo trabajamos</a>
+          <a href="#faq" data-i18n="footer.info.3">Preguntas frecuentes</a>
+          <a href="#contact" data-i18n="footer.info.4">Costos y honorarios</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.h">Contacto</h4>
+          <a href="mailto:maria@uhrlelaw.co.nz">maria@uhrlelaw.co.nz</a>
+          <a href="#contact" data-i18n="footer.contact.2">Consulta gratuita</a>
+          <a href="#contact" data-i18n="footer.contact.3">Agenda tu evaluaciÃ³n</a>
+          <div style="margin-top: 16px;" class="footer-lang">
+            <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copy">Â© 2025 Uhrle Immigration Law. Todos los derechos reservados.</span>
+        <span>Regulada por <a href="#">NZ Law Society</a> Â· <a href="#" data-i18n="footer.privacy">Privacidad</a> Â· <a href="#" data-i18n="footer.terms">TÃ©rminos</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- â”€â”€ SCRIPTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+  <script>
+    // â”€â”€ Header scroll behavior â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const header = document.getElementById('siteHeader');
+      let ticking = false;
+
+      function updateHeader() {
+        if (window.scrollY > 60) {
+          header.classList.remove('at-top');
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+          header.classList.add('at-top');
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateHeader();
+    })();
+
+    // â”€â”€ Mobile menu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      let open = false;
+
+      function toggleMenu() {
+        open = !open;
+        hamburger.classList.toggle('open', open);
+        mobileMenu.classList.toggle('open', open);
+        mobileMenu.style.display = 'block';
+        hamburger.setAttribute('aria-expanded', open);
+        mobileMenu.setAttribute('aria-hidden', !open);
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      document.querySelectorAll('.mobile-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          open = false;
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+          mobileMenu.setAttribute('aria-hidden', true);
+        });
+      });
+    })();
+
+    // â”€â”€ Scroll reveal (IntersectionObserver) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const preview = new URLSearchParams(window.location.search).has('preview');
+
+      if (preview) {
+        // Instant reveal for screenshots/preview mode
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+
+      // Real users: animate on scroll
+      document.body.classList.add('js-ready');
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 160px 0px' });
+
+      reveals.forEach(function(el) { observer.observe(el); });
+
+      // Fallback: reveal remaining after 2s
+      setTimeout(function() {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      }, 2000);
+    })();
+
+    // â”€â”€ FAQ accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const answer = btn.nextElementSibling;
+          const isOpen = btn.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-q').forEach(function(b) {
+            b.classList.remove('open');
+            b.nextElementSibling.classList.remove('open');
+          });
+
+          // Open clicked if it was closed
+          if (!isOpen) {
+            btn.classList.add('open');
+            answer.classList.add('open');
+          }
+        });
+      });
+    })();
+
+    // â”€â”€ Hero background entrance â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const bg = document.getElementById('heroBg');
+      if (!bg) return;
+      setTimeout(function() { bg.classList.add('loaded'); }, 100);
+    })();
+
+    // â”€â”€ Language switcher â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const i18n = {
+        es: {
+          nav: { about: 'Sobre MarÃ­a', services: 'Servicios', process: 'CÃ³mo trabajamos', contact: 'Contacto', cta: 'Consulta gratuita' },
+          hero: {
+            badge: 'Nelson, Nueva Zelanda',
+            title: 'Tu camino migratorio,<br><em>con estrategia legal</em><br>desde el inicio',
+            sub: 'Te ayudo a convertir tu perfil en una oportunidad real en Nueva Zelanda, con claridad, respaldo legal y acompaÃ±amiento en todo el proceso.',
+            btn1: 'EvaluÃ¡ tus opciones migratorias',
+            btn2: 'Agenda tu consulta gratuita de 15 minutos'
+          },
+          trust: { 1: 'Regulada por NZ Law Society', 2: 'Consulta gratuita de 15 min', 3: 'AtenciÃ³n en EspaÃ±ol e InglÃ©s', 4: 'Experiencia migrante de primera mano', 5: 'Nelson, Nueva Zelanda' },
+          about: {
+            label: 'Sobre MarÃ­a',
+            title: 'Una abogada que<br><em>viviÃ³ el proceso</em> migratorio',
+            body1: 'Nacida en Salta, Argentina, MarÃ­a emigrÃ³ a Nueva Zelanda y atravesÃ³ el proceso de reconocimiento de tÃ­tulo profesional desde adentro. Hoy, desde Nelson, ayuda a profesionales y familias latinoamericanas a navegar el sistema migratorio neozelandÃ©s con claridad y estrategia.',
+            body2: 'Su experiencia en Nelson Bays Community Law, junto a su trabajo con la Cruz Roja y Multicultural Nelson Tasman, la posicionan como una referente cercana, comprometida y tÃ©cnicamente sÃ³lida.',
+            cta: 'ConocÃ© su historia completa'
+          },
+          services: { label: 'Servicios legales', title: 'Estrategia legal para <em>cada etapa</em><br>de tu camino migratorio', viewall: 'Ver todos los servicios' },
+          svc1: { title: 'Trabajar en Nueva Zelanda', desc: 'Visa AEWV, cambios de empleador y condiciones de visa. Estrategia profesional para tu inserciÃ³n laboral con respaldo legal desde el primer dÃ­a.', tag2: 'Cambio de empleador', tag3: 'Condiciones de visa' },
+          svc2: { title: 'Estudiar y migrar', desc: 'Visas de estudiante y trabajo post-estudio. PlanificaciÃ³n migratoria completa para quienes buscan construir su futuro en NZ desde los estudios.', tag1: 'Visa de estudiante', tag2: 'Post-study work', tag3: 'Plan a largo plazo' },
+          svc3: { title: 'Camino a la residencia', desc: 'Residencia permanente, ciudadanÃ­a y estrategia legal personalizada para casos complejos. Tu futuro en NZ con una hoja de ruta clara.', tag1: 'Residencia', tag2: 'CiudadanÃ­a', tag3: 'Casos complejos' },
+          svc4: { title: 'Visas familiares y de pareja', desc: 'ReunificaciÃ³n familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sÃ³lida.', tag1: 'Visa de pareja', tag2: 'ReunificaciÃ³n familiar' },
+          svc5: { title: 'Casos especiales y urgentes', desc: 'SecciÃ³n 61 para personas sin visa vÃ¡lida, cartas PPI y representaciÃ³n estratÃ©gica ante INZ en situaciones que requieren atenciÃ³n inmediata.', tag1: 'SecciÃ³n 61', tag2: 'Cartas PPI', tag3: 'RepresentaciÃ³n INZ' },
+          svc6: { title: 'Â¿No sabÃ©s por dÃ³nde empezar?', desc: 'Una consulta inicial gratuita de 15 minutos para entender tu situaciÃ³n y orientarte hacia la estrategia correcta. Sin compromiso, con claridad.', cta: 'AgendÃ¡ gratis' },
+          process: { label: 'CÃ³mo trabajamos', title: 'Un proceso claro<br><em>en cuatro pasos</em>', sub: 'Sin tecnicismos innecesarios. Desde la primera consulta hasta el resultado final, sabÃ©s exactamente en quÃ© etapa estÃ¡s y quÃ© sigue.' },
+          step1: { title: 'Consulta inicial gratuita', desc: '15 minutos para entender tu situaciÃ³n, tus objetivos y ver si podemos trabajar juntos.' },
+          step2: { title: 'EvaluaciÃ³n y estrategia', desc: 'AnÃ¡lisis detallado de tu caso y definiciÃ³n de la mejor estrategia migratoria (evaluaciÃ³n paga).' },
+          step3: { title: 'PreparaciÃ³n y presentaciÃ³n', desc: 'Preparamos toda la documentaciÃ³n y presentamos tu solicitud ante INZ con mÃ¡ximo rigor.' },
+          step4: { title: 'Seguimiento continuo', desc: 'AcompaÃ±amiento hasta el resultado final, respondiendo consultas e imprevistos en el camino.' },
+          stat1: { label: 'AtenciÃ³n personalizada' }, stat2: { label: 'Idiomas de atenciÃ³n' }, stat3: { label: 'Consulta gratuita' },
+          faq: {
+            label: 'Preguntas frecuentes',
+            title: 'Todo lo que<br>necesitÃ¡s <em>saber</em>',
+            sub: 'El proceso migratorio genera muchas dudas. AcÃ¡ respondemos las mÃ¡s comunes. Si tu pregunta no estÃ¡, agendÃ¡ tu consulta gratuita.',
+            sidecta: { p: 'Â¿TenÃ©s una pregunta especÃ­fica? ConsultÃ¡ con MarÃ­a directamente, sin costo.', btn: 'Consulta gratuita de 15 min' },
+            q1: 'Â¿Necesito un abogado o alcanza con un immigration adviser?',
+            a1: 'Ambos pueden presentar solicitudes de visa, pero un abogado tiene formaciÃ³n legal mÃ¡s amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversiÃ³n.',
+            q2: 'Â¿Puedo aplicar desde fuera de Nueva Zelanda?',
+            a2: 'SÃ­. Muchos de los servicios se pueden gestionar completamente en forma remota. La primera consulta y la evaluaciÃ³n se hacen vÃ­a videollamada, y la mayorÃ­a de las solicitudes se presentan online ante INZ. No necesitÃ¡s estar en NZ para comenzar.',
+            q3: 'Â¿QuÃ© pasa si ya me rechazaron una visa?',
+            a3: 'Un rechazo no cierra todas las puertas. SegÃºn el tipo de visa y las razones del rechazo, puede haber opciones de apelaciÃ³n, nuevas solicitudes con mÃ¡s evidencia, o estrategias alternativas. Lo primero es analizar bien los motivos del rechazo antes de actuar.',
+            q4: 'Â¿CuÃ¡nto tiempo demora un proceso migratorio?',
+            a4: 'Los tiempos varÃ­an mucho segÃºn el tipo de visa, la carga de trabajo de INZ y la complejidad del caso. Algunas visas de trabajo pueden resolverse en semanas; solicitudes de residencia pueden llevar meses. En la evaluaciÃ³n inicial, te damos un estimado realista para tu caso especÃ­fico.',
+            q5: 'Â¿Los resultados estÃ¡n garantizados?',
+            a5: 'NingÃºn profesional puede garantizar resultados en migraciÃ³n, ya que la decisiÃ³n final es de INZ. Lo que sÃ­ podÃ©s esperar es representaciÃ³n legal seria, honesta y estratÃ©gica. Si un caso no tiene buenas chances, te lo digo con claridad antes de avanzar.',
+            q6: 'Â¿CuÃ¡nto cuesta el servicio?',
+            a6: 'Los honorarios son fijos o por hora segÃºn el tipo y complejidad de la visa. Los costos externos (tasas de INZ, traducciones, certificados) se cobran por separado. Tras la evaluaciÃ³n inicial, recibÃ­s una propuesta clara y sin sorpresas antes de comprometerte con nada.',
+            q7: 'Â¿Ofrecen atenciÃ³n en espaÃ±ol?',
+            a7: 'SÃ­, por supuesto. MarÃ­a atiende en espaÃ±ol e inglÃ©s. El objetivo es que puedas entender cada paso de tu proceso en tu idioma, sin barreras de comunicaciÃ³n que generen errores o malentendidos.',
+            q8: 'Â¿QuÃ© es una carta PPI?',
+            a8: 'Una carta PPI (Potentially Prejudicial Information) es una comunicaciÃ³n de INZ indicando que encontraron informaciÃ³n que podrÃ­a afectar negativamente tu solicitud. Es una seÃ±al de alerta: necesitÃ¡s responder con precisiÃ³n y estrategia. No respondas solo, ya que tu respuesta puede definir el resultado final.'
+          },
+          cta: { label: 'EmpezÃ¡ hoy', title: 'Tu situaciÃ³n migratoria<br>merece una estrategia real', sub: 'No esperes a tener un problema para buscar asesoramiento. Una consulta hoy puede ahorrarte meses de incertidumbre y errores costosos.' },
+          contact: {
+            label: 'Contacto',
+            title: 'Hablemos de<br><em>tu caso</em>',
+            sub: 'CompletÃ¡ el formulario o escribime directamente. La primera consulta de 15 minutos es sin costo y sin compromiso â€” es para entender si podemos ayudarte.',
+            loc: { label: 'UbicaciÃ³n', val: 'Nelson, Nueva Zelanda<br><small style="color:var(--grey-500);font-size:13px;">AtenciÃ³n remota disponible para toda LATAM</small>' },
+            email: { label: 'Email' },
+            lang: { label: 'Idiomas', val: 'EspaÃ±ol Â· English' }
+          },
+          form: {
+            title: 'Agenda tu evaluaciÃ³n legal',
+            firstname: { label: 'Nombre', ph: 'Tu nombre' },
+            lastname: { label: 'Apellido', ph: 'Tu apellido' },
+            email: { label: 'Email' },
+            phone: { label: 'WhatsApp / TelÃ©fono', ph: '+54 9 ...' },
+            visatype: { label: 'Â¿QuÃ© tipo de visa te interesa?', ph: 'SeleccionÃ¡ una opciÃ³n...', opt1: 'Visa de trabajo (AEWV)', opt2: 'Visa de estudiante', opt3: 'Residencia permanente', opt4: 'Visa familiar o de pareja', opt5: 'Caso especial / urgente', opt6: 'No sÃ© aÃºn, necesito orientaciÃ³n' },
+            situation: { label: 'Contame brevemente tu situaciÃ³n', ph: 'Ej. Estoy en Argentina, tengo oferta de trabajo en NZ y quiero saber mis opciones...' },
+            submit: 'Enviar consulta â†’'
+          },
+          footer: {
+            brand: { p: 'Asesoramiento migratorio legal en Nueva Zelanda para profesionales y familias latinoamericanas. AtenciÃ³n en espaÃ±ol e inglÃ©s desde Nelson, NZ.' },
+            services: { h: 'Servicios', 1: 'Trabajar en NZ', 2: 'Estudiar y migrar', 3: 'Camino a la residencia', 4: 'Visas familiares', 5: 'Casos especiales' },
+            info: { h: 'InformaciÃ³n', 1: 'Sobre MarÃ­a Uhrle', 2: 'CÃ³mo trabajamos', 3: 'Preguntas frecuentes', 4: 'Costos y honorarios' },
+            contact: { h: 'Contacto', 2: 'Consulta gratuita', 3: 'Agenda tu evaluaciÃ³n' },
+            copy: 'Â© 2025 Uhrle Immigration Law. Todos los derechos reservados.',
+            privacy: 'Privacidad', terms: 'TÃ©rminos'
+          }
+        },
+        en: {
+          nav: { about: 'About MarÃ­a', services: 'Services', process: 'How We Work', contact: 'Contact', cta: 'Free Consultation' },
+          hero: {
+            badge: 'Nelson, New Zealand',
+            title: 'Your immigration journey,<br><em>with legal strategy</em><br>from the very start',
+            sub: 'I help you turn your profile into a real opportunity in New Zealand â€” with clarity, legal support, and guidance every step of the way.',
+            btn1: 'Explore your immigration options',
+            btn2: 'Book your free 15-minute consultation'
+          },
+          trust: { 1: 'Regulated by NZ Law Society', 2: 'Free 15-min consultation', 3: 'Service in Spanish & English', 4: 'First-hand immigrant experience', 5: 'Nelson, New Zealand' },
+          about: {
+            label: 'About MarÃ­a',
+            title: 'A lawyer who<br><em>lived the process</em> herself',
+            body1: 'Born in Salta, Argentina, MarÃ­a immigrated to New Zealand and went through the professional title recognition process first-hand. Now based in Nelson, she helps Latin American professionals and families navigate the New Zealand immigration system with clarity and strategy.',
+            body2: 'Her experience at Nelson Bays Community Law, alongside her work with the Red Cross and Multicultural Nelson Tasman, positions her as a knowledgeable, committed, and technically strong advocate.',
+            cta: 'Read her full story'
+          },
+          services: { label: 'Legal Services', title: 'Legal strategy for <em>every stage</em><br>of your immigration journey', viewall: 'View all services' },
+          svc1: { title: 'Work in New Zealand', desc: 'AEWV visa, employer changes, and visa conditions. Professional strategy for your career in NZ with legal backing from day one.', tag2: 'Employer change', tag3: 'Visa conditions' },
+          svc2: { title: 'Study & migrate', desc: 'Student visas and post-study work visas. Complete immigration planning for those looking to build their future in NZ through study.', tag1: 'Student visa', tag2: 'Post-study work', tag3: 'Long-term plan' },
+          svc3: { title: 'Path to residency', desc: 'Permanent residency, citizenship, and personalised legal strategy for complex cases. Your future in NZ with a clear roadmap.', tag1: 'Residency', tag2: 'Citizenship', tag3: 'Complex cases' },
+          svc4: { title: 'Family & partner visas', desc: 'Family reunification and partner visas (genuine and stable relationships). I help you document and present your case solidly.', tag1: 'Partner visa', tag2: 'Family reunification' },
+          svc5: { title: 'Special & urgent cases', desc: 'Section 61 for people without a valid visa, PPI letters, and strategic representation before INZ in situations requiring immediate attention.', tag1: 'Section 61', tag2: 'PPI letters', tag3: 'INZ representation' },
+          svc6: { title: 'Not sure where to start?', desc: 'A free 15-minute initial consultation to understand your situation and point you toward the right strategy. No commitment, just clarity.', cta: 'Book for free' },
+          process: { label: 'How We Work', title: 'A clear process<br><em>in four steps</em>', sub: 'No unnecessary jargon. From the first consultation to the final outcome, you always know exactly where you are and what comes next.' },
+          step1: { title: 'Free initial consultation', desc: '15 minutes to understand your situation, your goals, and whether we can work together.' },
+          step2: { title: 'Assessment & strategy', desc: 'Detailed analysis of your case and definition of the best immigration strategy (paid assessment).' },
+          step3: { title: 'Preparation & submission', desc: 'We prepare all documentation and submit your application to INZ with the utmost rigour.' },
+          step4: { title: 'Ongoing follow-up', desc: 'Support through to the final outcome, addressing queries and unexpected developments along the way.' },
+          stat1: { label: 'Personalised service' }, stat2: { label: 'Languages of service' }, stat3: { label: 'Free consultation' },
+          faq: {
+            label: 'Frequently Asked Questions',
+            title: 'Everything you<br>need to <em>know</em>',
+            sub: 'Immigration raises many questions. Here we answer the most common ones. If yours isn\'t here, book your free consultation.',
+            sidecta: { p: 'Have a specific question? Ask MarÃ­a directly, at no cost.', btn: 'Free 15-min consultation' },
+            q1: 'Do I need a lawyer or is an immigration adviser enough?',
+            a1: 'Both can file visa applications, but a lawyer has broader legal training and can represent you in complex situations, appeals, or cases with a history of refusals. If your case is straightforward, an adviser may be sufficient. If there are complications, a lawyer is the better investment.',
+            q2: 'Can I apply from outside New Zealand?',
+            a2: 'Yes. Many services can be managed entirely remotely. The initial consultation and assessment are done via video call, and most applications are submitted online to INZ. You don\'t need to be in NZ to get started.',
+            q3: 'What if I\'ve already had a visa refused?',
+            a3: 'A refusal doesn\'t close all doors. Depending on the visa type and reasons for refusal, there may be options for appeal, new applications with stronger evidence, or alternative strategies. The first step is to carefully analyse the reasons for the refusal before acting.',
+            q4: 'How long does an immigration process take?',
+            a4: 'Timelines vary greatly depending on the visa type, INZ workload, and case complexity. Some work visas can be resolved in weeks; residency applications can take months. At the initial assessment, we give you a realistic estimate for your specific case.',
+            q5: 'Are results guaranteed?',
+            a5: 'No professional can guarantee immigration outcomes, as the final decision rests with INZ. What you can expect is serious, honest, and strategic legal representation. If a case has poor prospects, I will tell you clearly before proceeding.',
+            q6: 'How much does the service cost?',
+            a6: 'Fees are fixed or hourly depending on the visa type and complexity. External costs (INZ fees, translations, certificates) are charged separately. After the initial assessment, you receive a clear, no-surprise proposal before committing to anything.',
+            q7: 'Do you offer service in Spanish?',
+            a7: 'Yes, absolutely. MarÃ­a works in both Spanish and English. The goal is for you to understand every step of your process in your language, without communication barriers that could lead to mistakes or misunderstandings.',
+            q8: 'What is a PPI letter?',
+            a8: 'A PPI (Potentially Prejudicial Information) letter is a communication from INZ indicating that they have found information that could negatively affect your application. It is a warning: you need to respond with precision and strategy. Don\'t respond alone â€” your reply can determine the final outcome.'
+          },
+          cta: { label: 'Start today', title: 'Your immigration situation<br>deserves a real strategy', sub: 'Don\'t wait for a problem before seeking advice. A consultation today can save you months of uncertainty and costly mistakes.' },
+          contact: {
+            label: 'Contact',
+            title: 'Let\'s talk about<br><em>your case</em>',
+            sub: 'Fill in the form or write to me directly. The first 15-minute consultation is free and no-obligation â€” it\'s to understand if we can help you.',
+            loc: { label: 'Location', val: 'Nelson, New Zealand<br><small style="color:var(--grey-500);font-size:13px;">Remote service available across Latin America</small>' },
+            email: { label: 'Email' },
+            lang: { label: 'Languages', val: 'Spanish Â· English' }
+          },
+          form: {
+            title: 'Book your legal assessment',
+            firstname: { label: 'First name', ph: 'Your first name' },
+            lastname: { label: 'Last name', ph: 'Your last name' },
+            email: { label: 'Email' },
+            phone: { label: 'WhatsApp / Phone', ph: '+64 ...' },
+            visatype: { label: 'What type of visa are you interested in?', ph: 'Select an option...', opt1: 'Work visa (AEWV)', opt2: 'Student visa', opt3: 'Permanent residency', opt4: 'Family or partner visa', opt5: 'Special / urgent case', opt6: 'Not sure yet, I need guidance' },
+            situation: { label: 'Tell me briefly about your situation', ph: 'e.g. I\'m in Argentina, I have a job offer in NZ and I want to know my options...' },
+            submit: 'Send enquiry â†’'
+          },
+          footer: {
+            brand: { p: 'Legal immigration advice in New Zealand for Latin American professionals and families. Service in Spanish and English from Nelson, NZ.' },
+            services: { h: 'Services', 1: 'Work in NZ', 2: 'Study & migrate', 3: 'Path to residency', 4: 'Family visas', 5: 'Special cases' },
+            info: { h: 'Information', 1: 'About MarÃ­a Uhrle', 2: 'How We Work', 3: 'Frequently Asked Questions', 4: 'Costs & Fees' },
+            contact: { h: 'Contact', 2: 'Free consultation', 3: 'Book your assessment' },
+            copy: 'Â© 2025 Uhrle Immigration Law. All rights reserved.',
+            privacy: 'Privacy', terms: 'Terms'
+          }
+        }
+      };
+
+      function resolve(obj, key) {
+        return key.split('.').reduce(function(o, k) { return o && o[k]; }, obj);
+      }
+
+      window.setLang = function(lang) {
+        var t = i18n[lang];
+        if (!t) return;
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var val = resolve(t, el.dataset.i18n);
+          if (val !== undefined) el.textContent = val;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+          var val = resolve(t, el.dataset.i18nHtml);
+          if (val !== undefined) el.innerHTML = val;
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+          var val = resolve(t, el.dataset.i18nPlaceholder);
+          if (val !== undefined) el.placeholder = val;
+        });
+        document.querySelectorAll('.topbar-lang-btn, .lang-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        localStorage.setItem('uhrle-lang', lang);
+        document.documentElement.lang = lang;
+      };
+
+      // Auto-detect: saved preference â†’ NZ timezone â†’ Spanish
+      var saved = localStorage.getItem('uhrle-lang');
+      if (saved && i18n[saved]) {
+        setLang(saved);
+      } else {
+        var tz = '';
+        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch(e) {}
+        setLang(tz === 'Pacific/Auckland' ? 'en' : 'es');
+      }
+    })();
+
+    // â”€â”€ Active nav highlight on scroll â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    (function() {
+      const sections = document.querySelectorAll('section[id], div[id="home"]');
+      const navLinks = document.querySelectorAll('.site-nav a:not(.nav-cta)');
+
+      window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(function(section) {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(function(link) {
+          link.style.opacity = '1';
+          if (link.getAttribute('href') === '#' + current) {
+            link.style.color = '';
+          }
+        });
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
