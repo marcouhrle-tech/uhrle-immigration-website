@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NZ Solar Web Design — Free Websites for Solar Installers</title>
-  <meta name="description" content="NZ Solar Web Design builds free, high-converting websites for solar panel installers across New Zealand. Local SEO included. No upfront cost." />
+  <title>Solar Web — Website Studio for NZ Local Businesses</title>
+  <meta name="description" content="We build free websites for NZ local businesses. Tradespeople, builders, plumbers, electricians — get a high-converting site with local SEO. Only pay if you love it." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Design tokens (matched to reference CSS) ─── */
     :root {
       --color-bg: #ffffff;
       --color-bg-alt: #f8f8f7;
@@ -22,7 +21,6 @@
       --color-accent-hover: #333333;
       --color-highlight: #f0f0f0;
       --color-success: #16a34a;
-      --color-popular: #111111;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --radius-sm: 6px;
       --radius-md: 12px;
@@ -36,640 +34,219 @@
       --transition: 0.2s ease;
       --transition-slow: 0.4s ease;
     }
-    @media (max-width: 768px) {
-      :root { --section-padding: 56px 20px; }
-    }
-    @media (max-width: 480px) {
-      :root { --section-padding: 48px 16px; }
-    }
+    @media (max-width: 768px) { :root { --section-padding: 56px 20px; } }
+    @media (max-width: 480px) { :root { --section-padding: 48px 16px; } }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-text-size-adjust: 100%;
-      overflow-x: hidden;
-    }
-
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
     body {
       font-family: var(--font-sans);
       background: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
+    h1, h2, h3, h4, h5, h6 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--color-text); }
 
-    h1, h2, h3, h4, h5, h6 {
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-      color: var(--color-text);
-    }
-
-    /* ─── Noise overlay ─── */
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.018;
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999; opacity: 0.018;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ─── Utilities ─── */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .section { padding: var(--section-padding); }
     .section-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-bottom: 12px;
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--color-text-muted); margin-bottom: 12px;
     }
     .section-title {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px;
     }
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--color-text-muted);
-      line-height: 1.7;
-      max-width: 52ch;
-    }
+    .section-sub { font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.7; max-width: 52ch; }
 
-    /* ─── Buttons ─── */
+    /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 12px 22px;
-      border-radius: var(--radius-sm);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; font-family: var(--font-sans); font-weight: 600;
+      font-size: 0.9rem; padding: 12px 22px; border-radius: var(--radius-sm);
+      border: none; cursor: pointer; text-decoration: none;
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
-      letter-spacing: -0.01em;
-      white-space: nowrap;
+      letter-spacing: -0.01em; white-space: nowrap;
     }
     .btn:active { transform: scale(0.98); }
-    .btn-dark {
-      background: var(--color-accent);
-      color: #fff;
-    }
-    .btn-dark:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--color-text);
-      border: 1.5px solid var(--color-border);
-    }
-    .btn-outline:hover {
-      border-color: #bbb;
-      background: var(--color-bg-alt);
-    }
-    .btn-outline-light {
-      background: transparent;
-      color: rgba(255,255,255,0.8);
-      border: 1.5px solid rgba(255,255,255,0.2);
-    }
-    .btn-outline-light:hover {
-      border-color: rgba(255,255,255,0.5);
-      color: #fff;
-      background: rgba(255,255,255,0.06);
-    }
-    .btn-yellow {
-      background: #F5C518;
-      color: #111;
-    }
-    .btn-yellow:hover {
-      background: #e8b800;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(245,197,24,0.35);
-    }
+    .btn-dark { background: var(--color-accent); color: #fff; }
+    .btn-dark:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn-outline { background: transparent; color: var(--color-text); border: 1.5px solid var(--color-border); }
+    .btn-outline:hover { border-color: #bbb; background: var(--color-bg-alt); }
+    .btn-outline-light { background: transparent; color: rgba(255,255,255,0.8); border: 1.5px solid rgba(255,255,255,0.2); }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; background: rgba(255,255,255,0.06); }
+    .btn-yellow { background: #F5C518; color: #111; }
+    .btn-yellow:hover { background: #e8b800; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(245,197,24,0.35); }
 
-    /* ─── NAV ─── */
+    /* Nav */
     .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      height: var(--nav-height);
-      display: flex;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-height); display: flex; align-items: center;
       padding: 0 24px;
       transition: background var(--transition-slow), box-shadow var(--transition-slow);
     }
     .nav.scrolled {
       background: rgba(10,10,10,0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 1px 0 rgba(255,255,255,0.07);
     }
     .nav-inner {
-      max-width: var(--max-width);
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: var(--max-width); width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: -0.02em;
-    }
-    .nav-logo-mark {
-      width: 30px; height: 30px;
-      background: #fff;
-      border-radius: 7px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color var(--transition); }
     .nav-links a:hover { color: #fff; }
     .nav-cta { margin-left: 8px; }
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.8);
-      cursor: pointer;
-      padding: 4px;
-    }
+    .hamburger { display: none; background: none; border: none; color: rgba(255,255,255,0.8); cursor: pointer; padding: 4px; }
     #mobile-menu {
-      display: none;
-      position: fixed;
+      display: none; position: fixed;
       top: var(--nav-height); left: 0; right: 0;
-      background: rgba(10,10,10,0.97);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 20px 24px 28px;
-      z-index: 99;
+      background: rgba(10,10,10,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 20px 24px 28px; z-index: 99;
       border-top: 1px solid rgba(255,255,255,0.07);
     }
     #mobile-menu.open { display: block; }
     #mobile-menu a {
-      display: block;
-      padding: 12px 0;
-      font-size: 1rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
+      display: block; padding: 12px 0; font-size: 1rem; font-weight: 500;
+      color: rgba(255,255,255,0.7); text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.07);
       transition: color var(--transition);
     }
     #mobile-menu a:hover { color: #fff; }
     #mobile-menu .btn { margin-top: 16px; width: 100%; justify-content: center; }
-    #mobile-menu .btn-yellow { color: #111 !important; font-size: 1rem; padding: 14px 24px; font-weight: 700; }
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-cta { font-size: 0.7rem; padding: 6px 10px; white-space: nowrap; }
-      .hamburger { display: block; }
-      .nav-logo { white-space: nowrap; }
-    }
+    @media (max-width: 900px) { .nav-links, .nav-cta { display: none; } .hamburger { display: block; } }
 
-    /* ─── HERO ─── */
+    /* Hero */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      min-height: 100vh; display: flex; align-items: center;
       padding-top: var(--nav-height);
-      background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 50%, #222222 100%);
-      position: relative;
-      overflow: hidden;
-      color: #fff;
+      background: url('sunset.jpeg') center center / cover no-repeat;
+      position: relative; overflow: hidden; color: #fff;
     }
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 55% 65% at 72% 38%, rgba(255,255,255,0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 45% at 85% 70%, rgba(255,255,255,0.025) 0%, transparent 55%);
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.60);
       pointer-events: none;
     }
     .hero h1, .hero h2, .hero h3, .hero h4 { color: #fff; }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
-    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    @media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; } }
     .hero-title {
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      color: #fff;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px; color: #fff;
     }
-    @media (max-width: 768px) {
-      .hero-title { font-size: 2.4rem !important; }
-    }
-    .hero-title .highlight {
-      color: rgba(255,255,255,0.45);
-    }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-      max-width: 44ch;
-      margin-bottom: 32px;
-    }
+    @media (max-width: 768px) { .hero-title { font-size: 2.4rem !important; } }
+    .hero-title .highlight { color: rgba(255,255,255,0.45); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 44ch; margin-bottom: 32px; }
     @media (max-width: 1024px) { .hero-sub { margin: 0 auto 32px; } }
-    .hero-stats {
-      display: flex;
-      gap: 28px;
-      margin-bottom: 36px;
-    }
-    @media (max-width: 1024px) { .hero-stats { justify-content: center; } }
-    .hero-stat-num {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-    .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
-    .hero-divider { width: 1px; background: rgba(255,255,255,0.12); align-self: stretch; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
     @media (max-width: 1024px) { .hero-actions { justify-content: center; } }
     .hero-note { margin-top: 14px; font-size: 0.76rem; color: rgba(255,255,255,0.35); }
     @media (max-width: 1024px) { .hero-note { text-align: center; } }
 
-    /* ─── BROWSER MOCKUP ─── */
-    .mockup-wrap {
-      transform: perspective(1400px) rotateY(-8deg) rotateX(2deg);
-      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
-      will-change: transform;
-    }
-    .mockup-wrap:hover { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
-    .browser {
-      background: #1c1c1c;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.08),
-        0 32px 80px rgba(0,0,0,0.6),
-        0 8px 24px rgba(0,0,0,0.4);
-    }
-    .browser-bar {
-      background: #1c1c1c;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .browser-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .browser-url {
-      flex: 1;
-      height: 22px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 4px;
-      display: flex; align-items: center;
-      padding: 0 10px;
-      font-size: 10px;
-      color: rgba(255,255,255,0.35);
-    }
-    .browser-body { overflow: hidden; }
-
-    /* Mock site inside browser */
-    .mock-site { background: #0d0d0d; }
-    .mock-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .mock-logo { font-weight: 900; font-size: 0.85rem; color: #fff; letter-spacing: -0.03em; }
-    .mock-cta {
-      background: #fff; color: #111;
-      font-size: 0.58rem; font-weight: 700;
-      padding: 5px 12px; border-radius: 4px;
-    }
-    .mock-hero {
-      padding: 22px 18px;
-      background: linear-gradient(135deg, #141414 0%, #1e1e1e 100%);
-    }
-    .mock-badge {
-      display: inline-flex; align-items: center; gap: 5px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; padding: 3px 10px;
-      font-size: 0.55rem; color: rgba(255,255,255,0.5);
-      margin-bottom: 10px;
-    }
-    .mock-h1 {
-      font-size: 1.35rem; font-weight: 900;
-      color: #fff; letter-spacing: -0.04em; line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .mock-sub { font-size: 0.6rem; color: rgba(255,255,255,0.45); line-height: 1.5; margin-bottom: 12px; max-width: 26ch; }
-    .mock-btns { display: flex; gap: 6px; margin-bottom: 16px; }
-    .mock-btn-p { background: #fff; color: #111; font-size: 0.58rem; font-weight: 700; padding: 6px 12px; border-radius: 4px; }
-    .mock-btn-s { border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); font-size: 0.58rem; padding: 6px 12px; border-radius: 4px; }
-    .mock-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; }
-    .mock-card {
-      border-radius: 5px; aspect-ratio: 4/3;
-      display: flex; align-items: flex-end; padding: 6px;
-    }
-    .mock-card span { font-size: 0.48rem; font-weight: 700; color: rgba(255,255,255,0.7); }
-    .mock-stats {
-      display: flex; gap: 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .mock-stat {
-      flex: 1; text-align: center; padding: 10px 0;
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-    .mock-stat:last-child { border-right: none; }
-    .mock-stat-n { font-size: 0.75rem; font-weight: 800; color: #fff; }
-    .mock-stat-l { font-size: 0.48rem; color: rgba(255,255,255,0.35); }
-
-    /* ─── TRUST BADGE (hero) ─── */
+    /* Trust badge */
     .trust-badge {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 0.78rem; font-weight: 600;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 20px;
+      color: rgba(255,255,255,0.65); margin-bottom: 20px;
     }
     .trust-dot {
       width: 7px; height: 7px; border-radius: 50%;
-      background: #4ade80;
-      animation: pulse 2s infinite;
-      flex-shrink: 0;
+      background: #4ade80; animation: pulse 2s infinite; flex-shrink: 0;
     }
     @keyframes pulse {
       0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
       50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
     }
 
-    /* ─── STEPS ─── */
-    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
-    .step-card {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-md);
-      transition: transform var(--transition), box-shadow var(--transition);
+    /* Browser mockup */
+    .mockup-wrap {
+      transform: perspective(1400px) rotateY(-8deg) rotateX(2deg);
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); will-change: transform;
     }
-    .step-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
+    .mockup-wrap:hover { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
+    .browser {
+      background: #1c1c1c; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 32px 80px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4);
     }
-    .step-icon {
-      width: 44px; height: 44px;
-      background: var(--color-accent);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
+    .browser-bar {
+      background: #1c1c1c; padding: 10px 14px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .step-num {
-      font-size: 0.68rem; font-weight: 800;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-bottom: 8px;
+    .browser-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .browser-url {
+      flex: 1; height: 22px; background: rgba(255,255,255,0.07); border-radius: 4px;
+      display: flex; align-items: center; padding: 0 10px;
+      font-size: 10px; color: rgba(255,255,255,0.35);
     }
-    .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-    .step-body { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; }
-
-    /* ─── BEFORE/AFTER ─── */
-    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    @media (max-width: 768px) { .ba-grid { grid-template-columns: 1fr; } }
-    .ba-label {
-      display: inline-flex; align-items: center; gap: 6px;
-      border-radius: 20px; padding: 4px 12px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; margin-bottom: 12px;
-    }
-    .ba-label-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .ba-checks { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
-    .ba-checks li { font-size: 0.84rem; display: flex; gap: 8px; align-items: flex-start; }
-
-    /* ─── TESTIMONIALS ─── */
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
-    .testimonial-card {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-md);
-    }
-    .stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 16px; }
-    .testimonial-text { font-size: 0.9rem; line-height: 1.75; color: #444; margin-bottom: 20px; }
-    .testimonial-author { display: flex; align-items: center; gap: 10px; }
-    .testimonial-avatar {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: var(--color-highlight);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .testimonial-name { font-size: 0.85rem; font-weight: 700; }
-    .testimonial-role { font-size: 0.75rem; color: var(--color-text-muted); }
-
-    /* ─── SERVICES ─── */
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
-    .service-card {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .service-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .service-icon {
-      width: 44px; height: 44px;
-      background: var(--color-accent);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-    .service-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .service-body { font-size: 0.86rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 14px; }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .check-list li { font-size: 0.82rem; color: var(--color-text-muted); display: flex; gap: 7px; align-items: flex-start; }
-    .check-list li::before { content: '✓'; color: var(--color-success); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
-
-    /* ─── PRICING ─── */
-    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    @media (max-width: 900px) {
-      .pricing-grid {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 16px;
-        padding-bottom: 16px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-      }
-      .pricing-grid .pricing-card {
-        flex: 0 0 280px;
-        scroll-snap-align: start;
-      }
-    }
-    .pricing-card {
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      position: relative;
-      transition: transform var(--transition);
-    }
-    .pricing-card:hover { transform: translateY(-3px); }
-    .pricing-card-default {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .pricing-card-popular {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.22);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 24px 60px rgba(0,0,0,0.4);
-    }
-    .pricing-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: #fff; color: #111;
-      font-size: 0.67rem; font-weight: 800;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 4px 14px; border-radius: 20px;
-      white-space: nowrap;
-    }
-    .pricing-tier {
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 14px;
-    }
-    .pricing-price { display: flex; align-items: baseline; gap: 2px; margin-bottom: 14px; }
-    .pricing-amount { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.04em; color: #fff; }
-    .pricing-period { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
-    .pricing-desc { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 20px; }
-    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
-    .pricing-list li { font-size: 0.84rem; color: rgba(255,255,255,0.7); display: flex; gap: 8px; align-items: flex-start; }
-    .pricing-list li::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .pricing-list li.muted::before { content: '–'; color: rgba(255,255,255,0.25); }
-    .pricing-list li.muted { color: rgba(255,255,255,0.3); }
-    .pricing-note { text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 20px; }
-
-    /* ─── FAQ ─── */
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--color-border); }
-    .faq-btn {
-      width: 100%; text-align: left;
-      padding: 20px 0;
+    .browser-body { overflow: hidden; }
+    .mock-site { background: #0d0d0d; }
+    .mock-nav {
       display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer; background: none; border: none;
-      font-family: var(--font-sans);
-      font-weight: 600; font-size: 0.975rem;
-      color: var(--color-text);
-      gap: 16px;
-      transition: color var(--transition);
+      padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .faq-btn:hover { color: #000; }
-    .faq-icon {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--color-text);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.3s ease, background var(--transition);
+    .mock-logo { font-weight: 900; font-size: 0.85rem; color: #fff; letter-spacing: -0.03em; }
+    .mock-cta { background: #fff; color: #111; font-size: 0.58rem; font-weight: 700; padding: 5px 12px; border-radius: 4px; }
+    .mock-hero { padding: 22px 18px; background: linear-gradient(135deg, #141414 0%, #1e1e1e 100%); }
+    .mock-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 3px 10px;
+      font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-bottom: 10px;
     }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--color-accent-hover); }
-    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    .faq-item.open .faq-body { max-height: 160px; }
-    .faq-body-inner { padding-bottom: 20px; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.75; }
+    .mock-h1 { font-size: 1.35rem; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 8px; }
+    .mock-sub { font-size: 0.6rem; color: rgba(255,255,255,0.45); line-height: 1.5; margin-bottom: 12px; max-width: 26ch; }
+    .mock-btns { display: flex; gap: 6px; margin-bottom: 16px; }
+    .mock-btn-p { background: #fff; color: #111; font-size: 0.58rem; font-weight: 700; padding: 6px 12px; border-radius: 4px; }
+    .mock-btn-s { border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); font-size: 0.58rem; padding: 6px 12px; border-radius: 4px; }
+    .mock-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; }
+    .mock-card { border-radius: 5px; aspect-ratio: 4/3; display: flex; align-items: flex-end; padding: 6px; }
+    .mock-card span { font-size: 0.48rem; font-weight: 700; color: rgba(255,255,255,0.7); }
+    .mock-stats { display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .mock-stat { flex: 1; text-align: center; padding: 10px 0; border-right: 1px solid rgba(255,255,255,0.06); }
+    .mock-stat:last-child { border-right: none; }
+    .mock-stat-n { font-size: 0.75rem; font-weight: 800; color: #fff; }
+    .mock-stat-l { font-size: 0.48rem; color: rgba(255,255,255,0.35); }
 
-    /* ─── ABOUT ─── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
-    .about-img-wrap { position: relative; }
-    .about-img {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .about-img img { width: 100%; display: block; aspect-ratio: 4/5; object-fit: cover; }
-    .about-float {
-      position: absolute; bottom: 24px; left: 24px;
-      background: #fff;
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      box-shadow: var(--shadow-md);
-      display: flex; align-items: center; gap: 12px;
-    }
-    .about-float-icon {
-      width: 36px; height: 36px; border-radius: var(--radius-sm);
-      background: var(--color-accent);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .about-float-title { font-size: 0.875rem; font-weight: 700; }
-    .about-float-sub { font-size: 0.72rem; color: var(--color-text-muted); }
-    .about-bullets { list-style: none; display: flex; flex-direction: column; gap: 14px; margin: 24px 0 32px; }
-    .about-bullets li { display: flex; gap: 12px; align-items: flex-start; }
-    .about-bullet-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-text); flex-shrink: 0; margin-top: 7px; }
+    /* Stat strip */
+    .stat-strip { background: var(--color-bg-alt); padding: 60px 24px; }
+    .stat-strip-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+    @media (max-width: 640px) { .stat-strip-inner { grid-template-columns: 1fr; } }
+    .stat-cell { background: var(--color-bg); padding: 32px 28px; }
+    .stat-num { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; color: #F5C518; margin-bottom: 6px; }
+    .stat-label { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .stat-body { font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.65; }
 
-    /* ─── CONTACT FORM ─── */
+    /* Contact form */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5); }
     .form-input {
-      width: 100%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      color: #fff;
-      font-family: var(--font-sans);
-      font-size: 0.92rem;
+      width: 100%; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm);
+      padding: 12px 14px; color: #fff;
+      font-family: var(--font-sans); font-size: 0.92rem;
       outline: none;
       transition: border-color var(--transition), background var(--transition);
     }
     .form-input::placeholder { color: rgba(255,255,255,0.22); }
     .form-input:focus { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.09); }
 
-    /* ─── FOOTER ─── */
+    /* Footer */
     .footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 52px 24px 28px; }
     .footer-inner { max-width: var(--max-width); margin: 0 auto; }
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
@@ -682,372 +259,258 @@
     .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
     .footer-seo { font-size: 0.72rem; color: rgba(255,255,255,0.12); }
 
-    /* ─── Section bg helpers ─── */
     .bg-white { background: var(--color-bg); }
     .bg-alt { background: var(--color-bg-alt); }
     .bg-dark { background: var(--color-bg-dark); }
-
-    /* ─── CTA bar ─── */
-    .cta-bar {
-      background: var(--color-bg-dark);
-      padding: 72px 24px;
-      text-align: center;
-    }
+    .cta-bar { background: var(--color-bg-dark); padding: 72px 24px; text-align: center; }
     .cta-bar h2, .cta-bar h3 { color: #fff; }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     NAV
-══════════════════════════════════ -->
 <nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <span class="nav-logo-mark">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <rect x="1" y="1" width="5" height="5" rx="1.2" fill="#111"/>
-          <rect x="8" y="1" width="5" height="5" rx="1.2" fill="#111"/>
-          <rect x="1" y="8" width="5" height="5" rx="1.2" fill="#111"/>
-          <rect x="8" y="8" width="5" height="5" rx="1.2" fill="#111" opacity="0.35"/>
-        </svg>
-      </span>
-      NZ Solar Web Design
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="178" height="38">
+        <g transform="translate(32,40)">
+          <line x1="0" y1="-14" x2="0" y2="-30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="0" x2="30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="14" x2="0" y2="30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="-14" y1="0" x2="-30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="12" fill="#F0B429"/>
+        </g>
+        <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+          <tspan x="72" fill="#F0B429">SOLAR </tspan><tspan fill="#FFFFFF">WEB</tspan>
+        </text>
+        <text x="240" y="84" text-anchor="middle"
+              font-family="'Montserrat',sans-serif" font-size="17" font-weight="500"
+              fill="rgba(255,255,255,0.55)" letter-spacing="5">design</text>
+      </svg>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="process.html">Process</a></li>
       <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
+    <a href="#contact" class="btn btn-yellow nav-cta" style="font-size:0.82rem;padding:9px 18px;">Get your free website →</a>
     <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
       </svg>
     </button>
-    <a href="contact.html" class="btn btn-yellow nav-cta" style="font-size:0.82rem;padding:9px 18px;">Get your free website →</a>
   </div>
 </nav>
 <div id="mobile-menu">
-  <a href="index.html#process" onclick="document.getElementById('mobile-menu').classList.remove('open')">How It Works</a>
+  <a href="index.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">Home</a>
+  <a href="process.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">Process</a>
   <a href="services.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">Services</a>
+  <a href="pricing.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">Pricing</a>
   <a href="faq.html" onclick="document.getElementById('mobile-menu').classList.remove('open')">FAQ</a>
-  <a href="contact.html" class="btn btn-yellow" onclick="document.getElementById('mobile-menu').classList.remove('open')">Claim your free website →</a>
+  <a href="#contact" class="btn btn-yellow" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get your free website →</a>
 </div>
 
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="container" style="width:100%;">
-    <div class="hero-inner" style="grid-template-columns:1fr;text-align:center;max-width:720px;margin:0 auto;">
-
+    <div class="hero-inner">
       <div>
         <div class="trust-badge">
           <span class="trust-dot"></span>
-          Website studio for NZ solar installers
+          Website studio for NZ local businesses
         </div>
         <h1 class="hero-title">
           We'll build your<br/>
           website.<br/>
           <span class="highlight">For free.</span>
         </h1>
-        <p class="hero-sub" style="margin:0 auto 32px;">We design and build high-converting websites for solar panel installation businesses across New Zealand — with local SEO that turns searches into booked installations.</p>
-
+        <p class="hero-sub">We design and build high-converting websites for trades businesses across New Zealand — plumbers, builders, electricians — with local SEO that turns searches into booked jobs.</p>
         <div class="hero-actions">
-          <a href="contact.html" class="btn btn-yellow" style="font-size:0.95rem;padding:13px 24px;">Claim your free website →</a>
-          <a href="#process" class="btn btn-outline-light" style="font-size:0.95rem;padding:13px 24px;">See how it works</a>
+          <a href="#contact" class="btn btn-yellow" style="font-size:0.95rem;padding:13px 24px;">Claim your free website →</a>
+          <a href="process.html" class="btn btn-outline-light" style="font-size:0.95rem;padding:13px 24px;">See how it works</a>
         </div>
         <p class="hero-note">No lock-in contracts · No hidden fees · You review before paying</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════
-     PROCESS (3 steps)
-══════════════════════════════════ -->
-<section id="process" class="section bg-alt">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:52px;">
-      <span class="section-label">HOW IT WORKS</span>
-      <h2 class="section-title">Three steps to your new<br/>solar installer website</h2>
-      <p class="section-sub" style="margin:0 auto;">From first conversation to live website, we handle all the technical stuff so you can focus on running your installations.</p>
-    </div>
-    <div class="steps-grid">
-
-      <div class="step-card">
-        <div class="step-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="11" cy="7.5" r="4"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
-          </svg>
-        </div>
-        <div class="step-num">Step 01</div>
-        <h3 class="step-title">Tell us about your business</h3>
-        <p class="step-body">Fill in a short brief about your solar business, your ideal clients, and the types of installations you want more of. Takes 10 minutes.</p>
-      </div>
-
-      <div class="step-card">
-        <div class="step-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="3" y="4" width="16" height="12" rx="2"/><path d="M8 20h6M11 16v4"/>
-          </svg>
-        </div>
-        <div class="step-num">Step 02</div>
-        <h3 class="step-title">We design & build at no cost</h3>
-        <p class="step-body">Our team designs a custom, mobile-first website. We write the copy, source images, and set up Google Analytics and SEO from day one.</p>
-      </div>
-
-      <div class="step-card">
-        <div class="step-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <path d="M4 11l5 5 9-9"/>
-          </svg>
-        </div>
-        <div class="step-num">Step 03</div>
-        <h3 class="step-title">Love it? Go live on a plan</h3>
-        <p class="step-body">Preview your finished site. If you love it, you're live within days on a simple monthly plan. No upfront build cost, ever.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- ══════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════ -->
-<section class="section bg-alt">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:52px;">
-      <span class="section-label">CLIENT RESULTS</span>
-      <h2 class="section-title">What NZ solar installers say</h2>
-    </div>
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Since Out of the Box built our site we've had a real uptick in quote requests — residential installs, exactly what we wanted. The website does the selling for us now."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MH</div>
-          <div>
-            <div class="testimonial-name">Matt Harris</div>
-            <div class="testimonial-role">SunWise Solar, Auckland</div>
+      <!-- Browser mockup -->
+      <div class="mockup-wrap" id="mockup">
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:#ff5f57;"></div>
+            <div class="browser-dot" style="background:#febc2e;"></div>
+            <div class="browser-dot" style="background:#28c840;"></div>
+            <div class="browser-url">hendersonbuilds.co.nz</div>
+          </div>
+          <div class="browser-body">
+            <div class="mock-site">
+              <div class="mock-nav">
+                <span class="mock-logo">HENDERSON BUILDS</span>
+                <div style="display:flex;gap:10px;align-items:center;">
+                  <span style="font-size:0.58rem;color:rgba(255,255,255,0.35);">Projects</span>
+                  <span style="font-size:0.58rem;color:rgba(255,255,255,0.35);">About</span>
+                  <span class="mock-cta">Get a Quote</span>
+                </div>
+              </div>
+              <div class="mock-hero">
+                <div class="mock-badge">
+                  <span style="width:5px;height:5px;border-radius:50%;background:#F5C518;flex-shrink:0;"></span>
+                  Nelson-based builder
+                </div>
+                <div class="mock-h1">Quality Building Work<br/>For Your Home</div>
+                <div class="mock-sub">Residential builds, renovations and commercial fit-outs across the Nelson region.</div>
+                <div class="mock-btns">
+                  <span class="mock-btn-p">Get a free quote</span>
+                  <span class="mock-btn-s">View our work</span>
+                </div>
+                <div class="mock-grid">
+                  <div class="mock-card" style="background:linear-gradient(135deg,#2a2000,#4a3800);">
+                    <span>Residential</span>
+                  </div>
+                  <div class="mock-card" style="background:linear-gradient(135deg,#221a00,#3a2e00);">
+                    <span>Renovation</span>
+                  </div>
+                  <div class="mock-card" style="background:linear-gradient(135deg,#1e1800,#342800);">
+                    <span>Commercial</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-stats">
+                <div class="mock-stat"><div class="mock-stat-n">200+</div><div class="mock-stat-l">projects</div></div>
+                <div class="mock-stat"><div class="mock-stat-n">15yr</div><div class="mock-stat-l">experience</div></div>
+                <div class="mock-stat"><div class="mock-stat-n">5★</div><div class="mock-stat-l">Google</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I was sceptical about the free website offer, but the quality blew me away. We're now showing up when homeowners search for solar installers in our area. Best decision I've made."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SC</div>
-          <div>
-            <div class="testimonial-name">Sarah Connell</div>
-            <div class="testimonial-role">Bright Energy, Wellington</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Within a couple of months of going live we had new commercial clients coming directly through the website. These guys understand solar businesses and know what homeowners want to see."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JT</div>
-          <div>
-            <div class="testimonial-name">James Tauranga</div>
-            <div class="testimonial-role">Pacific Solar, Christchurch</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════
-     SERVICES
-══════════════════════════════════ -->
-<section id="services" class="section bg-white">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:52px;">
-      <span class="section-label">WHAT'S INCLUDED</span>
-      <h2 class="section-title">Everything your solar<br/>business needs online</h2>
-      <p class="section-sub" style="margin:0 auto;">We handle the full picture: website design, development, Google visibility, and ongoing improvements. One team, one relationship.</p>
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="stat-cell">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">to build</div>
+      <div class="stat-body">We design and build your website at no upfront cost. You only pay when you've seen it and love it.</div>
     </div>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="3" y="4" width="16" height="12" rx="2"/><path d="M8 20h6M11 16v4"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Website Design & Build</h3>
-        <p class="service-body">Custom-designed, mobile-first website built to showcase your installations and convert visitors into booked quotes.</p>
-        <ul class="check-list">
-          <li>Mobile-first, fast-loading</li>
-          <li>Custom copywriting included</li>
-          <li>Contact forms & quote requests</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="10" cy="10" r="7"/><path d="M19 19l-4-4"/>
-          </svg>
-        </div>
-        <h3 class="service-title">SEO Optimisation</h3>
-        <p class="service-body">Get found when homeowners search "solar installer near me" — we set up your Google presence from day one.</p>
-        <ul class="check-list">
-          <li>Local SEO for your region</li>
-          <li>Google Business Profile setup</li>
-          <li>Monthly ranking reports</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="2" y="3" width="18" height="14" rx="2"/><path d="M2 20h18"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Domain & Hosting</h3>
-        <p class="service-body">Hosted on fast NZ servers with SSL, daily backups, and 99.9% uptime — all included in your monthly plan.</p>
-        <ul class="check-list">
-          <li>Domain registration included</li>
-          <li>SSL certificate (HTTPS)</li>
-          <li>Daily automated backups</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <path d="M11 2v3M11 17v3M4.22 4.22l2.12 2.12M15.66 15.66l2.12 2.12M2 11h3M17 11h3M4.22 17.78l2.12-2.12M15.66 6.34l2.12-2.12"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Ongoing Support</h3>
-        <p class="service-body">As your business grows, your website grows with it. New installations, case studies, seasonal updates — we handle it all.</p>
-        <ul class="check-list">
-          <li>Unlimited content updates</li>
-          <li>Portfolio & installation additions</li>
-          <li>Priority support, NZ hours</li>
-        </ul>
-      </div>
-
+    <div class="stat-cell">
+      <div class="stat-num">5–7</div>
+      <div class="stat-label">days to launch</div>
+      <div class="stat-body">From your brief to a finished, live-ready website in under a week. Fast, professional, no back-and-forth.</div>
     </div>
+    <div class="stat-cell">
+      <div class="stat-num">Yours</div>
+      <div class="stat-label">after 24 months</div>
+      <div class="stat-body">Stay on a plan for 24 months and the website is yours to keep — outright ownership, no strings attached.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CONTACT FORM -->
+<section id="contact" class="cta-bar">
+  <div class="container" style="max-width:680px;">
+    <div style="margin-bottom:40px;">
+      <span class="section-label" style="color:rgba(255,255,255,0.3);">GET STARTED</span>
+      <h2 class="section-title" style="color:#fff;font-size:clamp(1.9rem,3.5vw,2.6rem);">Ready to get your<br/>free website?</h2>
+      <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;margin-top:12px;max-width:46ch;margin-left:auto;margin-right:auto;">Tell us about your business and we'll build your website in 5–7 days. You only pay if you love it.</p>
+    </div>
+
+    <form onsubmit="handleSubmit(event)" style="text-align:left;">
+      <div class="form-grid" style="margin-bottom:16px;">
+        <div class="form-group">
+          <label class="form-label">Your name</label>
+          <input class="form-input" type="text" placeholder="Mike Henderson" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input class="form-input" type="email" placeholder="mike@hendersonbuilds.co.nz" required />
+        </div>
+      </div>
+      <div class="form-grid" style="margin-bottom:16px;">
+        <div class="form-group">
+          <label class="form-label">Business name</label>
+          <input class="form-input" type="text" placeholder="Henderson Builds Ltd" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone (optional)</label>
+          <input class="form-input" type="tel" placeholder="021 123 4567" />
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px;">
+        <label class="form-label">What type of business do you run?</label>
+        <select class="form-input" style="cursor:pointer;">
+          <option value="" style="background:#1a1a1a;">Select your industry…</option>
+          <option style="background:#1a1a1a;">Building & Construction</option>
+          <option style="background:#1a1a1a;">Plumbing & Drainage</option>
+          <option style="background:#1a1a1a;">Electrical</option>
+          <option style="background:#1a1a1a;">Landscaping & Gardening</option>
+          <option style="background:#1a1a1a;">Painting & Decorating</option>
+          <option style="background:#1a1a1a;">Roofing</option>
+          <option style="background:#1a1a1a;">Hospitality & Food</option>
+          <option style="background:#1a1a1a;">Professional Services</option>
+          <option style="background:#1a1a1a;">Retail</option>
+          <option style="background:#1a1a1a;">Other</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom:20px;">
+        <label class="form-label">Tell us about your goals (optional)</label>
+        <textarea class="form-input" rows="3" placeholder="e.g. I want more enquiries from local homeowners looking for a builder in Nelson…" style="resize:none;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-yellow" id="submit-btn" style="width:100%;justify-content:center;padding:14px;font-size:1rem;">
+        Claim my free website build →
+      </button>
+      <p style="margin-top:14px;font-size:0.76rem;color:rgba(255,255,255,0.25);text-align:center;">
+        No commitment · No credit card · Review the finished site before paying a cent
+      </p>
+    </form>
   </div>
 </section>
 
 
-
-
-<!-- ══════════════════════════════════
-     FAQ
-══════════════════════════════════ -->
-<section id="faq" class="section bg-white">
-  <div class="container" style="max-width:720px;">
-    <div style="text-align:center;margin-bottom:52px;">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">Questions? We've got<br/>answers.</h2>
-      <p class="section-sub" style="margin:0 auto;color:var(--color-text-muted);">Everything builders want to know before getting started.</p>
-    </div>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          Can I own my website?
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-body"><div class="faq-body-inner">Yes — after 24 months on any plan you own the website outright. You can also buy it out early at any time. No lock-in, no hostage situations.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          How does the contract work?
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-body"><div class="faq-body-inner">Monthly rolling — cancel anytime with 30 days' notice. We don't believe in trapping customers; we keep you because the results speak for themselves.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          What does SEO actually include?
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-body"><div class="faq-body-inner">On-page optimisation, local keyword targeting ("solar installer [your city]", "solar panels NZ", etc.), Google Business Profile setup, technical SEO, and monthly ranking reports. Growth and Pro plans include ongoing SEO content.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          How long does it take to build my website?
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-body"><div class="faq-body-inner">From brief to preview: 5–7 business days. Most clients are live within 2 weeks of signing up. If you need it faster, just ask.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">
-          How can you build websites so quickly?
-          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-body"><div class="faq-body-inner">We specialise in solar installer websites. We've refined our process to remove the back-and-forth and focus on what actually works for solar businesses. No bloat, no wasted time.</div></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- ══════════════════════════════════
-     CTA STRIP
-══════════════════════════════════ -->
-<section class="cta-bar">
-  <div class="container" style="max-width:600px;">
-    <span class="section-label" style="color:rgba(255,255,255,0.3);">GET STARTED</span>
-    <h2 class="section-title" style="color:#fff;font-size:clamp(1.9rem,3.5vw,2.6rem);">Ready to get your<br/>free website?</h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;margin:16px auto 32px;">We build it first. You only pay if you love it. Takes 5–7 days.</p>
-    <a href="contact.html" class="btn btn-yellow" style="font-size:1rem;padding:14px 32px;">Claim your free website →</a>
-    <p style="margin-top:14px;font-size:0.76rem;color:rgba(255,255,255,0.25);">No commitment · No credit card · Review before paying</p>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-          <span style="width:28px;height:28px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <rect x="1" y="1" width="5" height="5" rx="1.2" fill="#111"/>
-              <rect x="8" y="1" width="5" height="5" rx="1.2" fill="#111"/>
-              <rect x="1" y="8" width="5" height="5" rx="1.2" fill="#111"/>
-              <rect x="8" y="8" width="5" height="5" rx="1.2" fill="#111" opacity="0.35"/>
-            </svg>
-          </span>
-          <span style="font-weight:800;font-size:0.92rem;color:#fff;letter-spacing:-0.02em;">NZ Solar Web Design</span>
+        <div style="margin-bottom:12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="148" height="32">
+            <g transform="translate(32,40)">
+              <line x1="0" y1="-14" x2="0" y2="-30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+              <line x1="14" y1="0" x2="30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+              <line x1="0" y1="14" x2="0" y2="30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+              <line x1="-14" y1="0" x2="-30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+              <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="12" fill="#F0B429"/>
+            </g>
+            <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+              <tspan x="72" fill="#F0B429">SOLAR </tspan><tspan fill="#FFFFFF">WEB</tspan>
+            </text>
+            <text x="240" y="84" text-anchor="middle"
+                  font-family="'Montserrat',sans-serif" font-size="17" font-weight="500"
+                  fill="rgba(255,255,255,0.45)" letter-spacing="5">design</text>
+          </svg>
         </div>
-        <p style="font-size:0.83rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:30ch;">Web design for NZ solar installers who want more leads, more installations, and a website that works as hard as they do.</p>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:30ch;">Web design for NZ businesses who want more leads, more jobs, and a website that works as hard as they do.</p>
         <p style="margin-top:10px;font-size:0.78rem;color:rgba(255,255,255,0.2);">Nelson, New Zealand</p>
       </div>
       <div>
         <div class="footer-col-title">Services</div>
         <ul class="footer-links">
           <li><a href="services.html">Website Design</a></li>
-          <li><a href="services.html">SEO for Builders</a></li>
+          <li><a href="services.html">Local SEO</a></li>
           <li><a href="services.html">Hosting & Domain</a></li>
           <li><a href="services.html">Ongoing Support</a></li>
         </ul>
@@ -1055,36 +518,40 @@
       <div>
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="index.html#process">How It Works</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="process.html">How It Works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 NZ Solar Web Design. Nelson, New Zealand. All rights reserved.</p>
-      <p class="footer-seo">Web Design NZ · Solar Installer Websites NZ · Solar Panel Website Design New Zealand</p>
+      <p class="footer-copy">© 2025 Solar Web. Nelson, New Zealand. All rights reserved.</p>
+      <p class="footer-seo">Web Design NZ · Trades Website Design NZ · Local Business Websites Nelson NZ</p>
     </div>
   </div>
 </footer>
 
 
 <script>
-  // Nav scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  // FAQ toggle
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+  const mockup = document.getElementById('mockup');
+  if (mockup) {
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      mockup.style.transform = `perspective(1400px) rotateX(${(y - 0.5) * 5}deg) rotateY(${(x - 0.5) * -10 - 8}deg)`;
+    });
+    hero.addEventListener('mouseleave', () => {
+      mockup.style.transform = 'perspective(1400px) rotateY(-8deg) rotateX(2deg)';
+    });
   }
 
-  // Form submit
   function handleSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('submit-btn');
@@ -1093,7 +560,6 @@
     btn.disabled = true;
   }
 
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
@@ -1101,6 +567,5 @@
     });
   });
 </script>
-
 </body>
 </html>

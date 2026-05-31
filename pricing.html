@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Solar Web</title>
-  <meta name="description" content="Everything your NZ local business needs online — website design, local SEO, hosting, and ongoing support. One flat monthly fee." />
+  <title>Pricing — Solar Web</title>
+  <meta name="description" content="Simple, transparent pricing for NZ local business websites. From $79/mo NZD — includes design, hosting, SEO, and support. No upfront build cost." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,23 +12,20 @@
     :root {
       --color-bg: #ffffff; --color-bg-alt: #f8f8f7; --color-bg-dark: #0e0e0e;
       --color-text: #111111; --color-text-muted: #6b6b6b; --color-border: #e5e5e5;
-      --color-accent: #111111; --color-accent-hover: #333333;
-      --color-success: #16a34a;
+      --color-accent: #111111; --color-success: #16a34a;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
       --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-      --shadow-lg: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
       --max-width: 1140px; --nav-height: 68px;
       --transition: 0.2s ease; --transition-slow: 0.4s ease;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
-    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--color-text); }
+    body { font-family: var(--font-sans); background: var(--color-bg-dark); color: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; }
     body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.018; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-    .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 12px; }
+    .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; padding: 12px 22px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition); letter-spacing: -0.01em; white-space: nowrap; }
     .btn:active { transform: scale(0.98); }
@@ -53,25 +50,34 @@
     #mobile-menu .btn { margin-top: 16px; width: 100%; justify-content: center; }
     @media (max-width: 900px) { .nav-links, .nav-cta { display: none; } .hamburger { display: block; } }
 
-    .page-header { background: var(--color-bg-dark); padding: 110px 24px 64px; text-align: center; }
+    .page-header { padding: 110px 24px 64px; text-align: center; background: #0a0a0a; }
     .page-header-title { color: #fff; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 14px; }
     .page-header-sub { color: rgba(255,255,255,0.5); font-size: 1.05rem; line-height: 1.7; max-width: 50ch; margin: 0 auto; }
-    .page-header .section-label { color: rgba(255,255,255,0.3); }
 
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
-    .service-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
-    .service-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .service-icon { width: 44px; height: 44px; background: var(--color-accent); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-    .service-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-    .service-body { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 16px; }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .check-list li { font-size: 0.84rem; color: var(--color-text-muted); display: flex; gap: 8px; align-items: flex-start; }
-    .check-list li::before { content: '✓'; color: var(--color-success); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+    .pricing-card { border-radius: var(--radius-lg); padding: 32px; position: relative; transition: transform var(--transition); }
+    .pricing-card:hover { transform: translateY(-3px); }
+    .pricing-card-default { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); }
+    .pricing-card-popular { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.22); box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 24px 60px rgba(0,0,0,0.4); }
+    .pricing-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #fff; color: #111; font-size: 0.67rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+    .pricing-tier { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .pricing-price { display: flex; align-items: baseline; gap: 2px; margin-bottom: 14px; }
+    .pricing-amount { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.04em; color: #fff; }
+    .pricing-period { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .pricing-desc { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 20px; }
+    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+    .pricing-list li { font-size: 0.84rem; color: rgba(255,255,255,0.7); display: flex; gap: 8px; align-items: flex-start; }
+    .pricing-list li::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .pricing-list li.muted::before { content: '–'; color: rgba(255,255,255,0.25); }
+    .pricing-list li.muted { color: rgba(255,255,255,0.3); }
+    .pricing-note { text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 20px; }
 
-    .cta-bar { background: var(--color-bg-dark); padding: 72px 24px; text-align: center; }
-    .cta-bar h2 { color: #fff; }
-    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    /* FAQ mini on pricing page */
+    .mini-faq { max-width: 720px; margin: 0 auto; }
+    .mini-faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mini-faq-q { padding: 18px 0; font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .mini-faq-a { padding-bottom: 18px; font-size: 0.86rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
 
     .footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 52px 24px 28px; }
     .footer-inner { max-width: var(--max-width); margin: 0 auto; }
@@ -111,8 +117,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="process.html">Process</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a href="index.html#contact" class="btn btn-yellow nav-cta" style="font-size:0.82rem;padding:9px 18px;">Get your free website →</a>
@@ -134,96 +140,112 @@
 
 <div class="page-header">
   <div class="container">
-    <span class="section-label" style="color:rgba(255,255,255,0.3);">WHAT'S INCLUDED</span>
-    <h1 class="page-header-title">Everything your business<br/>needs online</h1>
-    <p class="page-header-sub">We handle the full picture: design, development, Google visibility, and ongoing improvements. One team, one relationship.</p>
+    <span class="section-label" style="color:rgba(255,255,255,0.3);">PRICING</span>
+    <h1 class="page-header-title">Simple, transparent pricing</h1>
+    <p class="page-header-sub">One flat monthly fee covers everything: design, hosting, support, and SEO. No upfront build cost. Cancel anytime.</p>
   </div>
 </div>
 
 
-<section style="padding: 80px 24px; background: var(--color-bg);">
+<!-- PRICING CARDS -->
+<section style="padding: 72px 24px;">
   <div class="container">
-    <div class="services-grid">
+    <div class="pricing-grid">
 
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="3" y="4" width="16" height="12" rx="2"/><path d="M8 20h6M11 16v4"/>
-          </svg>
+      <div class="pricing-card pricing-card-default">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$79</span>
+          <span class="pricing-period">/mo NZD</span>
         </div>
-        <h3 class="service-title">Website Design & Build</h3>
-        <p class="service-body">Custom-designed, mobile-first website built to showcase your work and convert visitors into booked jobs. Looks professional from day one.</p>
-        <ul class="check-list">
-          <li>Mobile-first, fast-loading</li>
-          <li>Custom copywriting included</li>
-          <li>Contact forms & quote requests</li>
-          <li>Portfolio & project gallery</li>
+        <p class="pricing-desc">For sole traders and small businesses just getting online.</p>
+        <ul class="pricing-list">
+          <li>5-page custom website</li>
+          <li>Mobile-optimised design</li>
+          <li>Hosting + SSL included</li>
+          <li>Contact form</li>
+          <li>Basic local SEO</li>
+          <li class="muted">Full SEO campaign</li>
+          <li class="muted">Project portfolio section</li>
         </ul>
+        <a href="index.html#contact" class="btn btn-outline-light" style="width:100%;justify-content:center;">Get started free</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="10" cy="10" r="7"/><path d="M19 19l-4-4"/>
-          </svg>
+      <div class="pricing-card pricing-card-popular">
+        <span class="pricing-badge">Most Popular</span>
+        <div class="pricing-tier">Growth</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$99</span>
+          <span class="pricing-period">/mo NZD</span>
         </div>
-        <h3 class="service-title">Local SEO</h3>
-        <p class="service-body">Get found when locals search "plumber near me" or "builder [your city]" — we set up your Google presence from day one so enquiries start coming in.</p>
-        <ul class="check-list">
-          <li>Local SEO for your region</li>
-          <li>Google Business Profile setup</li>
-          <li>Monthly ranking reports</li>
-          <li>Keyword targeting for your trade</li>
+        <p class="pricing-desc">For established businesses who want to dominate local search results.</p>
+        <ul class="pricing-list">
+          <li>Everything in Starter</li>
+          <li>10-page website + blog</li>
+          <li>Full SEO campaign</li>
+          <li>Google Business Profile</li>
+          <li>Project portfolio section</li>
+          <li>Monthly content updates</li>
+          <li>Priority support</li>
         </ul>
+        <a href="index.html#contact" class="btn btn-yellow" style="width:100%;justify-content:center;">Get started free →</a>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="2" y="3" width="18" height="14" rx="2"/><path d="M2 20h18"/>
-          </svg>
+      <div class="pricing-card pricing-card-default">
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">
+          <span class="pricing-amount">$149</span>
+          <span class="pricing-period">/mo NZD</span>
         </div>
-        <h3 class="service-title">Domain & Hosting</h3>
-        <p class="service-body">Hosted on fast NZ servers with SSL, daily backups, and 99.9% uptime — all included in your monthly plan. Nothing to manage yourself.</p>
-        <ul class="check-list">
-          <li>Domain registration included</li>
-          <li>SSL certificate (HTTPS)</li>
-          <li>Daily automated backups</li>
-          <li>99.9% uptime guarantee</li>
+        <p class="pricing-desc">For growing businesses targeting high-value commercial and residential work.</p>
+        <ul class="pricing-list">
+          <li>Everything in Growth</li>
+          <li>Unlimited pages</li>
+          <li>Google Ads setup</li>
+          <li>Google Ads management</li>
+          <li>Monthly performance report</li>
+          <li>Dedicated account manager</li>
+          <li>Same-day support</li>
         </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <path d="M11 2v3M11 17v3M4.22 4.22l2.12 2.12M15.66 15.66l2.12 2.12M2 11h3M17 11h3M4.22 17.78l2.12-2.12M15.66 6.34l2.12-2.12"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Ongoing Support</h3>
-        <p class="service-body">As your business grows, your website grows with it. New projects, seasonal updates, service changes — we handle everything so you don't have to.</p>
-        <ul class="check-list">
-          <li>Unlimited content updates</li>
-          <li>Portfolio & project additions</li>
-          <li>Priority support, NZ hours</li>
-          <li>Performance monitoring</li>
-        </ul>
+        <a href="index.html#contact" class="btn btn-outline-light" style="width:100%;justify-content:center;">Get started free</a>
       </div>
 
     </div>
+    <p class="pricing-note">All plans include a free website build. You only pay once you've seen it and love it.</p>
   </div>
 </section>
 
 
-<div class="cta-bar">
-  <div class="container" style="max-width:580px;">
-    <h2 style="font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-0.03em;margin-bottom:12px;">Get all of this — free to build</h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;">Everything above is included in your free website build. You only pay once you've seen it and love it.</p>
-    <div class="cta-actions">
-      <a href="index.html#contact" class="btn btn-yellow" style="font-size:0.95rem;padding:13px 24px;">Claim your free website →</a>
-      <a href="pricing.html" class="btn btn-outline-light" style="font-size:0.95rem;padding:13px 24px;">See pricing</a>
+<!-- MINI FAQ -->
+<section style="padding: 60px 24px 80px; border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-label" style="color:rgba(255,255,255,0.3);">COMMON QUESTIONS</span>
+      <h2 style="color:#fff;font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-0.03em;">Pricing questions answered</h2>
+    </div>
+    <div class="mini-faq">
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">What's included in the free build?</div>
+        <div class="mini-faq-a">Everything — design, copywriting, images, contact forms, SEO setup, Google Analytics. You see the finished product before paying a cent.</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">Can I cancel anytime?</div>
+        <div class="mini-faq-a">Yes. Monthly rolling — cancel with 30 days' notice. No lock-in, no penalties. We keep you because the results speak for themselves.</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">Do I own the website?</div>
+        <div class="mini-faq-a">After 24 months on any plan the website is yours outright. You can also buy it out early at any time.</div>
+      </div>
+      <div class="mini-faq-item">
+        <div class="mini-faq-q">Are there any extra costs?</div>
+        <div class="mini-faq-a">Your monthly plan covers everything. The only extras are optional Google Ads spend (Pro plan) — that budget goes direct to Google, not us.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="faq.html" style="color:rgba(255,255,255,0.45);font-size:0.88rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;">View all FAQs →</a>
     </div>
   </div>
-</div>
+</section>
 
 
 <footer class="footer">

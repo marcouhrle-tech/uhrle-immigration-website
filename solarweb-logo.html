@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SolarWeb Design — Brand Identity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #E5E2DD;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 64px 40px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .row { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+    .item { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+    .label {
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #9AA3AE; font-weight: 500;
+    }
+    .card {
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card.offwhite { background: #FAFAF7; box-shadow: 0 2px 48px rgba(12,30,61,0.08), 0 1px 3px rgba(12,30,61,0.04); }
+    .card.navy     { background: #0C1E3D; box-shadow: 0 4px 52px rgba(0,0,0,0.36); }
+    .card.gold     { background: #E8A820; box-shadow: 0 4px 52px rgba(232,168,32,0.32); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     ROW 1 — PRIMARY LOGO (light bg)
+     ══════════════════════════════════════════════════════ -->
+<div class="item">
+  <div class="label">Primary</div>
+  <div class="card offwhite" style="padding:52px 72px;">
+    <!-- viewBox wider to fit full wordmark -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="588" height="112">
+      <!-- Sun icon centred at (32, 40) -->
+      <g transform="translate(32,40)">
+        <line x1="0" y1="-14" x2="0" y2="-30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+        <line x1="14" y1="0" x2="30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+        <line x1="0" y1="14" x2="0" y2="30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="-30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+        <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="12" fill="#F0B429"/>
+      </g>
+      <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+        <tspan x="72" fill="#F0B429">SOLAR </tspan><tspan fill="#0C1E3D">WEB</tspan>
+      </text>
+      <text x="240" y="78" text-anchor="middle"
+            font-family="'Montserrat',sans-serif" font-size="11" font-weight="500"
+            fill="#8A9DAD" letter-spacing="5.5">design</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ROW 2 — REVERSED (NAVY) + ON GOLD
+     ══════════════════════════════════════════════════════ -->
+<div class="row">
+
+  <!-- Navy reversed — rays yellow, WEB white -->
+  <div class="item">
+    <div class="label">Reversed — Navy</div>
+    <div class="card navy" style="padding:44px 60px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="470" height="90">
+        <g transform="translate(32,40)">
+          <line x1="0" y1="-14" x2="0" y2="-30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="0" x2="30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="14" x2="0" y2="30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="-14" y1="0" x2="-30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="12" fill="#F0B429"/>
+        </g>
+        <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+          <tspan x="72" fill="#F0B429">SOLAR </tspan><tspan fill="#FFFFFF">WEB</tspan>
+        </text>
+        <text x="240" y="78" text-anchor="middle"
+              font-family="'Montserrat',sans-serif" font-size="11" font-weight="500"
+              fill="#3D5A7A" letter-spacing="5.5">design</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- On gold — rays navy, circle navy so everything shows on gold bg -->
+  <div class="item">
+    <div class="label">On Gold</div>
+    <div class="card gold" style="padding:44px 60px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="470" height="90">
+        <g transform="translate(32,40)">
+          <line x1="0" y1="-14" x2="0" y2="-30" stroke="#0C1E3D" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="0" x2="30" y2="0" stroke="#0C1E3D" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="14" x2="0" y2="30" stroke="#0C1E3D" stroke-width="2" stroke-linecap="round"/>
+          <line x1="-14" y1="0" x2="-30" y2="0" stroke="#0C1E3D" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#0C1E3D" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#0C1E3D" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#0C1E3D" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#0C1E3D" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="12" fill="#0C1E3D"/>
+        </g>
+        <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+          <tspan x="72" fill="#0C1E3D">SOLAR </tspan><tspan fill="#0C1E3D">WEB</tspan>
+        </text>
+        <text x="240" y="78" text-anchor="middle"
+              font-family="'Montserrat',sans-serif" font-size="11" font-weight="500"
+              fill="#0C1E3D" opacity="0.55" letter-spacing="5.5">design</text>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     ROW 3 — SMALL SCALE + STANDALONE ICON MARKS
+     ══════════════════════════════════════════════════════ -->
+<div class="row">
+
+  <!-- Small wordmark -->
+  <div class="item">
+    <div class="label">Small scale</div>
+    <div class="card offwhite" style="padding:36px 48px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="294" height="56">
+        <g transform="translate(32,40)">
+          <line x1="0" y1="-14" x2="0" y2="-30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="0" x2="30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="14" x2="0" y2="30" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="-14" y1="0" x2="-30" y2="0" stroke="#F0B429" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9.9" y1="-9.9" x2="16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9.9" y1="9.9" x2="16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="9.9" x2="-16.3" y2="16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="-9.9" y1="-9.9" x2="-16.3" y2="-16.3" stroke="#F0B429" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="12" fill="#F0B429"/>
+        </g>
+        <text y="62" font-family="'Montserrat',sans-serif" font-size="48" font-weight="700" letter-spacing="-0.5">
+          <tspan x="72" fill="#F0B429">SOLAR </tspan><tspan fill="#0C1E3D">WEB</tspan>
+        </text>
+        <text x="240" y="78" text-anchor="middle"
+              font-family="'Montserrat',sans-serif" font-size="11" font-weight="500"
+              fill="#8A9DAD" letter-spacing="5.5">design</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Standalone icon — light -->
+  <div class="item">
+    <div class="label">Icon mark</div>
+    <div class="card offwhite" style="padding:30px 36px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(50,50)">
+          <line x1="0" y1="-19" x2="0" y2="-36" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="19" y1="0" x2="36" y2="0" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="0" y1="19" x2="0" y2="36" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="-19" y1="0" x2="-36" y2="0" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="13.4" y1="-13.4" x2="21.2" y2="-21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13.4" y1="13.4" x2="21.2" y2="21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="13.4" x2="-21.2" y2="21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="-13.4" x2="-21.2" y2="-21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="17" fill="#F0B429"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Standalone icon — navy -->
+  <div class="item">
+    <div class="label">Icon — Navy</div>
+    <div class="card navy" style="padding:30px 36px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(50,50)">
+          <line x1="0" y1="-19" x2="0" y2="-36" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="19" y1="0" x2="36" y2="0" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="0" y1="19" x2="0" y2="36" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="-19" y1="0" x2="-36" y2="0" stroke="#F0B429" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="13.4" y1="-13.4" x2="21.2" y2="-21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13.4" y1="13.4" x2="21.2" y2="21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="13.4" x2="-21.2" y2="21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="-13.4" x2="-21.2" y2="-21.2" stroke="#F0B429" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="17" fill="#F0B429"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Standalone icon — gold (navy rays + navy circle so they show on gold bg) -->
+  <div class="item">
+    <div class="label">Icon — Gold</div>
+    <div class="card gold" style="padding:30px 36px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <g transform="translate(50,50)">
+          <line x1="0" y1="-19" x2="0" y2="-36" stroke="#0C1E3D" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="19" y1="0" x2="36" y2="0" stroke="#0C1E3D" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="0" y1="19" x2="0" y2="36" stroke="#0C1E3D" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="-19" y1="0" x2="-36" y2="0" stroke="#0C1E3D" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="13.4" y1="-13.4" x2="21.2" y2="-21.2" stroke="#0C1E3D" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="13.4" y1="13.4" x2="21.2" y2="21.2" stroke="#0C1E3D" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="13.4" x2="-21.2" y2="21.2" stroke="#0C1E3D" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-13.4" y1="-13.4" x2="-21.2" y2="-21.2" stroke="#0C1E3D" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="17" fill="#0C1E3D"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

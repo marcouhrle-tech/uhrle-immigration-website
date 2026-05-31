@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Solar Web</title>
-  <meta name="description" content="Everything your NZ local business needs online — website design, local SEO, hosting, and ongoing support. One flat monthly fee." />
+  <title>How It Works — Solar Web</title>
+  <meta name="description" content="Three simple steps from first conversation to a live website for your NZ business. Free to build, live in 5–7 days." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
     :root {
       --color-bg: #ffffff; --color-bg-alt: #f8f8f7; --color-bg-dark: #0e0e0e;
       --color-text: #111111; --color-text-muted: #6b6b6b; --color-border: #e5e5e5;
-      --color-accent: #111111; --color-accent-hover: #333333;
+      --color-accent: #111111; --color-accent-hover: #333333; --color-highlight: #f0f0f0;
       --color-success: #16a34a;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;
@@ -26,10 +26,16 @@
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
     body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--color-text); }
-    body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.018; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .section-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .section-sub { font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.7; max-width: 52ch; }
 
+    /* Buttons */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-sans); font-weight: 600; font-size: 0.9rem; padding: 12px 22px; border-radius: var(--radius-sm); border: none; cursor: pointer; text-decoration: none; transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition); letter-spacing: -0.01em; white-space: nowrap; }
     .btn:active { transform: scale(0.98); }
     .btn-yellow { background: #F5C518; color: #111; }
@@ -37,7 +43,8 @@
     .btn-outline-light { background: transparent; color: rgba(255,255,255,0.8); border: 1.5px solid rgba(255,255,255,0.2); }
     .btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; background: rgba(255,255,255,0.06); }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; padding: 0 24px; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: box-shadow var(--transition-slow); }
+    /* Nav */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); display: flex; align-items: center; padding: 0 24px; transition: background var(--transition-slow), box-shadow var(--transition-slow); background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     .nav.scrolled { box-shadow: 0 1px 0 rgba(255,255,255,0.07); }
     .nav-inner { max-width: var(--max-width); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
@@ -53,26 +60,40 @@
     #mobile-menu .btn { margin-top: 16px; width: 100%; justify-content: center; }
     @media (max-width: 900px) { .nav-links, .nav-cta { display: none; } .hamburger { display: block; } }
 
+    /* Page header */
     .page-header { background: var(--color-bg-dark); padding: 110px 24px 64px; text-align: center; }
     .page-header-title { color: #fff; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 14px; }
     .page-header-sub { color: rgba(255,255,255,0.5); font-size: 1.05rem; line-height: 1.7; max-width: 50ch; margin: 0 auto; }
     .page-header .section-label { color: rgba(255,255,255,0.3); }
 
-    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
-    .service-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
-    .service-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .service-icon { width: 44px; height: 44px; background: var(--color-accent); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-    .service-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-    .service-body { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 16px; }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .check-list li { font-size: 0.84rem; color: var(--color-text-muted); display: flex; gap: 8px; align-items: flex-start; }
-    .check-list li::before { content: '✓'; color: var(--color-success); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
+    /* Steps */
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-md); transition: transform var(--transition), box-shadow var(--transition); }
+    .step-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .step-icon { width: 44px; height: 44px; background: var(--color-accent); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .step-num { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 8px; }
+    .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .step-body { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; }
 
+    /* Timeline detail */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 64px; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .timeline-item { display: grid; grid-template-columns: 48px 1fr; gap: 24px; padding-bottom: 40px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-line { display: flex; flex-direction: column; align-items: center; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: #F5C518; flex-shrink: 0; margin-top: 4px; }
+    .timeline-connector { width: 2px; flex: 1; background: var(--color-border); margin-top: 6px; }
+    .timeline-item:last-child .timeline-connector { display: none; }
+    .timeline-tag { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #F5C518; margin-bottom: 6px; }
+    .timeline-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .timeline-body { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; }
+
+    /* CTA bar */
     .cta-bar { background: var(--color-bg-dark); padding: 72px 24px; text-align: center; }
     .cta-bar h2 { color: #fff; }
     .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
+    /* Footer */
     .footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.06); padding: 52px 24px 28px; }
     .footer-inner { max-width: var(--max-width); margin: 0 auto; }
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
@@ -110,8 +131,8 @@
       </svg>
     </a>
     <ul class="nav-links">
-      <li><a href="process.html">Process</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
@@ -132,92 +153,101 @@
 </div>
 
 
+<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
-    <span class="section-label" style="color:rgba(255,255,255,0.3);">WHAT'S INCLUDED</span>
-    <h1 class="page-header-title">Everything your business<br/>needs online</h1>
-    <p class="page-header-sub">We handle the full picture: design, development, Google visibility, and ongoing improvements. One team, one relationship.</p>
+    <span class="section-label">HOW IT WORKS</span>
+    <h1 class="page-header-title">Three steps to your<br/>new business website</h1>
+    <p class="page-header-sub">From first conversation to live website, we handle all the technical stuff so you can focus on running your business.</p>
   </div>
 </div>
 
 
-<section style="padding: 80px 24px; background: var(--color-bg);">
+<!-- STEPS -->
+<section style="padding: 80px 24px; background: var(--color-bg-alt);">
   <div class="container">
-    <div class="services-grid">
+    <div class="steps-grid">
 
-      <div class="service-card">
-        <div class="service-icon">
+      <div class="step-card">
+        <div class="step-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="11" cy="7.5" r="4"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+          </svg>
+        </div>
+        <div class="step-num">Step 01</div>
+        <h3 class="step-title">Tell us about your business</h3>
+        <p class="step-body">Fill in a short brief about your business, your ideal clients, and the types of jobs you want more of. Takes 10 minutes — no tech knowledge required.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
             <rect x="3" y="4" width="16" height="12" rx="2"/><path d="M8 20h6M11 16v4"/>
           </svg>
         </div>
-        <h3 class="service-title">Website Design & Build</h3>
-        <p class="service-body">Custom-designed, mobile-first website built to showcase your work and convert visitors into booked jobs. Looks professional from day one.</p>
-        <ul class="check-list">
-          <li>Mobile-first, fast-loading</li>
-          <li>Custom copywriting included</li>
-          <li>Contact forms & quote requests</li>
-          <li>Portfolio & project gallery</li>
-        </ul>
+        <div class="step-num">Step 02</div>
+        <h3 class="step-title">We design & build at no cost</h3>
+        <p class="step-body">Our team designs a custom, mobile-first website. We write the copy, source images, and set up Google Analytics and local SEO from day one. All included.</p>
       </div>
 
-      <div class="service-card">
-        <div class="service-icon">
+      <div class="step-card">
+        <div class="step-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="10" cy="10" r="7"/><path d="M19 19l-4-4"/>
+            <path d="M4 11l5 5 9-9"/>
           </svg>
         </div>
-        <h3 class="service-title">Local SEO</h3>
-        <p class="service-body">Get found when locals search "plumber near me" or "builder [your city]" — we set up your Google presence from day one so enquiries start coming in.</p>
-        <ul class="check-list">
-          <li>Local SEO for your region</li>
-          <li>Google Business Profile setup</li>
-          <li>Monthly ranking reports</li>
-          <li>Keyword targeting for your trade</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <rect x="2" y="3" width="18" height="14" rx="2"/><path d="M2 20h18"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Domain & Hosting</h3>
-        <p class="service-body">Hosted on fast NZ servers with SSL, daily backups, and 99.9% uptime — all included in your monthly plan. Nothing to manage yourself.</p>
-        <ul class="check-list">
-          <li>Domain registration included</li>
-          <li>SSL certificate (HTTPS)</li>
-          <li>Daily automated backups</li>
-          <li>99.9% uptime guarantee</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-            <path d="M11 2v3M11 17v3M4.22 4.22l2.12 2.12M15.66 15.66l2.12 2.12M2 11h3M17 11h3M4.22 17.78l2.12-2.12M15.66 6.34l2.12-2.12"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Ongoing Support</h3>
-        <p class="service-body">As your business grows, your website grows with it. New projects, seasonal updates, service changes — we handle everything so you don't have to.</p>
-        <ul class="check-list">
-          <li>Unlimited content updates</li>
-          <li>Portfolio & project additions</li>
-          <li>Priority support, NZ hours</li>
-          <li>Performance monitoring</li>
-        </ul>
+        <div class="step-num">Step 03</div>
+        <h3 class="step-title">Love it? Go live on a plan</h3>
+        <p class="step-body">Preview your finished site before committing to anything. If you love it, you're live within days on a simple monthly plan. No upfront build cost, ever.</p>
       </div>
 
     </div>
+
+    <!-- Timeline detail -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+        <div>
+          <div class="timeline-tag">Day 1</div>
+          <div class="timeline-title">You complete the brief</div>
+          <div class="timeline-body">A short online form covering your business, services, location, and what you want more of. We take it from there — no meetings needed at this stage.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+        <div>
+          <div class="timeline-tag">Days 1–5</div>
+          <div class="timeline-title">We build your website</div>
+          <div class="timeline-body">Custom design, professional copywriting, local SEO, contact forms, Google Analytics — everything set up and ready. We'll keep you posted with quick updates.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+        <div>
+          <div class="timeline-tag">Days 5–7</div>
+          <div class="timeline-title">You review and request changes</div>
+          <div class="timeline-body">We send you a private preview link. Review it on your phone, tablet, or desktop. Ask for any tweaks — we'll make them fast. No limit on revision requests at this stage.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+        <div>
+          <div class="timeline-tag">Day 7+</div>
+          <div class="timeline-title">You go live — only if you love it</div>
+          <div class="timeline-body">Happy with what you see? We connect your domain, go live, and you're on a simple monthly plan. Not happy? You walk away — no charge, no hard feelings.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 
+<!-- CTA -->
 <div class="cta-bar">
   <div class="container" style="max-width:580px;">
-    <h2 style="font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-0.03em;margin-bottom:12px;">Get all of this — free to build</h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;">Everything above is included in your free website build. You only pay once you've seen it and love it.</p>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:-0.03em;margin-bottom:12px;">Ready to get started?</h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:1rem;line-height:1.7;">Fill in the brief and we'll have your website ready to preview in 5–7 days.</p>
     <div class="cta-actions">
       <a href="index.html#contact" class="btn btn-yellow" style="font-size:0.95rem;padding:13px 24px;">Claim your free website →</a>
       <a href="pricing.html" class="btn btn-outline-light" style="font-size:0.95rem;padding:13px 24px;">See pricing</a>
@@ -226,6 +256,7 @@
 </div>
 
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
