@@ -25,7 +25,17 @@ createServer(async (req, res) => {
   const ext = extname(filePath).toLowerCase();
 
   try {
-    const data = await readFile(filePath);
+    let data = await readFile(filePath);
+    if (ext === '.html') {
+      let html = data.toString('utf8');
+      if (html.includes('<!--#nav-->')) {
+        const nav = await readFile(join(__dirname, 'nav.html'), 'utf8');
+        html = html.replace('<!--#nav-->', nav);
+      }
+      res.writeHead(200, { 'Content-Type': mime[ext] });
+      res.end(html);
+      return;
+    }
     res.writeHead(200, { 'Content-Type': mime[ext] || 'text/plain' });
     res.end(data);
   } catch {
