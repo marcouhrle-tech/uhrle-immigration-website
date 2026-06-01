@@ -1396,10 +1396,10 @@
       .container { padding: 0 16px; }
       .header-inner { padding: 0 16px; }
 
-      /* Hide all top-bar socials + phone on very small screens, just lang switcher */
-      .top-bar-socials { display: none; }
-      .top-bar-divider { display: none; }
-      .top-bar-contact { display: none; }
+      /* Hide top-bar entirely on small screens */
+      .top-bar { display: none; }
+      .site-header { top: 0; }
+      .mobile-menu { top: 80px; }
       .logo-wrap img { height: 46px; }
 
       .hero { min-height: 560px; }
