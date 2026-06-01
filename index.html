@@ -424,7 +424,7 @@
       display: flex;
       flex-direction: row;
       gap: 14px;
-      justify-content: flex-end;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
@@ -439,7 +439,7 @@
       padding: 17px 32px;
       border-radius: var(--radius-sm);
       background: var(--gold);
-      color: #fff;
+      color: #000;
       box-shadow: 0 4px 20px rgba(232,168,48,0.4);
       transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
       letter-spacing: 0.01em;
@@ -451,28 +451,6 @@
     }
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--heading-font);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 17px 32px;
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.45);
-      backdrop-filter: blur(8px);
-      transition: border-color 0.22s ease, background 0.22s ease, transform 0.15s ease;
-    }
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.85);
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-1px);
-    }
 
     /* Hero form card */
     .hero-card {
@@ -1369,8 +1347,7 @@
       .hero-title { font-size: clamp(2rem, 10vw, 3.5rem); }
       .hero-sub { font-size: 15px; }
       .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
-      .hero-actions .btn-primary,
-      .hero-actions .btn-secondary { width: 100%; max-width: 320px; }
+      .hero-actions .btn-primary { width: 100%; max-width: 320px; }
 
       .trust-divider { flex-shrink: 0; }
 
@@ -1418,8 +1395,7 @@
 
       .hero { min-height: 560px; }
       .hero-title { font-size: clamp(1.8rem, 9vw, 3rem); }
-      .hero-actions .btn-primary,
-      .hero-actions .btn-secondary { max-width: 100%; }
+      .hero-actions .btn-primary { max-width: 100%; }
 
       .about-highlights { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; gap: 32px; }
@@ -1528,9 +1504,6 @@
             <a href="#contact" class="btn-primary">
               <span data-i18n="hero.btn1">Evaluá tus opciones migratorias</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#contact" class="btn-secondary" data-i18n="hero.btn2">
-              Agenda tu consulta gratuita de 15 minutos
             </a>
           </div>
       </div>
