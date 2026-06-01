@@ -1153,6 +1153,8 @@
     }
     .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--gold); }
+    .nzls-logo { height: 28px; width: auto; filter: brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(-5deg) brightness(1.1); opacity: 0.9; vertical-align: middle; transition: opacity 0.2s ease, filter 0.2s ease; }
+    .nzls-logo:hover { opacity: 1; filter: brightness(0) invert(1) sepia(1) saturate(10) hue-rotate(-5deg) brightness(1.15); }
     .footer-lang {
       display: flex;
       align-items: center;
@@ -1842,7 +1844,7 @@
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.copy">Â© 2025 Uhrle Immigration Law. Todos los derechos reservados.</span>
-        <span>Regulada por <a href="#">NZ Law Society</a> Â· <a href="#" data-i18n="footer.privacy">Privacidad</a> Â· <a href="#" data-i18n="footer.terms">TÃ©rminos</a></span>
+        <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">Regulada por <a href="https://www.lawsociety.org.nz/" target="_blank" rel="noopener"><img src="NZ-Law-logo-e1542063339105 (1).png" alt="NZ Law Society" class="nzls-logo"></a> Â· <a href="#" data-i18n="footer.privacy">Privacidad</a> Â· <a href="#" data-i18n="footer.terms">TÃ©rminos</a></span>
       </div>
     </div>
   </footer>
