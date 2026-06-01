@@ -1337,8 +1337,12 @@
       /* Top bar: hide email, keep phone + socials + lang */
       .top-bar-left { display: none; }
       .top-bar .container { justify-content: flex-end; padding: 0 20px; }
-      .top-bar-right { gap: 12px; }
-      .top-bar-socials { gap: 12px; }
+      .top-bar-right { gap: 10px; }
+      .top-bar-socials { gap: 10px; }
+
+      /* Logo: remove negative margin, scale down */
+      .logo-wrap { margin-left: 0; }
+      .logo-wrap img { height: 54px; }
 
       /* Nav */
       .site-nav { display: none; }
@@ -1392,9 +1396,11 @@
       .container { padding: 0 16px; }
       .header-inner { padding: 0 16px; }
 
-      /* Hide all top-bar socials on very small screens */
+      /* Hide all top-bar socials + phone on very small screens, just lang switcher */
       .top-bar-socials { display: none; }
-      .top-bar-divider:first-of-type { display: none; }
+      .top-bar-divider { display: none; }
+      .top-bar-contact { display: none; }
+      .logo-wrap img { height: 46px; }
 
       .hero { min-height: 560px; }
       .hero-title { font-size: clamp(1.8rem, 9vw, 3rem); }
