@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -603,6 +603,7 @@
     }
 
     /* ———— INTRO EN ———————————————————————————————————————————————————————————————————————————————————————— */
+    .en-only { background: var(--white); }
     .intro-body-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -882,15 +883,38 @@
     /* ———— STATS BANNER —————————————————————————————————————————————————————————————————————————————————— */
     .stats-banner {
       background: var(--teal);
-      padding: 60px 0;
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 2px 0 rgba(232,168,48,0.35), inset 0 -2px 0 rgba(232,168,48,0.35);
     }
+    .stats-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 130% at 0% 50%, rgba(15,53,64,0.65) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 130% at 100% 50%, rgba(15,53,64,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 100% 55% at 50% 100%, rgba(10,40,50,0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 90% at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-banner .container { position: relative; z-index: 1; }
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 300px));
+      gap: 0;
       text-align: center;
+      justify-content: center;
     }
-    .stat-item { }
+    .stat-item {
+      padding: 8px 48px;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .stat-item:hover { opacity: 0.88; transform: translateY(-2px); }
+    .stat-item + .stat-item {
+      border-left: 1px solid rgba(255,255,255,0.18);
+    }
     .stat-num {
       font-family: var(--heading-font);
       font-size: clamp(32px, 4vw, 52px);
@@ -898,12 +922,26 @@
       color: #fff;
       line-height: 1;
       margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .stat-num::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      margin: 10px auto 0;
+      border-radius: 2px;
+      opacity: 0.65;
     }
     .stat-num span { color: var(--gold); }
     .stat-label {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      font-weight: 400;
+      font-size: 13px;
+      color: rgba(255,255,255,0.88);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 6px;
     }
     .stat-divider {
       width: 1px;
@@ -1113,6 +1151,97 @@
     }
 
     /* ———— FOOTER —————————————————————————————————————————————————————————————————————————————————————————————— */
+    /* ———— ABOUT MODAL ————————————————————————————————————————————————————————————————————————————————————————————— */
+    .about-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 53, 64, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+    .about-modal-overlay.open { opacity: 1; }
+    .about-modal-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(16px);
+      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .about-modal-overlay.open .about-modal-card { transform: translateY(0); }
+    .about-modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--grey-500);
+      padding: 4px;
+      line-height: 1;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .about-modal-close:hover { color: var(--ink); background: var(--grey-50); }
+    .about-modal-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .about-modal-title em { color: var(--teal); font-style: normal; }
+    .about-modal-body {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+    }
+    .about-modal-exp-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .about-modal-exp-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .about-modal-exp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    .about-modal-dash {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 480px) {
+      .about-modal-card { padding: 32px 24px; }
+    }
+
+    /* ———— FOOTER —————————————————————————————————————————————————————————————————————————————————————————————— */
     .site-footer {
       background: var(--ink);
       color: rgba(255,255,255,0.6);
@@ -1229,7 +1358,8 @@
     /* ———— RESPONSIVE —————————————————————————————————————————————————————————————————————————————————————— */
     @media (max-width: 1024px) {
       .about-grid { grid-template-columns: 1fr 380px; gap: 48px; }
-      .intro-body-grid { grid-template-columns: 1fr; }
+      .en-only { background: var(--white); }
+    .intro-body-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -1322,6 +1452,121 @@
       .stats-grid { grid-template-columns: 1fr; }
       .hero-badge { font-size: 10px; }
     }
+
+    /* ———— LANG TOGGLE ——————————————————————————————————————————————————————————————————————————————————————— */
+    .lang-en { display: none; }
+    html[lang="en"] .lang-es { display: none; }
+    html[lang="en"] .lang-en { display: block; }
+
+    /* ———— WHY CHOOSE ——————————————————————————————————————————————————————————————————————————————————————— */
+    #why { background: var(--off-white); }
+    .why-body {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--grey-700);
+      margin-bottom: 20px;
+    }
+    .why-highlight {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 20px 24px;
+      font-size: 15.5px;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin: 32px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ———— SOBRE MARÍA EXPANDED ——————————————————————————————————————————————————————————————————————————— */
+    #sobre-maria { background: var(--white); }
+    .sobre-body {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--grey-700);
+      margin-bottom: 18px;
+    }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 72px;
+      align-items: flex-start;
+    }
+    .sobre-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 150px;
+    }
+    .sobre-photo img { width: 100%; display: block; object-fit: cover; }
+    @media (max-width: 900px) {
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-photo { position: static; max-width: 400px; margin: 0 auto 40px; }
+    }
+
+    /* ———— RECURSOS ——————————————————————————————————————————————————————————————————————————————————————— */
+    #recursos { background: var(--off-white); }
+    .recursos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .recurso-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--grey-100);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .recurso-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .recurso-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .recurso-title {
+      font-family: var(--heading-font);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .recurso-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--grey-700);
+    }
+    .recurso-body p { margin-bottom: 12px; }
+    .recurso-body p:last-child { margin-bottom: 0; }
+    .recurso-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .recurso-cta:hover { color: var(--teal-dark); border-color: var(--teal); }
+    @media (max-width: 900px) { .recursos-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .recursos-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -1373,12 +1618,12 @@
         <img src="uhrle-logo.png" alt="Uhrle Immigration Law">
       </a>
       <nav class="site-nav" aria-label="Navegación principal">
-        <a href="#about" data-i18n="nav.about">Sobre María</a>
+        <a href="#sobre-maria" data-i18n="nav.about">Sobre María</a>
         <a href="#services" data-i18n="nav.services">Servicios</a>
         <a href="#process" data-i18n="nav.process">Cómo trabajamos</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" data-i18n="nav.contact">Contacto</a>
-        <a href="consulta.html" class="nav-cta" data-i18n="nav.cta">Consulta gratuita</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.cta">Consulta gratuita</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1388,7 +1633,7 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#about" class="mobile-link" data-i18n="nav.about">Sobre María</a>
+    <a href="#sobre-maria" class="mobile-link" data-i18n="nav.about">Sobre María</a>
     <a href="#services" class="mobile-link" data-i18n="nav.services">Servicios</a>
     <a href="#process" class="mobile-link" data-i18n="nav.process">Cómo trabajamos</a>
     <a href="#faq" class="mobile-link">FAQ</a>
@@ -1448,23 +1693,19 @@
   </section>
 
   <!-- ———— ABOUT ———————————————————————————————————————————————————————————————————————————————————————————————— -->
-  <section id="about" class="section-pad">
+  <section id="about" class="section-pad" style="display:none">
     <div class="container">
       <div class="about-grid">
         <div class="about-text">
           <p class="section-label reveal" data-i18n="about.label">Sobre María</p>
           <h2 class="section-title reveal reveal-delay-1" data-i18n-html="about.title">
-            Una abogada que<br>
-            <em>vivió el proceso</em> migratorio
+            Conocimiento legal y experiencia personal<br>
+            en <em>procesos migratorios</em>
           </h2>
           <p class="section-body reveal reveal-delay-2" data-i18n="about.body1">
-            Nacida en Salta, Argentina, María emigró a Nueva Zelanda y atravesó el proceso de reconocimiento de título profesional desde adentro. Hoy, desde Nelson, ayuda a profesionales y familias latinoamericanas a navegar el sistema migratorio neozelandés con claridad y estrategia.
+            María Uhrle nació en Salta, Argentina, y reside en Nelson, NZ, donde estableció su estudio jurídico especializado en inmigración y asuntos laborales relacionados.
           </p>
-          <p class="section-body reveal reveal-delay-2" style="margin-top: 16px;" data-i18n="about.body2">
-            Su experiencia en Nelson Bays Community Law, junto a su trabajo con la Cruz Roja y Multicultural Nelson Tasman, la posicionan como una referente cercana, comprometida y técnicamente sólida.
-          </p>
-
-          <a href="#contact" class="about-cta reveal reveal-delay-3">
+          <a href="#sobre-maria" class="about-cta reveal reveal-delay-3" style="margin-top: 28px;">
             <span data-i18n="about.cta">Conocé su historia completa</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1485,6 +1726,106 @@
   </section>
 
   <!-- ———— SERVICES —————————————————————————————————————————————————————————————————————————————————————————— -->
+  <!-- SOBRE MARIA EXPANDED -->
+  <section id="sobre-maria" class="section-pad">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-photo reveal">
+          <img src="mum 4.jpg" alt="María Uhrle — Abogada de Inmigración">
+        </div>
+        <div>
+          <p class="section-label reveal">
+            <span class="lang-es">Sobre mí</span>
+            <span class="lang-en">About me</span>
+          </p>
+          <h2 class="section-title reveal reveal-delay-1">
+            <span class="lang-es">María Uhrle — <em>Abogada de Inmigración</em></span>
+            <span class="lang-en">María Uhrle — <em>Immigration Lawyer</em></span>
+          </h2>
+
+          <div class="lang-es">
+            <p class="sobre-body reveal reveal-delay-2">Soy María Uhrle, abogada especializada en derecho migratorio con base en Nelson-Tasman, Nueva Zelanda, y dirijo Uhrle Immigration Law, una práctica dedicada exclusivamente al derecho migratorio.</p>
+            <p class="sobre-body reveal reveal-delay-2">Desde 2018 trabajo dentro del sistema legal neozelandés. Durante más de seis años fui asesora legal en Nelson Bays Community Law, donde acompañé a personas en temas de inmigración, empleo, familia y arrendamiento. Paralelamente, fui miembro de la comisión directiva de Multicultural Nelson Tasman y realicé trabajo voluntario como refugee support worker en la Cruz Roja Nueva Zelanda — experiencias que me dieron una comprensión profunda y real de los desafíos que enfrentan las personas en su camino migratorio.</p>
+            <p class="sobre-body reveal reveal-delay-2">Me formé como abogada en la Universidad Nacional de La Plata, Argentina, y al llegar a Nueva Zelanda atravesé personalmente el proceso de convalidación de mi título para poder ejercer en este país. Esa experiencia me permitió conocer estos procedimientos desde adentro, y es hoy una de las áreas en las que asesoro a mis clientes.</p>
+            <p class="sobre-body reveal reveal-delay-2">Atiendo clientes en toda Nueva Zelanda y de forma remota en cualquier parte del mundo, en español e inglés. Trabajo con personas de todos los orígenes y nacionalidades — ya sea que estén buscando reunificarse con su familia, obtener una visa de trabajo, convalidar sus títulos profesionales, o planificar su camino hacia la residencia permanente.</p>
+            <p class="sobre-body reveal reveal-delay-2" style="font-style:italic;color:var(--teal-dark);border-left:3px solid var(--gold);padding-left:16px;">Mi objetivo es acompañarte en cada etapa de tu proceso migratorio con claridad, experiencia y dedicación personal.</p>
+          </div>
+
+          <div class="lang-en">
+            <p class="sobre-body reveal reveal-delay-2">I am María Uhrle, an immigration lawyer based in Nelson-Tasman, New Zealand, and I run Uhrle Immigration Law, a practice dedicated exclusively to New Zealand immigration law.</p>
+            <p class="sobre-body reveal reveal-delay-2">I have been working within the New Zealand legal system since 2018. For more than six years I worked as a legal adviser at Nelson Bays Community Law, where I assisted clients across immigration, employment, family, and tenancy matters. Alongside that role, I served on the board of Multicultural Nelson Tasman and volunteered as a refugee support worker with the New Zealand Red Cross — experiences that gave me a genuine and grounded understanding of the challenges people face on their immigration journey.</p>
+            <p class="sobre-body reveal reveal-delay-2">I completed my legal training at the National University of La Plata, Argentina, and upon arriving in New Zealand I went through the credential recognition process myself in order to practise law here. That firsthand experience gives me a practical and personal understanding of what that process involves, and it is one of the areas in which I advise clients today.</p>
+            <p class="sobre-body reveal reveal-delay-2">I work with clients across New Zealand and remotely from anywhere in the world, in English and Spanish. I assist people of all backgrounds and nationalities — whether they are seeking to reunite with family, obtain a work visa, have their professional qualifications recognised, or plan their pathway to permanent residence.</p>
+            <p class="sobre-body reveal reveal-delay-2" style="font-style:italic;color:var(--teal-dark);border-left:3px solid var(--gold);padding-left:16px;">My goal is to guide you through every step of your immigration journey with clarity, experience, and personal commitment.</p>
+          </div>
+
+          <a href="#contact" class="btn-primary reveal" style="margin-top: 24px; display: inline-flex;">
+            <span class="lang-es">Agenda tu consulta gratuita</span>
+            <span class="lang-en">Book your free consultation</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section id="why" class="section-pad">
+    <div class="container">
+      <p class="section-label reveal">
+        <span class="lang-es">¿Por qué elegirnos?</span>
+        <span class="lang-en">Why choose us?</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1" style="max-width:700px;">
+        <span class="lang-es">¿Por qué elegir <em>Uhrle Immigration Law</em>?</span>
+        <span class="lang-en">Why choose <em>Uhrle Immigration Law</em>?</span>
+      </h2>
+      <div class="lang-es">
+        <p class="why-body reveal reveal-delay-2">Porque cada caso migratorio es único y merece atención personalizada desde el primer día.</p>
+        <p class="why-body reveal reveal-delay-2">Uhrle Immigration Law es una práctica especializada exclusivamente en derecho migratorio, pensada para profesionales, técnicos y familias que quieren construir su futuro en Nueva Zelanda. No somos una firma generalista: cada cliente trabaja directamente con María, con comunicación clara, honorarios fijos y transparentes, y sin sorpresas en el camino.</p>
+        <p class="why-body reveal reveal-delay-2">Nuestra combinación de formación legal, experiencia comunitaria de más de seis años en Nueva Zelanda y profundo conocimiento del sistema migratorio y de convalidación de títulos nos permite acompañar a nuestros clientes de forma integral: desde la primera visa de trabajo, pasando por el cambio de empleador y la planificación hacia la residencia, hasta la reunificación familiar. Para cada etapa, hay una estrategia.</p>
+        <p class="why-body reveal reveal-delay-2">Atendemos en español e inglés, de forma remota para clientes en cualquier parte del mundo y presencialmente en la región Nelson-Tasman. Sabemos lo que implica emigrar, reorganizar una vida y navegar un sistema que no siempre es fácil de entender. Por eso nuestra prioridad es que entiendas cada paso del proceso con claridad y sin tecnicismos innecesarios.</p>
+        <div class="why-highlight reveal">Y si tu caso no tiene buenas chances, te lo decimos antes de avanzar. Esa honestidad también es parte del servicio.</div>
+      </div>
+      <div class="lang-en">
+        <p class="why-body reveal reveal-delay-2">Because every immigration case is unique and deserves personalised attention from day one.</p>
+        <p class="why-body reveal reveal-delay-2">Uhrle Immigration Law is a practice dedicated exclusively to immigration law, designed for professionals, skilled workers, and families who want to build their future in New Zealand. We are not a generalist firm: every client works directly with María, with clear communication, fixed and transparent fees, and no surprises along the way.</p>
+        <p class="why-body reveal reveal-delay-2">Our combination of legal training, more than six years of community legal experience in New Zealand, and in-depth knowledge of the immigration system and credential recognition allows us to support our clients comprehensively — from the first work visa, through employer changes and planning towards residence, to family reunification. For every stage, there is a strategy.</p>
+        <p class="why-body reveal reveal-delay-2">We work in English and Spanish, remotely for clients anywhere in the world and in person across the Nelson-Tasman region. We understand what it means to emigrate, to rebuild a life, and to navigate a system that is not always easy to understand. Our priority is that you understand every step of the process clearly and without unnecessary legal jargon.</p>
+        <div class="why-highlight reveal">And if your case does not have strong prospects, we will tell you before you proceed. That honesty is part of the service too.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT MODAL -->
+  <div id="aboutModal" class="about-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle" style="display:none!important;visibility:hidden;">
+    <div class="about-modal-card">
+      <button class="about-modal-close" onclick="closeAboutModal()" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="section-label" data-i18n="about.label" style="margin-bottom: 12px;">Sobre María</p>
+      <h3 id="aboutModalTitle" class="about-modal-title" data-i18n-html="about.title">
+        Conocimiento legal y experiencia personal<br>en <em>procesos migratorios</em>
+      </h3>
+      <p class="about-modal-body" data-i18n="about.body2">
+        Habiendo transitado personalmente el proceso de inmigración y convalidación de títulos profesionales, María comprende en profundidad los desafíos legales y emocionales que enfrentan quienes migran.
+      </p>
+      <div class="about-modal-exp">
+        <p data-i18n="about.exp.label" class="about-modal-exp-label">Experiencia profesional</p>
+        <ul class="about-modal-exp-list">
+          <li>
+            <span class="about-modal-dash">—</span>
+            <span data-i18n="about.exp.1">Abogada en Nelson Bays Community Law</span>
+          </li>
+          <li>
+            <span class="about-modal-dash">—</span>
+            <span data-i18n="about.exp.2">Participación comunitaria en Nelson Red Cross y Multicultural Nelson Tasman</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <section id="services" class="section-pad">
     <div class="container">
       <div class="services-header">
@@ -1496,7 +1837,7 @@
           </h2>
         </div>
         <div class="reveal reveal-delay-2">
-          <a href="#contact" class="about-cta">
+          <a href="#services" class="about-cta">
             <span data-i18n="services.viewall">Ver todos los servicios</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1549,9 +1890,11 @@
           </div>
           <h3 class="service-title" data-i18n="svc4.title">Visas familiares y de pareja</h3>
           <p class="service-desc" data-i18n="svc4.desc">Reunificación familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sólida.</p>
+          <p class="service-desc" style="font-size:13px;color:var(--teal);font-style:italic;margin-bottom:12px;" data-i18n="svc4.parents">Visa de padres y familiares directos: opciones para reunirte con tus seres queridos en Nueva Zelanda de forma temporal o permanente.</p>
           <div class="service-tags">
             <span class="service-tag" data-i18n="svc4.tag1">Visa de pareja</span>
             <span class="service-tag" data-i18n="svc4.tag2">Reunificación familiar</span>
+            <span class="service-tag" data-i18n="svc4.tag3">Visa de padres</span>
           </div>
         </div>
 
@@ -1620,16 +1963,12 @@
   <div class="stats-banner">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-num">100<span>%</span></div>
-          <div class="stat-label" data-i18n="stat1.label">Atención personalizada</div>
-        </div>
         <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-num">2<span>+</span></div>
-          <div class="stat-label" data-i18n="stat2.label">Idiomas de atención</div>
+          <div class="stat-num" style="font-size:clamp(18px,2.2vw,28px);white-space:nowrap;">English <span>&</span> Spanish</div>
+          <div class="stat-label" data-i18n="stat2.label">Español &amp; English</div>
         </div>
         <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-num">15<span>min</span></div>
+          <div class="stat-num" style="font-size:clamp(18px,2.2vw,28px);">15<span>min</span></div>
           <div class="stat-label" data-i18n="stat3.label">Consulta gratuita</div>
         </div>
         <div class="stat-item reveal reveal-delay-3">
@@ -1665,7 +2004,7 @@
               <span data-i18n="faq.q1">¿Necesito un abogado o alcanza con un immigration adviser?</span>
               <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
-            <div class="faq-a" data-i18n="faq.a1">Ambos pueden presentar solicitudes de visa, pero un abogado tiene formación legal más amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversión.</div>
+            <div class="faq-a" data-i18n="faq.a1">Ambos pueden presentar solicitudes de visa, pero un abogado tiene formación legal más amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversión. Contar con un abogado desde el principio, incluso en casos aparentemente simples, puede prevenir errores que son difíciles y costosos de revertir más adelante.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
@@ -1742,7 +2081,7 @@
               </div>
               <div class="contact-item-text">
                 <div class="contact-label" data-i18n="contact.loc.label">Ubicación</div>
-                <div class="contact-val" data-i18n-html="contact.loc.val">Nelson, Nueva Zelanda<br><small style="color: var(--grey-500); font-size: 13px;">Atención remota disponible para toda LATAM</small></div>
+                <div class="contact-val" data-i18n-html="contact.loc.val">Nelson-Tasman, Nueva Zelanda<br><small style="color: var(--grey-500); font-size: 13px;">Atención remota disponible para toda LATAM</small></div>
               </div>
             </div>
             <div class="contact-item reveal reveal-delay-3">
@@ -1802,13 +2141,101 @@
             <label data-i18n="form.situation.label">Contame brevemente tu situación</label>
             <textarea data-i18n-placeholder="form.situation.ph" placeholder="Ej. Estoy en Argentina, tengo oferta de trabajo en NZ y quiero saber mis opciones..."></textarea>
           </div>
-          <button class="cf-submit" data-i18n="form.submit">Enviar consulta → </button>
+          <button type="button" class="cf-submit" data-i18n="form.submit">Enviar consulta →</button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ———— FOOTER —————————————————————————————————————————————————————————————————————————————————————————————— -->
+  <!-- RECURSOS MIGRATORIOS -->
+  <section id="recursos" class="section-pad">
+    <div class="container">
+      <p class="section-label reveal">
+        <span class="lang-es">Recursos migratorios</span>
+        <span class="lang-en">Immigration resources</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1">
+        <span class="lang-es">Guías para entender el <em>sistema migratorio</em> de Nueva Zelanda</span>
+        <span class="lang-en">Guides to understanding <em>New Zealand's immigration system</em></span>
+      </h2>
+      <p class="section-body reveal reveal-delay-2" style="max-width:640px;margin-bottom:0;">
+        <span class="lang-es">Información clara y práctica para que tomes decisiones más informadas en tu camino migratorio.</span>
+        <span class="lang-en">Clear, practical information to help you make better-informed decisions on your immigration journey.</span>
+      </p>
+
+      <div class="recursos-grid">
+
+        <div class="recurso-card reveal">
+          <span class="recurso-tag">
+            <span class="lang-es">Visa de trabajo</span><span class="lang-en">Work visa</span>
+          </span>
+          <h3 class="recurso-title">
+            <span class="lang-es">¿Qué es la AEWV y quién puede solicitarla?</span>
+            <span class="lang-en">What is the AEWV and who can apply?</span>
+          </h3>
+          <div class="recurso-body lang-es">
+            <p>La Accredited Employer Work Visa (AEWV) es la principal visa de trabajo en Nueva Zelanda para personas que vienen a trabajar para un empleador específico. El sistema involucra tres etapas en orden: el empleador debe estar acreditado ante Immigration New Zealand, luego obtener una aprobación de puesto (Job Check), y recién entonces el trabajador puede presentar su solicitud.</p>
+            <p>La AEWV está atada a un empleador específico. Si cambiás de trabajo, necesitás una nueva visa o variación de condiciones — y los plazos son estrictos. La visa puede otorgarse por hasta cinco años y en muchos casos puede ser un camino hacia la residencia permanente.</p>
+          </div>
+          <div class="recurso-body lang-en">
+            <p>The Accredited Employer Work Visa (AEWV) is the main work visa in New Zealand for people coming to work for a specific employer. The system involves three stages in order: the employer must be accredited with Immigration New Zealand, obtain a Job Check approval, and only then can the worker submit their visa application.</p>
+            <p>The AEWV is tied to a specific employer. If you change jobs, you need a new visa or a variation of conditions — and the timeframes are strict. The visa can be granted for up to five years and in many cases can be a pathway to permanent residence.</p>
+          </div>
+          <a href="#contact" class="recurso-cta">
+            <span class="lang-es">Consultá tu caso</span><span class="lang-en">Ask about your case</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="recurso-card reveal reveal-delay-1">
+          <span class="recurso-tag">
+            <span class="lang-es">Estudios y residencia</span><span class="lang-en">Study &amp; residency</span>
+          </span>
+          <h3 class="recurso-title">
+            <span class="lang-es">De estudiante a residente: los pasos clave</span>
+            <span class="lang-en">From student to resident: the key steps</span>
+          </h3>
+          <div class="recurso-body lang-es">
+            <p>Nueva Zelanda ofrece un camino real desde los estudios hasta la residencia permanente — pero requiere planificación desde el principio. El recorrido típico: Student Visa → Post Study Work Visa → visa de trabajo → residencia permanente.</p>
+            <p>El tipo de estudios, el nivel del programa y la institución que elegís no solo determinan tu visa de estudiante — también influyen directamente en tu elegibilidad para trabajar después de graduarte y en tus chances de residencia a largo plazo. Elegir mal al principio puede cerrarte puertas muy difíciles de volver a abrir.</p>
+          </div>
+          <div class="recurso-body lang-en">
+            <p>New Zealand offers a real pathway from study to permanent residence — but it requires planning from the very beginning. The typical journey: Student Visa → Post Study Work Visa → work visa → permanent residence.</p>
+            <p>The type of study, programme level, and institution you choose not only determine your student visa — they also directly affect your eligibility to work after graduating and your long-term residency prospects. A poor initial choice can close doors that are very difficult to reopen later.</p>
+          </div>
+          <a href="#contact" class="recurso-cta">
+            <span class="lang-es">Planificá tu camino</span><span class="lang-en">Plan your pathway</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="recurso-card reveal reveal-delay-2">
+          <span class="recurso-tag">
+            <span class="lang-es">Visas familiares</span><span class="lang-en">Family visas</span>
+          </span>
+          <h3 class="recurso-title">
+            <span class="lang-es">Reunificación familiar en Nueva Zelanda</span>
+            <span class="lang-en">Family reunification in New Zealand</span>
+          </h3>
+          <div class="recurso-body lang-es">
+            <p>Reunirse con tu familia en Nueva Zelanda es posible — pero el camino depende de tu situación migratoria actual. Las principales opciones incluyen visas de pareja, inclusión de hijos dependientes, y para padres: la Parent Boost Visitor Visa (hasta 5 años, desde septiembre 2025) y la Parent Resident Visa (residencia permanente mediante ballot anual, con más lugares desde julio 2025).</p>
+            <p>Cada caso tiene sus particularidades. Los requisitos del sponsor, la situación migratoria familiar y el tipo de visa que ya tenés son factores determinantes.</p>
+          </div>
+          <div class="recurso-body lang-en">
+            <p>Reuniting with your family in New Zealand is possible — but the path depends on your current immigration status. Main options include partner visas, dependent children inclusion, and for parents: the Parent Boost Visitor Visa (up to 5 years, from September 2025) and the Parent Resident Visa (permanent residence via annual ballot, with more places from July 2025).</p>
+            <p>Every case has its own particularities. The sponsor's income requirements, the family's immigration situation, and the type of visa you already hold are all determining factors.</p>
+          </div>
+          <a href="#contact" class="recurso-cta">
+            <span class="lang-es">Evaluá tus opciones</span><span class="lang-en">Explore your options</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -1826,7 +2253,7 @@
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.info.h">Información</h4>
-          <a href="#about" data-i18n="footer.info.1">Sobre María Uhrle</a>
+          <a href="#sobre-maria" data-i18n="footer.info.1">Sobre María Uhrle</a>
           <a href="#process" data-i18n="footer.info.2">Cómo trabajamos</a>
           <a href="#faq" data-i18n="footer.info.3">Preguntas frecuentes</a>
           <a href="#contact" data-i18n="footer.info.4">Costos y honorarios</a>
@@ -1980,16 +2407,21 @@
           trust: { 1: 'Regulada por NZ Law Society', 2: 'Consulta gratuita de 15 min', 3: 'Atención en Español e Inglés', 4: 'Experiencia migrante de primera mano', 5: 'Nelson, Nueva Zelanda' },
           about: {
             label: 'Sobre María',
-            title: 'Una abogada que<br><em>vivió el proceso</em> migratorio',
-            body1: 'Nacida en Salta, Argentina, María emigró a Nueva Zelanda y atravesó el proceso de reconocimiento de título profesional desde adentro. Hoy, desde Nelson, ayuda a profesionales y familias latinoamericanas a navegar el sistema migratorio neozelandés con claridad y estrategia.',
-            body2: 'Su experiencia en Nelson Bays Community Law, junto a su trabajo con la Cruz Roja y Multicultural Nelson Tasman, la posicionan como una referente cercana, comprometida y técnicamente sólida.',
+            title: 'Conocimiento legal y experiencia personal<br>en <em>procesos migratorios</em>',
+            body1: 'María Uhrle nació en Salta, Argentina, y reside en Nelson, NZ, donde estableció su estudio jurídico especializado en inmigración y asuntos laborales relacionados.',
+            body2: 'Habiendo transitado personalmente el proceso de inmigración y convalidación de títulos profesionales, María comprende en profundidad los desafíos legales y emocionales que enfrentan quienes migran.',
+            exp: {
+              label: 'Experiencia profesional',
+              1: 'Abogada en Nelson Bays Community Law',
+              2: 'Participación comunitaria en Nelson Red Cross y Multicultural Nelson Tasman'
+            },
             cta: 'Conocé su historia completa'
           },
           services: { label: 'Servicios legales', title: 'Estrategia legal para <em>cada etapa</em><br>de tu camino migratorio', viewall: 'Ver todos los servicios' },
           svc1: { title: 'Trabajar en Nueva Zelanda', desc: 'Visa AEWV, cambios de empleador y condiciones de visa. Estrategia profesional para tu inserción laboral con respaldo legal desde el primer día.', tag2: 'Cambio de empleador', tag3: 'Condiciones de visa' },
           svc2: { title: 'Estudiar y migrar', desc: 'Visas de estudiante y trabajo post-estudio. Planificación migratoria completa para quienes buscan construir su futuro en NZ desde los estudios.', tag1: 'Visa de estudiante', tag2: 'Post-study work', tag3: 'Plan a largo plazo' },
           svc3: { title: 'Camino a la residencia', desc: 'Residencia permanente, ciudadanía y estrategia legal personalizada para casos complejos. Tu futuro en NZ con una hoja de ruta clara.', tag1: 'Residencia', tag2: 'Ciudadanía', tag3: 'Casos complejos' },
-          svc4: { title: 'Visas familiares y de pareja', desc: 'Reunificación familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sólida.', tag1: 'Visa de pareja', tag2: 'Reunificación familiar' },
+          svc4: { title: 'Visas familiares y de pareja', desc: 'Reunificación familiar y visas para parejas (relaciones genuinas y estables). Te ayudo a documentar y presentar tu caso de manera sólida.', parents: 'Visa de padres y familiares directos: opciones para reunirte con tus seres queridos en Nueva Zelanda de forma temporal o permanente.', tag1: 'Visa de pareja', tag2: 'Reunificación familiar', tag3: 'Visa de padres' },
           svc5: { title: 'Casos especiales y urgentes', desc: 'Sección 61 para personas sin visa válida, cartas PPI y representación estratégica ante INZ en situaciones que requieren atención inmediata.', tag1: 'Sección 61', tag2: 'Cartas PPI', tag3: 'Representación INZ' },
           svc6: { title: '¿No sabés por dónde empezar?', desc: 'Una consulta inicial gratuita de 15 minutos para entender tu situación y orientarte hacia la estrategia correcta. Sin compromiso, con claridad.', cta: 'Agendá gratis' },
           process: { label: 'Cómo trabajamos', title: 'Un proceso claro<br><em>en cuatro pasos</em>', sub: 'Sin tecnicismos innecesarios. Desde la primera consulta hasta el resultado final, sabés exactamente en qué etapa estás y qué sigue.' },
@@ -2004,7 +2436,7 @@
             sub: 'El proceso migratorio genera muchas dudas. Acá respondemos las más comunes. Si tu pregunta no está, agendá tu consulta gratuita.',
             sidecta: { p: '¿Tenés una pregunta específica? Consultá con María directamente, sin costo.', btn: 'Consulta gratuita de 15 min' },
             q1: '¿Necesito un abogado o alcanza con un immigration adviser?',
-            a1: 'Ambos pueden presentar solicitudes de visa, pero un abogado tiene formación legal más amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversión.',
+            a1: 'Ambos pueden presentar solicitudes de visa, pero un abogado tiene formación legal más amplia y puede representarte en situaciones complejas, apelaciones o casos con historial de rechazos. Si tu caso es sencillo, un adviser puede ser suficiente. Si hay complejidades, un abogado es la mejor inversión. Contar con un abogado desde el principio, incluso en casos aparentemente simples, puede prevenir errores que son difíciles y costosos de revertir más adelante.',
             q2: '¿Puedo aplicar desde fuera de Nueva Zelanda?',
             a2: 'Sí. Muchos de los servicios se pueden gestionar completamente en forma remota. La primera consulta y la evaluación se hacen vía videollamada, y la mayoría de las solicitudes se presentan online ante INZ. No necesitás estar en NZ para comenzar.',
             q3: '¿Qué pasa si ya me rechazaron una visa?',
@@ -2025,7 +2457,7 @@
             label: 'Contacto',
             title: 'Hablemos de<br><em>tu caso</em>',
             sub: 'Completá el formulario o escribime directamente. La primera consulta de 15 minutos es sin costo y sin compromiso — es para entender si podemos ayudarte.',
-            loc: { label: 'Ubicación', val: 'Nelson, Nueva Zelanda<br><small style="color:var(--grey-500);font-size:13px;">Atención remota disponible para toda LATAM</small>' },
+            loc: { label: 'Ubicación', val: 'Nelson-Tasman, Nueva Zelanda<br><small style="color:var(--grey-500);font-size:13px;">Atención remota disponible para toda LATAM</small>' },
             email: { label: 'Email' },
             lang: { label: 'Idiomas', val: 'Español · English' }
           },
@@ -2037,7 +2469,7 @@
             phone: { label: 'WhatsApp / Teléfono', ph: '+54 9 ...' },
             visatype: { label: '¿Qué tipo de visa te interesa?', ph: 'Seleccioná una opción...', opt1: 'Visa de trabajo (AEWV)', opt2: 'Visa de estudiante', opt3: 'Residencia permanente', opt4: 'Visa familiar o de pareja', opt5: 'Caso especial / urgente', opt6: 'No sé aún, necesito orientación' },
             situation: { label: 'Contame brevemente tu situación', ph: 'Ej. Estoy en Argentina, tengo oferta de trabajo en NZ y quiero saber mis opciones...' },
-            submit: 'Enviar consulta → '
+            submit: 'Enviar consulta →'
           },
           footer: {
             brand: { p: 'Asesoramiento migratorio legal en Nueva Zelanda para profesionales y familias latinoamericanas. Atención en español e inglés desde Nelson, NZ.' },
@@ -2060,16 +2492,21 @@
           trust: { 1: 'Regulated by NZ Law Society', 2: 'Free 15-min consultation', 3: 'Service in Spanish & English', 4: 'First-hand immigrant experience', 5: 'Nelson, New Zealand' },
           about: {
             label: 'About María',
-            title: 'A lawyer who<br><em>lived the process</em> herself',
-            body1: 'Born in Salta, Argentina, María immigrated to New Zealand and went through the professional title recognition process first-hand. Now based in Nelson, she helps Latin American professionals and families navigate the New Zealand immigration system with clarity and strategy.',
-            body2: 'Her experience at Nelson Bays Community Law, alongside her work with the Red Cross and Multicultural Nelson Tasman, positions her as a knowledgeable, committed, and technically strong advocate.',
+            title: 'Legal knowledge and personal experience<br>in <em>immigration processes</em>',
+            body1: 'María Uhrle was born in Salta, Argentina, and resides in Nelson, NZ, where she established her law firm specializing in immigration and related employment matters.',
+            body2: 'Having personally gone through the immigration and qualification recognition process, María deeply understands the legal and emotional challenges faced by those who migrate.',
+            exp: {
+              label: 'Professional Experience',
+              1: 'Lawyer at Nelson Bays Community Law',
+              2: 'Community Involvement with Nelson Red Cross and Multicultural Nelson Tasman'
+            },
             cta: 'Read her full story'
           },
           services: { label: 'Legal Services', title: 'Legal strategy for <em>every stage</em><br>of your immigration journey', viewall: 'View all services' },
           svc1: { title: 'Work in New Zealand', desc: 'AEWV visa, employer changes, and visa conditions. Professional strategy for your career in NZ with legal backing from day one.', tag2: 'Employer change', tag3: 'Visa conditions' },
           svc2: { title: 'Study & migrate', desc: 'Student visas and post-study work visas. Complete immigration planning for those looking to build their future in NZ through study.', tag1: 'Student visa', tag2: 'Post-study work', tag3: 'Long-term plan' },
           svc3: { title: 'Path to residency', desc: 'Permanent residency, citizenship, and personalised legal strategy for complex cases. Your future in NZ with a clear roadmap.', tag1: 'Residency', tag2: 'Citizenship', tag3: 'Complex cases' },
-          svc4: { title: 'Family & partner visas', desc: 'Family reunification and partner visas (genuine and stable relationships). I help you document and present your case solidly.', tag1: 'Partner visa', tag2: 'Family reunification' },
+          svc4: { title: 'Family & partner visas', desc: 'Family reunification and partner visas (genuine and stable relationships). I help you document and present your case solidly.', parents: 'Parent and direct family visas: options to reunite with your loved ones in New Zealand on a temporary or permanent basis.', tag1: 'Partner visa', tag2: 'Family reunification', tag3: 'Parent visa' },
           svc5: { title: 'Special & urgent cases', desc: 'Section 61 for people without a valid visa, PPI letters, and strategic representation before INZ in situations requiring immediate attention.', tag1: 'Section 61', tag2: 'PPI letters', tag3: 'INZ representation' },
           svc6: { title: 'Not sure where to start?', desc: 'A free 15-minute initial consultation to understand your situation and point you toward the right strategy. No commitment, just clarity.', cta: 'Book for free' },
           process: { label: 'How We Work', title: 'A clear process<br><em>in four steps</em>', sub: 'No unnecessary jargon. From the first consultation to the final outcome, you always know exactly where you are and what comes next.' },
@@ -2084,7 +2521,7 @@
             sub: 'Immigration raises many questions. Here we answer the most common ones. If yours isn\'t here, book your free consultation.',
             sidecta: { p: 'Have a specific question? Ask María directly, at no cost.', btn: 'Free 15-min consultation' },
             q1: 'Do I need a lawyer or is an immigration adviser enough?',
-            a1: 'Both can file visa applications, but a lawyer has broader legal training and can represent you in complex situations, appeals, or cases with a history of refusals. If your case is straightforward, an adviser may be sufficient. If there are complications, a lawyer is the better investment.',
+            a1: 'Both can file visa applications, but a lawyer has broader legal training and can represent you in complex situations, appeals, or cases with a history of refusals. If your case is straightforward, an adviser may be sufficient. If there are complications, a lawyer is the better investment. Having a lawyer from the outset, even in apparently simple cases, can prevent mistakes that are difficult and costly to reverse later.',
             q2: 'Can I apply from outside New Zealand?',
             a2: 'Yes. Many services can be managed entirely remotely. The initial consultation and assessment are done via video call, and most applications are submitted online to INZ. You don\'t need to be in NZ to get started.',
             q3: 'What if I\'ve already had a visa refused?',
@@ -2105,7 +2542,7 @@
             label: 'Contact',
             title: 'Let\'s talk about<br><em>your case</em>',
             sub: 'Fill in the form or write to me directly. The first 15-minute consultation is free and no-obligation — it\'s to understand if we can help you.',
-            loc: { label: 'Location', val: 'Nelson, New Zealand<br><small style="color:var(--grey-500);font-size:13px;">Remote service available across Latin America</small>' },
+            loc: { label: 'Location', val: 'Nelson-Tasman, New Zealand<br><small style="color:var(--grey-500);font-size:13px;">Remote service available across Latin America</small>' },
             email: { label: 'Email' },
             lang: { label: 'Languages', val: 'Spanish · English' }
           },
@@ -2117,7 +2554,7 @@
             phone: { label: 'WhatsApp / Phone', ph: '+64 ...' },
             visatype: { label: 'What type of visa are you interested in?', ph: 'Select an option...', opt1: 'Work visa (AEWV)', opt2: 'Student visa', opt3: 'Permanent residency', opt4: 'Family or partner visa', opt5: 'Special / urgent case', opt6: 'Not sure yet, I need guidance' },
             situation: { label: 'Tell me briefly about your situation', ph: 'e.g. I\'m in Argentina, I have a job offer in NZ and I want to know my options...' },
-            submit: 'Send enquiry → '
+            submit: 'Send enquiry →'
           },
           footer: {
             brand: { p: 'Legal immigration advice in New Zealand for Latin American professionals and families. Service in Spanish and English from Nelson, NZ.' },
@@ -2168,7 +2605,7 @@
         }
       };
 
-      // Auto-detect: saved preference —  NZ timezone —  Spanish
+      // Auto-detect: saved preference —  NZ timezone —  Spanish
       var saved = localStorage.getItem('uhrle-lang');
       if (saved && i18n[saved]) {
         setLang(saved);
@@ -2177,6 +2614,34 @@
         try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch(e) {}
         setLang(tz === 'Pacific/Auckland' ? 'en' : 'es');
       }
+    })();
+
+    // About modal
+    (function() {
+      var modal = document.getElementById('aboutModal');
+
+      window.openAboutModal = function() {
+        modal.style.display = 'flex';
+        requestAnimationFrame(function() { modal.classList.add('open'); });
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeAboutModal = function() {
+        modal.classList.remove('open');
+        modal.addEventListener('transitionend', function hide() {
+          modal.style.display = 'none';
+          modal.removeEventListener('transitionend', hide);
+        });
+        document.body.style.overflow = '';
+      };
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeAboutModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeAboutModal();
+      });
     })();
 
     // ———— Active nav highlight on scroll ————————————————————————————————————————————
